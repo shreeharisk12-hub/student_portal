@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Novex</title>
+    <link rel="stylesheet" href="../css/main.css">
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-navigation">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="student_dashboard.html" class="flex items-center gap-2">
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                    <span class="text-xl font-heading font-semibold text-text-primary">Novex</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="student_dashboard.html" class="text-primary font-medium">Discover</a>
+                    <button id="savedEventsBtn" class="text-text-secondary hover:text-primary transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                        </svg>
+                        Saved Events
+                    </button>
+                    <div class="relative">
+                        <button id="profileBtn" class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+                            <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                <span class="text-sm font-medium text-primary">JD</span>
+                            </div>
+                        </button>
+                        <!-- Profile Dropdown -->
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-border">
+                            <div class="p-3 border-b border-border">
+                                <p class="text-sm font-medium text-text-primary">John Doe</p>
+                                <p class="text-xs text-text-secondary">student@university.edu</p>
+                            </div>
+                            <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-background transition-colors">Manage Interests</a>
+                            <a href="student_login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors">Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-surface">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="student_dashboard.html" class="block text-primary font-medium">Discover</a>
+                <button id="savedEventsMobile" class="block text-text-secondary hover:text-primary transition-colors w-full text-left">Saved Events</button>
+                <div class="pt-3 border-t border-border">
+                    <p class="text-sm font-medium text-text-primary mb-1">John Doe</p>
+                    <p class="text-xs text-text-secondary mb-3">student@university.edu</p>
+                    <a href="javascript:void(0)" class="block text-sm text-text-secondary hover:text-primary mb-2">Manage Interests</a>
+                    <a href="student_login.html" class="block text-sm text-error">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-heading font-semibold text-text-primary mb-2">Welcome back, John!</h1>
+            <p class="text-text-secondary">Discover campus events tailored to your interests</p>
+        </div>
+
+        <!-- Filter & Sort Bar -->
+        <div class="bg-surface rounded-xl border border-border p-4 mb-8">
+            <div class="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
+                <!-- Filter Button & Active Filters -->
+                <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+                    <button id="filterBtn" class="btn btn-outline flex items-center gap-2 h-10 px-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                        </svg>
+                        Filters
+                        <span id="filterCount" class="hidden bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <div id="activeFilters" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="relative w-full lg:w-auto">
+                    <select id="sortSelect" class="input h-10 pr-10 cursor-pointer appearance-none bg-surface">
+                        <option value="relevance">Most Relevant</option>
+                        <option value="deadline">Deadline (Closest First)</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                    <svg class="w-5 h-5 text-text-secondary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="mt-4 pt-4 border-t border-border">
+                <p class="text-sm text-text-secondary">
+                    Showing <span id="resultsCount" class="font-medium text-text-primary">12</span> events
+                </p>
+            </div>
+        </div>
+
+        <!-- Filter Panel (Hidden by default) -->
+        <div id="filterPanel" class="hidden fixed inset-0 z-modal bg-background/95 lg:relative lg:bg-transparent lg:mb-8">
+            <div class="fixed inset-y-0 right-0 w-full max-w-md bg-surface shadow-xl lg:relative lg:shadow-none lg:max-w-none lg:rounded-xl lg:border lg:border-border overflow-y-auto">
+                <div class="p-6">
+                    <!-- Filter Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-heading font-semibold text-text-primary">Filter Events</h3>
+                        <button id="closeFilterBtn" class="text-text-secondary hover:text-text-primary lg:hidden">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Filter Categories -->
+                    <div class="space-y-6">
+                        <!-- Primary Categories -->
+                        <div>
+                            <h4 class="text-sm font-medium text-text-primary mb-3">Event Type</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="filter-tag" data-category="primary" data-value="hackathon">Hackathon</button>
+                                <button class="filter-tag" data-category="primary" data-value="workshop">Workshop</button>
+                                <button class="filter-tag" data-category="primary" data-value="seminar">Seminar</button>
+                                <button class="filter-tag" data-category="primary" data-value="cultural">Cultural Fest</button>
+                                <button class="filter-tag" data-category="primary" data-value="competition">Competition</button>
+                                <button class="filter-tag" data-category="primary" data-value="club">Club Activity</button>
+                            </div>
+                        </div>
+
+                        <!-- Domain/Skill Tags -->
+                        <div>
+                            <h4 class="text-sm font-medium text-text-primary mb-3">Domain & Skills</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="filter-tag" data-category="domain" data-value="ai-ml">AI/ML</button>
+                                <button class="filter-tag" data-category="domain" data-value="web-dev">Web Development</button>
+                                <button class="filter-tag" data-category="domain" data-value="app-dev">App Development</button>
+                                <button class="filter-tag" data-category="domain" data-value="cyber-security">Cyber Security</button>
+                                <button class="filter-tag" data-category="domain" data-value="data-science">Data Science</button>
+                                <button class="filter-tag" data-category="domain" data-value="ui-ux">Design/UI-UX</button>
+                            </div>
+                        </div>
+
+                        <!-- Interest/Community Tags -->
+                        <div>
+                            <h4 class="text-sm font-medium text-text-primary mb-3">Interests</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="filter-tag" data-category="interest" data-value="music">Music</button>
+                                <button class="filter-tag" data-category="interest" data-value="photography">Photography</button>
+                                <button class="filter-tag" data-category="interest" data-value="gaming">Gaming</button>
+                                <button class="filter-tag" data-category="interest" data-value="startups">Startups</button>
+                                <button class="filter-tag" data-category="interest" data-value="networking">Networking</button>
+                            </div>
+                        </div>
+
+                        <!-- Level Tags -->
+                        <div>
+                            <h4 class="text-sm font-medium text-text-primary mb-3">Experience Level</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="filter-tag" data-category="level" data-value="beginner">Beginner Friendly</button>
+                                <button class="filter-tag" data-category="level" data-value="intermediate">Intermediate</button>
+                                <button class="filter-tag" data-category="level" data-value="advanced">Advanced</button>
+                                <button class="filter-tag" data-category="level" data-value="all-years">Open for All Years</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Actions -->
+                    <div class="flex gap-3 mt-8 pt-6 border-t border-border">
+                        <button id="resetFiltersBtn" class="btn btn-outline flex-1">Reset All</button>
+                        <button id="applyFiltersBtn" class="btn btn-primary flex-1 lg:hidden">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Soon Section -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <svg class="w-6 h-6 text-error" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                <h2 class="text-2xl font-heading font-semibold text-text-primary">Closing Soon</h2>
+                <span class="badge badge-error">Urgent</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="closingSoonGrid">
+                <!-- Event Card 1 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1997ee9b2-1765210452667.png" 
+                             alt="Students collaborating on laptops during a hackathon event" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">AI Innovation Hackathon 2026</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Jan 15-17, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Main Auditorium</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Tech Club</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 p-3 bg-error-50 rounded-lg border border-error-200">
+                        <svg class="w-4 h-4 text-error flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm font-medium text-error-700">Registration closes in 2 days</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Hackathon</span>
+                        <span class="badge badge-secondary">AI/ML</span>
+                        <span class="badge badge-accent">All Years</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 2 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1699271772975-a4cf35547d37" 
+                             alt="Professional speaker presenting at a workshop with audience" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">UI/UX Design Workshop</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Jan 12, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                            </svg>
+                            <span>Online (Zoom)</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Design Society</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 p-3 bg-warning-50 rounded-lg border border-warning-200">
+                        <svg class="w-4 h-4 text-warning flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm font-medium text-warning-700">Registration closes in 4 days</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Workshop</span>
+                        <span class="badge badge-secondary">Design/UI-UX</span>
+                        <span class="badge badge-accent">Beginner Friendly</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Most Relevant Section -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+                <h2 class="text-2xl font-heading font-semibold text-text-primary">Most Relevant for You</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="relevantEventsGrid">
+                <!-- Event Card 3 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3" 
+                             alt="Code displayed on computer screen showing web development" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Full Stack Web Development Bootcamp</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Jan 20-27, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Computer Lab B</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Coding Club</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Jan 18</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Workshop</span>
+                        <span class="badge badge-secondary">Web Development</span>
+                        <span class="badge badge-accent">Intermediate</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 4 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1c9f78acb-1767323707826.png" 
+                             alt="Startup pitch presentation with team members" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Startup Pitch Competition</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Jan 25, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Innovation Center</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Entrepreneurship Cell</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Jan 22</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Competition</span>
+                        <span class="badge badge-secondary">Entrepreneurship</span>
+                        <span class="badge badge-accent">All Years</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 5 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_13624f35c-1767451238017.png" 
+                             alt="Musicians performing at cultural festival" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Annual Cultural Fest 2026</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Feb 5-7, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Campus Grounds</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Cultural Committee</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Feb 1</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Cultural Fest</span>
+                        <span class="badge badge-secondary">Music</span>
+                        <span class="badge badge-accent">Open for All Years</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 6 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1db50b7c5-1764868727297.png" 
+                             alt="Team collaboration and networking event" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Industry Networking Mixer</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Jan 30, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Conference Hall</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Career Services</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Jan 28</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Seminar</span>
+                        <span class="badge badge-secondary">Networking</span>
+                        <span class="badge badge-accent">All Years</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 7 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_132d372ca-1764671296007.png" 
+                             alt="Cybersecurity workshop with computer screens" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Cyber Security Fundamentals</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Feb 10, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                            </svg>
+                            <span>Online (Teams)</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Security Club</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Feb 8</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Workshop</span>
+                        <span class="badge badge-secondary">Cyber Security</span>
+                        <span class="badge badge-accent">Beginner Friendly</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 8 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_16a1a43d9-1766997025817.png" 
+                             alt="Data science visualization and analytics" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">Data Science Ideathon</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Feb 14-15, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Data Lab</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Analytics Club</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Feb 12</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Ideathon</span>
+                        <span class="badge badge-secondary">Data Science</span>
+                        <span class="badge badge-accent">Intermediate</span>
+                    </div>
+                </article>
+
+                <!-- Event Card 9 -->
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1fe49de41-1764679627158.png" 
+                             alt="Gaming tournament with competitive players" 
+                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <button class="bookmark-btn absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); toggleBookmark(this)">
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-lg font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">E-Sports Championship</h3>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Feb 20-22, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Gaming Arena</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-text-secondary">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            <span>Gaming Club</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4 text-sm text-success-700">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-medium">Registration open until Feb 18</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-primary">Gaming Event</span>
+                        <span class="badge badge-secondary">Gaming</span>
+                        <span class="badge badge-accent">Open for All Years</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                    <span class="text-sm text-text-secondary">© 2026 Novex. All Rights Reserved.</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">About</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Help</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Profile Dropdown
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', () => {
+            profileDropdown.classList.add('hidden');
+        });
+
+        // Filter Panel Toggle
+        const filterBtn = document.getElementById('filterBtn');
+        const filterPanel = document.getElementById('filterPanel');
+        const closeFilterBtn = document.getElementById('closeFilterBtn');
+        const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+
+        filterBtn.addEventListener('click', () => {
+            filterPanel.classList.remove('hidden');
+        });
+
+        closeFilterBtn.addEventListener('click', () => {
+            filterPanel.classList.add('hidden');
+        });
+
+        applyFiltersBtn.addEventListener('click', () => {
+            filterPanel.classList.add('hidden');
+        });
+
+        // Filter Tags
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const activeFilters = document.getElementById('activeFilters');
+        const filterCount = document.getElementById('filterCount');
+        const resultsCount = document.getElementById('resultsCount');
+        let activeFiltersList = [];
+
+        // Initialize filter tag styles
+        filterTags.forEach(tag => {
+            tag.className = 'filter-tag px-4 py-2 rounded-full text-sm font-medium border-2 border-border text-text-secondary hover:border-primary hover:text-primary transition-colors cursor-pointer';
+        });
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const value = tag.dataset.value;
+                const category = tag.dataset.category;
+                
+                if (tag.classList.contains('active')) {
+                    // Remove filter
+                    tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
+                    tag.classList.add('border-border', 'text-text-secondary');
+                    activeFiltersList = activeFiltersList.filter(f => f.value !== value);
+                } else {
+                    // Add filter
+                    tag.classList.add('active', 'bg-primary', 'text-white', 'border-primary');
+                    tag.classList.remove('border-border', 'text-text-secondary');
+                    activeFiltersList.push({ value, category, label: tag.textContent });
+                }
+                
+                updateActiveFilters();
+            });
+        });
+
+        function updateActiveFilters() {
+            activeFilters.innerHTML = '';
+            
+            if (activeFiltersList.length > 0) {
+                filterCount.textContent = activeFiltersList.length;
+                filterCount.classList.remove('hidden');
+                
+                activeFiltersList.forEach(filter => {
+                    const filterBadge = document.createElement('div');
+                    filterBadge.className = 'flex items-center gap-2 bg-primary text-white px-3 py-1 rounded-full text-sm';
+                    filterBadge.innerHTML = `
+                        <span>${filter.label}</span>
+                        <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors" onclick="removeFilter('${filter.value}')">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    `;
+                    activeFilters.appendChild(filterBadge);
+                });
+            } else {
+                filterCount.classList.add('hidden');
+            }
+            
+            // Update results count (mock)
+            const baseCount = 12;
+            const filteredCount = Math.max(1, baseCount - activeFiltersList.length * 2);
+            resultsCount.textContent = filteredCount;
+        }
+
+        window.removeFilter = function(value) {
+            const tag = Array.from(filterTags).find(t => t.dataset.value === value);
+            if (tag) {
+                tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
+                tag.classList.add('border-border', 'text-text-secondary');
+                activeFiltersList = activeFiltersList.filter(f => f.value !== value);
+                updateActiveFilters();
+            }
+        };
+
+        // Reset Filters
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        resetFiltersBtn.addEventListener('click', () => {
+            filterTags.forEach(tag => {
+                tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
+                tag.classList.add('border-border', 'text-text-secondary');
+            });
+            activeFiltersList = [];
+            updateActiveFilters();
+        });
+
+        // Sort Functionality
+        const sortSelect = document.getElementById('sortSelect');
+        sortSelect.addEventListener('change', () => {
+            // Mock sort functionality
+            console.log('Sorting by:', sortSelect.value);
+        });
+
+        // Bookmark Toggle
+        window.toggleBookmark = function(button) {
+            const svg = button.querySelector('svg');
+            const isBookmarked = svg.getAttribute('fill') === 'currentColor';
+            
+            if (isBookmarked) {
+                svg.setAttribute('fill', 'none');
+                svg.classList.remove('text-accent');
+                svg.classList.add('text-text-secondary');
+            } else {
+                svg.setAttribute('fill', 'currentColor');
+                svg.classList.remove('text-text-secondary');
+                svg.classList.add('text-accent');
+            }
+        };
+
+        // Saved Events Modal (Mock)
+        const savedEventsBtn = document.getElementById('savedEventsBtn');
+        const savedEventsMobile = document.getElementById('savedEventsMobile');
+
+        savedEventsBtn.addEventListener('click', () => {
+            alert('Saved Events feature - Coming soon!');
+        });
+
+        savedEventsMobile.addEventListener('click', () => {
+            alert('Saved Events feature - Coming soon!');
+        });
+
+        // Check authentication
+        if (localStorage.getItem('studentLoggedIn') !== 'true') {
+            window.location.href = 'student_login.html';
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

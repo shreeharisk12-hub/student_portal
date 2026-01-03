@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Novex</title>
+    <link rel="stylesheet" href="../css/main.css">
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-navigation">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="student_dashboard.html" class="flex items-center gap-2">
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                    <span class="text-xl font-heading font-semibold text-text-primary">Novex</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Discover</a>
+                    <button id="savedEventsBtn" class="text-text-secondary hover:text-primary transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                        </svg>
+                        Saved Events
+                    </button>
+                    <div class="relative">
+                        <button id="profileBtn" class="flex items-center gap-2 text-primary font-medium">
+                            <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                <span class="text-sm font-medium text-primary">JD</span>
+                            </div>
+                        </button>
+                        <!-- Profile Dropdown -->
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-border">
+                            <div class="p-3 border-b border-border">
+                                <p class="text-sm font-medium text-text-primary">John Doe</p>
+                                <p class="text-xs text-text-secondary">student@university.edu</p>
+                            </div>
+                            <a href="student_profile.html" class="block px-4 py-2 text-sm text-primary hover:bg-background transition-colors">My Profile</a>
+                            <a href="student_login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors">Sign Out</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-surface">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="student_dashboard.html" class="block text-text-secondary hover:text-primary transition-colors">Discover</a>
+                <button id="savedEventsMobile" class="block text-text-secondary hover:text-primary transition-colors w-full text-left">Saved Events</button>
+                <div class="pt-3 border-t border-border">
+                    <p class="text-sm font-medium text-text-primary mb-1">John Doe</p>
+                    <p class="text-xs text-text-secondary mb-3">student@university.edu</p>
+                    <a href="student_profile.html" class="block text-sm text-primary mb-2">My Profile</a>
+                    <a href="student_login.html" class="block text-sm text-error">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl">
+        <!-- Profile Header -->
+        <div class="mb-8">
+            <div class="flex items-center gap-4 mb-4">
+                <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </a>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-heading font-semibold text-text-primary">My Profile</h1>
+                    <p class="text-text-secondary mt-1">Manage your interests, bookmarks, and preferences</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="bg-surface rounded-xl border border-border mb-8 overflow-hidden">
+            <!-- Desktop Tabs -->
+            <div class="hidden md:flex border-b border-border">
+                <button class="tab-btn active flex-1 px-6 py-4 text-sm font-medium transition-colors border-b-2" data-tab="interests">
+                    <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                    </svg>
+                    My Interests
+                </button>
+                <button class="tab-btn flex-1 px-6 py-4 text-sm font-medium transition-colors border-b-2" data-tab="saved">
+                    <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                    </svg>
+                    Saved Events
+                </button>
+                <button class="tab-btn flex-1 px-6 py-4 text-sm font-medium transition-colors border-b-2" data-tab="history">
+                    <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Registration History
+                </button>
+                <button class="tab-btn flex-1 px-6 py-4 text-sm font-medium transition-colors border-b-2" data-tab="preferences">
+                    <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Preferences
+                </button>
+            </div>
+
+            <!-- Mobile Tabs Dropdown -->
+            <div class="md:hidden p-4 border-b border-border">
+                <select id="mobileTabSelect" class="input w-full cursor-pointer">
+                    <option value="interests">My Interests</option>
+                    <option value="saved">Saved Events</option>
+                    <option value="history">Registration History</option>
+                    <option value="preferences">Preferences</option>
+                </select>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="p-6">
+                <!-- My Interests Tab -->
+                <div id="interests-tab" class="tab-content">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div>
+                            <h2 class="text-xl font-heading font-semibold text-text-primary mb-1">My Interests</h2>
+                            <p class="text-sm text-text-secondary">Select interests to personalize your event recommendations</p>
+                        </div>
+                        <button id="editInterestsBtn" class="btn btn-primary">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                            Edit Interests
+                        </button>
+                    </div>
+
+                    <!-- Interests Display -->
+                    <div class="space-y-6" id="interestsDisplay">
+                        <!-- Primary Categories -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Event Types</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-primary">Hackathon</span>
+                                <span class="badge badge-primary">Workshop</span>
+                                <span class="badge badge-primary">Cultural Fest</span>
+                            </div>
+                        </div>
+
+                        <!-- Domain/Skill -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Domains & Skills</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-secondary">AI/ML</span>
+                                <span class="badge badge-secondary">Web Development</span>
+                                <span class="badge badge-secondary">Design/UI-UX</span>
+                            </div>
+                        </div>
+
+                        <!-- Interests -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Personal Interests</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-accent">Music</span>
+                                <span class="badge badge-accent">Startups</span>
+                                <span class="badge badge-accent">Networking</span>
+                            </div>
+                        </div>
+
+                        <!-- Experience Level -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Experience Level</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-success">Intermediate</span>
+                                <span class="badge badge-success">All Years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edit Interests Mode (Hidden by default) -->
+                    <div id="interestsEdit" class="hidden space-y-6">
+                        <!-- Primary Categories -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Event Types</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="interest-tag selected" data-category="primary" data-value="hackathon">Hackathon</button>
+                                <button class="interest-tag selected" data-category="primary" data-value="workshop">Workshop</button>
+                                <button class="interest-tag" data-category="primary" data-value="seminar">Seminar</button>
+                                <button class="interest-tag selected" data-category="primary" data-value="cultural">Cultural Fest</button>
+                                <button class="interest-tag" data-category="primary" data-value="competition">Competition</button>
+                                <button class="interest-tag" data-category="primary" data-value="club">Club Activity</button>
+                            </div>
+                        </div>
+
+                        <!-- Domain/Skill Tags -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Domains & Skills</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="interest-tag selected" data-category="domain" data-value="ai-ml">AI/ML</button>
+                                <button class="interest-tag selected" data-category="domain" data-value="web-dev">Web Development</button>
+                                <button class="interest-tag" data-category="domain" data-value="app-dev">App Development</button>
+                                <button class="interest-tag" data-category="domain" data-value="cyber-security">Cyber Security</button>
+                                <button class="interest-tag" data-category="domain" data-value="data-science">Data Science</button>
+                                <button class="interest-tag selected" data-category="domain" data-value="ui-ux">Design/UI-UX</button>
+                            </div>
+                        </div>
+
+                        <!-- Interest/Community Tags -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Personal Interests</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="interest-tag selected" data-category="interest" data-value="music">Music</button>
+                                <button class="interest-tag" data-category="interest" data-value="photography">Photography</button>
+                                <button class="interest-tag" data-category="interest" data-value="gaming">Gaming</button>
+                                <button class="interest-tag selected" data-category="interest" data-value="startups">Startups</button>
+                                <button class="interest-tag selected" data-category="interest" data-value="networking">Networking</button>
+                            </div>
+                        </div>
+
+                        <!-- Level Tags -->
+                        <div>
+                            <h3 class="text-sm font-medium text-text-primary mb-3">Experience Level</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="interest-tag" data-category="level" data-value="beginner">Beginner Friendly</button>
+                                <button class="interest-tag selected" data-category="level" data-value="intermediate">Intermediate</button>
+                                <button class="interest-tag" data-category="level" data-value="advanced">Advanced</button>
+                                <button class="interest-tag selected" data-category="level" data-value="all-years">Open for All Years</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-3 pt-6 border-t border-border">
+                            <button id="cancelEditBtn" class="btn btn-outline flex-1">Cancel</button>
+                            <button id="saveInterestsBtn" class="btn btn-primary flex-1">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Events Tab -->
+                <div id="saved-tab" class="tab-content hidden">
+                    <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div>
+                            <h2 class="text-xl font-heading font-semibold text-text-primary mb-1">Saved Events</h2>
+                            <p class="text-sm text-text-secondary">Events you've bookmarked for later</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="saved-filter-btn active" data-filter="all">All</button>
+                            <button class="saved-filter-btn" data-filter="upcoming">Upcoming</button>
+                            <button class="saved-filter-btn" data-filter="past">Past</button>
+                        </div>
+                    </div>
+
+                    <!-- Saved Events Grid -->
+                    <div id="savedEventsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Saved Event Card 1 -->
+                        <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                            <div class="relative mb-4 overflow-hidden rounded-lg">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1c9dc0b58-1766712441451.png" 
+                                     alt="AI Innovation Hackathon" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                                     loading="lazy">
+                                <button class="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); removeSavedEvent(this)">
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">AI Innovation Hackathon 2026</h3>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                    <span>Jan 15-17, 2026</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span>Main Auditorium</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-primary">Hackathon</span>
+                                <span class="badge badge-secondary">AI/ML</span>
+                            </div>
+                        </article>
+
+                        <!-- Saved Event Card 2 -->
+                        <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                            <div class="relative mb-4 overflow-hidden rounded-lg">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1b8b1d5ee-1766395053908.png" 
+                                     alt="Full Stack Web Development Bootcamp" 
+                                     class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                                     loading="lazy">
+                                <button class="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors" onclick="event.stopPropagation(); removeSavedEvent(this)">
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">Full Stack Web Development Bootcamp</h3>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                    <span>Jan 20-27, 2026</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-text-secondary">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span>Computer Lab B</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge badge-primary">Workshop</span>
+                                <span class="badge badge-secondary">Web Development</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div id="savedEventsEmpty" class="hidden text-center py-12">
+                        <svg class="w-20 h-20 text-text-tertiary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                        </svg>
+                        <h3 class="text-lg font-semibold text-text-primary mb-2">No saved events</h3>
+                        <p class="text-text-secondary mb-6">Start bookmarking events to access them quickly later</p>
+                        <a href="student_dashboard.html" class="btn btn-primary">Discover Events</a>
+                    </div>
+                </div>
+
+                <!-- Registration History Tab -->
+                <div id="history-tab" class="tab-content hidden">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-heading font-semibold text-text-primary mb-1">Registration History</h2>
+                        <p class="text-sm text-text-secondary">Your event participation and attendance records</p>
+                    </div>
+
+                    <!-- History Timeline -->
+                    <div class="space-y-4">
+                        <!-- History Item 1 -->
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-success-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div>
+                                            <h3 class="font-heading font-semibold text-text-primary">Cyber Security Fundamentals Workshop</h3>
+                                            <p class="text-sm text-text-secondary">Attended on Dec 15, 2025</p>
+                                        </div>
+                                        <span class="badge badge-success">Attended</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <span class="badge badge-primary text-xs">Workshop</span>
+                                        <span class="badge badge-secondary text-xs">Cyber Security</span>
+                                    </div>
+                                    <button class="text-sm text-primary hover:underline">Provide Feedback</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- History Item 2 -->
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div>
+                                            <h3 class="font-heading font-semibold text-text-primary">AI Innovation Hackathon 2026</h3>
+                                            <p class="text-sm text-text-secondary">Registered for Jan 15-17, 2026</p>
+                                        </div>
+                                        <span class="badge badge-primary">Registered</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <span class="badge badge-primary text-xs">Hackathon</span>
+                                        <span class="badge badge-secondary text-xs">AI/ML</span>
+                                    </div>
+                                    <button class="text-sm text-primary hover:underline">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- History Item 3 -->
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-error-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-error" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div>
+                                            <h3 class="font-heading font-semibold text-text-primary">Mobile App Development Workshop</h3>
+                                            <p class="text-sm text-text-secondary">Registered but did not attend on Nov 20, 2025</p>
+                                        </div>
+                                        <span class="badge badge-error">Missed</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="badge badge-primary text-xs">Workshop</span>
+                                        <span class="badge badge-secondary text-xs">App Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- History Item 4 -->
+                        <div class="card">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-success-100 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <div>
+                                            <h3 class="font-heading font-semibold text-text-primary">Design Thinking Bootcamp</h3>
+                                            <p class="text-sm text-text-secondary">Attended on Oct 10, 2025</p>
+                                        </div>
+                                        <span class="badge badge-success">Attended</span>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mb-3">
+                                        <span class="badge badge-primary text-xs">Workshop</span>
+                                        <span class="badge badge-secondary text-xs">Design/UI-UX</span>
+                                    </div>
+                                    <div class="text-sm text-success-700 flex items-center gap-2">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        Feedback submitted
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Tab -->
+                <div id="preferences-tab" class="tab-content hidden">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-heading font-semibold text-text-primary mb-1">Preferences</h2>
+                        <p class="text-sm text-text-secondary">Customize your notification and dashboard settings</p>
+                    </div>
+
+                    <!-- Preferences Form -->
+                    <div class="space-y-8">
+                        <!-- Notification Settings -->
+                        <div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Notification Settings</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Event Recommendations</p>
+                                        <p class="text-sm text-text-secondary">Get notified about events matching your interests</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Registration Reminders</p>
+                                        <p class="text-sm text-text-secondary">Reminders before events you've registered for</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Closing Soon Alerts</p>
+                                        <p class="text-sm text-text-secondary">Alerts when registration is closing soon</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Feedback Requests</p>
+                                        <p class="text-sm text-text-secondary">Requests to provide feedback after attending events</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email Frequency -->
+                        <div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Email Frequency</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-4 bg-background rounded-lg cursor-pointer hover:bg-primary-50 transition-colors">
+                                    <input type="radio" name="emailFrequency" value="daily" class="mr-4">
+                                    <div>
+                                        <p class="font-medium text-text-primary">Daily Digest</p>
+                                        <p class="text-sm text-text-secondary">Receive a daily summary of new events</p>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center p-4 bg-background rounded-lg cursor-pointer hover:bg-primary-50 transition-colors">
+                                    <input type="radio" name="emailFrequency" value="weekly" checked class="mr-4">
+                                    <div>
+                                        <p class="font-medium text-text-primary">Weekly Summary</p>
+                                        <p class="text-sm text-text-secondary">Get a weekly roundup every Monday</p>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center p-4 bg-background rounded-lg cursor-pointer hover:bg-primary-50 transition-colors">
+                                    <input type="radio" name="emailFrequency" value="important" class="mr-4">
+                                    <div>
+                                        <p class="font-medium text-text-primary">Important Only</p>
+                                        <p class="text-sm text-text-secondary">Only critical notifications and reminders</p>
+                                    </div>
+                                </label>
+
+                                <label class="flex items-center p-4 bg-background rounded-lg cursor-pointer hover:bg-primary-50 transition-colors">
+                                    <input type="radio" name="emailFrequency" value="none" class="mr-4">
+                                    <div>
+                                        <p class="font-medium text-text-primary">No Emails</p>
+                                        <p class="text-sm text-text-secondary">Turn off all email notifications</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Customization -->
+                        <div>
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Dashboard Customization</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Show Closing Soon Section</p>
+                                        <p class="text-sm text-text-secondary">Display urgent registration deadlines on dashboard</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-4 bg-background rounded-lg">
+                                    <div class="flex-1">
+                                        <p class="font-medium text-text-primary">Show Recommended Events</p>
+                                        <p class="text-sm text-text-secondary">Display personalized event recommendations</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label class="block font-medium text-text-primary mb-3">Events Per Page</label>
+                                    <select class="input w-full md:w-64">
+                                        <option value="9">9 events</option>
+                                        <option value="12" selected>12 events</option>
+                                        <option value="18">18 events</option>
+                                        <option value="24">24 events</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Save Button -->
+                        <div class="flex gap-3 pt-6 border-t border-border">
+                            <button class="btn btn-outline flex-1 md:flex-initial md:min-w-[150px]">Reset to Default</button>
+                            <button class="btn btn-primary flex-1 md:flex-initial md:min-w-[150px]">Save Preferences</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border mt-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                    <span class="text-sm text-text-secondary">© 2026 Novex. All Rights Reserved.</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">About</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Help</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Profile Dropdown
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', () => {
+            profileDropdown.classList.add('hidden');
+        });
+
+        // Tab Navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const mobileTabSelect = document.getElementById('mobileTabSelect');
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            tabContents.forEach(content => content.classList.add('hidden'));
+            
+            // Remove active state from all buttons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active', 'border-primary', 'text-primary');
+                btn.classList.add('border-transparent', 'text-text-secondary');
+            });
+
+            // Show selected tab
+            const selectedTab = document.getElementById(`${tabName}-tab`);
+            if (selectedTab) {
+                selectedTab.classList.remove('hidden');
+            }
+
+            // Activate selected button
+            const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'border-primary', 'text-primary');
+                activeBtn.classList.remove('border-transparent', 'text-text-secondary');
+            }
+
+            // Update mobile select
+            mobileTabSelect.value = tabName;
+        }
+
+        // Desktop tab clicks
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.dataset.tab;
+                switchTab(tabName);
+            });
+        });
+
+        // Mobile tab select
+        mobileTabSelect.addEventListener('change', (e) => {
+            switchTab(e.target.value);
+        });
+
+        // Initialize first tab
+        switchTab('interests');
+
+        // Edit Interests Functionality
+        const editInterestsBtn = document.getElementById('editInterestsBtn');
+        const interestsDisplay = document.getElementById('interestsDisplay');
+        const interestsEdit = document.getElementById('interestsEdit');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const saveInterestsBtn = document.getElementById('saveInterestsBtn');
+
+        editInterestsBtn.addEventListener('click', () => {
+            interestsDisplay.classList.add('hidden');
+            interestsEdit.classList.remove('hidden');
+            editInterestsBtn.classList.add('hidden');
+        });
+
+        cancelEditBtn.addEventListener('click', () => {
+            interestsDisplay.classList.remove('hidden');
+            interestsEdit.classList.add('hidden');
+            editInterestsBtn.classList.remove('hidden');
+        });
+
+        saveInterestsBtn.addEventListener('click', () => {
+            // Collect selected interests
+            const selectedInterests = {
+                primary: [],
+                domain: [],
+                interest: [],
+                level: []
+            };
+
+            document.querySelectorAll('.interest-tag.selected').forEach(tag => {
+                const category = tag.dataset.category;
+                const value = tag.dataset.value;
+                selectedInterests[category].push(value);
+            });
+
+            // Save to localStorage (mock)
+            localStorage.setItem('userInterests', JSON.stringify(selectedInterests));
+
+            // Show success message
+            alert('Interests saved successfully!');
+
+            // Return to display mode
+            interestsDisplay.classList.remove('hidden');
+            interestsEdit.classList.add('hidden');
+            editInterestsBtn.classList.remove('hidden');
+
+            // Update display (in real app, would dynamically update badges)
+        });
+
+        // Interest tag selection
+        const interestTags = document.querySelectorAll('.interest-tag');
+        interestTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('selected');
+            });
+        });
+
+        // Saved Events Filter
+        const savedFilterBtns = document.querySelectorAll('.saved-filter-btn');
+        savedFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active state from all
+                savedFilterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-white');
+                    b.classList.add('text-text-secondary');
+                });
+
+                // Activate clicked button
+                btn.classList.add('active', 'bg-primary', 'text-white');
+                btn.classList.remove('text-text-secondary');
+
+                // Filter logic (mock)
+                const filter = btn.dataset.filter;
+                console.log('Filtering saved events by:', filter);
+            });
+        });
+
+        // Remove Saved Event
+        window.removeSavedEvent = function(button) {
+            const card = button.closest('article');
+            if (confirm('Remove this event from saved events?')) {
+                card.remove();
+
+                // Check if grid is empty
+                const grid = document.getElementById('savedEventsGrid');
+                const empty = document.getElementById('savedEventsEmpty');
+                if (grid.children.length === 0) {
+                    grid.classList.add('hidden');
+                    empty.classList.remove('hidden');
+                }
+            }
+        };
+
+        // Saved Events Navigation (Mock)
+        const savedEventsBtn = document.getElementById('savedEventsBtn');
+        const savedEventsMobile = document.getElementById('savedEventsMobile');
+
+        savedEventsBtn.addEventListener('click', () => {
+            switchTab('saved');
+        });
+
+        savedEventsMobile.addEventListener('click', () => {
+            switchTab('saved');
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Check authentication
+        if (localStorage.getItem('studentLoggedIn') !== 'true') {
+            window.location.href = 'student_login.html';
+        }
+    </script>
+
+    <style>
+        /* Tab Button Styles */
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: hsl(var(--color-primary));
+            border-bottom-color: hsl(var(--color-primary));
+        }
+
+        .tab-btn:not(.active) {
+            color: hsl(var(--color-text-secondary));
+            border-bottom-color: transparent;
+        }
+
+        .tab-btn:not(.active):hover {
+            color: hsl(var(--color-primary));
+        }
+
+        /* Interest Tag Styles */
+        .interest-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 2px solid hsl(var(--color-border));
+            color: hsl(var(--color-text-secondary));
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .interest-tag:hover {
+            border-color: hsl(var(--color-primary));
+            color: hsl(var(--color-primary));
+        }
+
+        .interest-tag.selected {
+            background: hsl(var(--color-primary));
+            border-color: hsl(var(--color-primary));
+            color: white;
+        }
+
+        /* Saved Events Filter Buttons */
+        .saved-filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 2px solid hsl(var(--color-border));
+            color: hsl(var(--color-text-secondary));
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .saved-filter-btn:hover {
+            border-color: hsl(var(--color-primary));
+            color: hsl(var(--color-primary));
+        }
+
+        .saved-filter-btn.active {
+            background: hsl(var(--color-primary));
+            border-color: hsl(var(--color-primary));
+            color: white;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: hsl(var(--color-border));
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: hsl(var(--color-primary));
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Radio Button Styles */
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: hsl(var(--color-primary));
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

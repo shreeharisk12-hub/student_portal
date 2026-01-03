@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event - Novex</title>
+    <link rel="stylesheet" href="../css/main.css">
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-navigation">
+        <div class="container">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="admin_dashboard.html" class="flex items-center gap-3 group">
+                    <svg class="w-10 h-10 text-primary transition-transform group-hover:scale-105" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    </svg>
+                    <div>
+                        <h1 class="text-xl font-heading font-semibold text-text-primary">Novex</h1>
+                        <p class="text-xs text-text-secondary">Admin Portal</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="admin_dashboard.html" class="text-text-secondary hover:text-primary transition-colors font-medium">
+                        Dashboard
+                    </a>
+                    <a href="create_event.html" class="text-primary font-medium border-b-2 border-primary pb-1">
+                        Create Event
+                    </a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center gap-4">
+                    <button class="hidden md:flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <div class="hidden md:block text-right">
+                            <p class="text-sm font-medium text-text-primary">Admin User</p>
+                            <p class="text-xs text-text-secondary">admin@novex.edu</p>
+                        </div>
+                        <button class="w-10 h-10 rounded-full bg-primary-100 text-primary flex items-center justify-center font-medium hover:bg-primary-200 transition-colors">
+                            AU
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-8 lg:py-12">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center gap-2 text-sm text-text-secondary mb-3">
+                <a href="admin_dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span class="text-text-primary">Create Event</span>
+            </div>
+            <h1 class="text-3xl lg:text-4xl font-heading font-semibold text-text-primary mb-2">Create New Event</h1>
+            <p class="text-text-secondary">Fill in the details below to publish a new campus event for students to discover</p>
+        </div>
+
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="hidden mb-6 p-4 bg-success-50 border border-success-200 rounded-lg animate-fade-in">
+            <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <p class="text-sm font-medium text-success-700">Event published successfully!</p>
+                    <p class="text-sm text-success-600 mt-1">Students can now discover your event on their dashboard.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message (Hidden by default) -->
+        <div id="errorMessage" class="hidden mb-6 p-4 bg-error-50 border border-error-200 rounded-lg">
+            <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <p class="text-sm font-medium text-error-700" id="errorText">Please fill in all required fields</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Event Form -->
+        <form id="createEventForm" class="space-y-8">
+            <!-- Basic Information Card -->
+            <div class="card">
+                <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Basic Information
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Event Title -->
+                    <div>
+                        <label for="eventTitle" class="label">Event Title <span class="text-error">*</span></label>
+                        <input 
+                            type="text" 
+                            id="eventTitle" 
+                            name="eventTitle"
+                            class="input" 
+                            placeholder="e.g., AI/ML Workshop: Building Your First Neural Network"
+                            required
+                            maxlength="100"
+                        >
+                        <p class="text-xs text-text-secondary mt-2">Maximum 100 characters</p>
+                    </div>
+
+                    <!-- Event Description -->
+                    <div>
+                        <label for="eventDescription" class="label">Event Description <span class="text-error">*</span></label>
+                        <textarea 
+                            id="eventDescription" 
+                            name="eventDescription"
+                            rows="6"
+                            class="input resize-none" 
+                            placeholder="Provide a detailed description of the event, including what participants will learn, who should attend, and any prerequisites..."
+                            required
+                            maxlength="1000"
+                        ></textarea>
+                        <p class="text-xs text-text-secondary mt-2">Maximum 1000 characters</p>
+                    </div>
+
+                    <!-- Organizer Name -->
+                    <div>
+                        <label for="organizerName" class="label">Organizer Name <span class="text-error">*</span></label>
+                        <input 
+                            type="text" 
+                            id="organizerName" 
+                            name="organizerName"
+                            class="input" 
+                            placeholder="e.g., Computer Science Club, Tech Society"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date & Time Card -->
+            <div class="card">
+                <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Date & Time
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Event Date -->
+                    <div>
+                        <label for="eventDate" class="label">Event Date <span class="text-error">*</span></label>
+                        <input 
+                            type="date" 
+                            id="eventDate" 
+                            name="eventDate"
+                            class="input" 
+                            required
+                            min="2026-01-03"
+                        >
+                    </div>
+
+                    <!-- Event Time -->
+                    <div>
+                        <label for="eventTime" class="label">Event Time <span class="text-error">*</span></label>
+                        <input 
+                            type="time" 
+                            id="eventTime" 
+                            name="eventTime"
+                            class="input" 
+                            required
+                        >
+                    </div>
+
+                    <!-- Registration Deadline -->
+                    <div>
+                        <label for="registrationDeadline" class="label">Registration Deadline <span class="text-error">*</span></label>
+                        <input 
+                            type="date" 
+                            id="registrationDeadline" 
+                            name="registrationDeadline"
+                            class="input" 
+                            required
+                            min="2026-01-03"
+                        >
+                    </div>
+
+                    <!-- Location Type -->
+                    <div>
+                        <label for="locationType" class="label">Location Type <span class="text-error">*</span></label>
+                        <select 
+                            id="locationType" 
+                            name="locationType"
+                            class="input" 
+                            required
+                        >
+                            <option value="">Select location type</option>
+                            <option value="in-person">In-Person</option>
+                            <option value="online">Online</option>
+                            <option value="hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location Details (Conditional) -->
+                <div id="locationDetails" class="hidden mt-6">
+                    <label for="locationAddress" class="label">Location Details <span class="text-error">*</span></label>
+                    <input 
+                        type="text" 
+                        id="locationAddress" 
+                        name="locationAddress"
+                        class="input" 
+                        placeholder="e.g., Main Auditorium, Building A, Room 301 or Zoom Meeting Link"
+                    >
+                </div>
+            </div>
+
+            <!-- Registration Card -->
+            <div class="card">
+                <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                    </svg>
+                    Registration
+                </h2>
+
+                <div>
+                    <label for="registrationLink" class="label">Registration Link <span class="text-error">*</span></label>
+                    <input 
+                        type="url" 
+                        id="registrationLink" 
+                        name="registrationLink"
+                        class="input" 
+                        placeholder="https://forms.google.com/..."
+                        required
+                    >
+                    <p class="text-xs text-text-secondary mt-2">Provide a valid URL for event registration</p>
+                </div>
+            </div>
+
+            <!-- Tags Selection Card -->
+            <div class="card">
+                <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                    </svg>
+                    Event Tags
+                </h2>
+                <p class="text-sm text-text-secondary mb-6">Select relevant tags to help students discover your event. Choose at least one tag from each category.</p>
+
+                <!-- Primary Categories -->
+                <div class="mb-8">
+                    <h3 class="text-base font-medium text-text-primary mb-4">Primary Category <span class="text-error">*</span></h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Hackathon">Hackathon</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Ideathon">Ideathon</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Workshop">Workshop</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Seminar">Seminar</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Cultural Fest">Cultural Fest</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Competition">Competition</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Gaming Event">Gaming Event</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Club Activity">Club Activity</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Internship Opportunity">Internship Opportunity</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Tech Talk">Tech Talk</button>
+                    </div>
+                </div>
+
+                <!-- Domain/Skill Tags -->
+                <div class="mb-8">
+                    <h3 class="text-base font-medium text-text-primary mb-4">Domain/Skill Tags</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="AI/ML">AI/ML</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Web Development">Web Development</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="App Development">App Development</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Cyber Security">Cyber Security</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Data Science">Data Science</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Robotics">Robotics</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Design/UI-UX">Design/UI-UX</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Finance">Finance</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Entrepreneurship">Entrepreneurship</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Public Speaking">Public Speaking</button>
+                    </div>
+                </div>
+
+                <!-- Interest/Community Tags -->
+                <div class="mb-8">
+                    <h3 class="text-base font-medium text-text-primary mb-4">Interest/Community Tags</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Music">Music</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Dance">Dance</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Photography">Photography</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Gaming">Gaming</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Content Creation">Content Creation</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Open Source">Open Source</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Startups">Startups</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Networking">Networking</button>
+                    </div>
+                </div>
+
+                <!-- Level Tags -->
+                <div>
+                    <h3 class="text-base font-medium text-text-primary mb-4">Level Tags</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" class="tag-btn" data-category="level" data-tag="Beginner Friendly">Beginner Friendly</button>
+                        <button type="button" class="tag-btn" data-category="level" data-tag="Intermediate">Intermediate</button>
+                        <button type="button" class="tag-btn" data-category="level" data-tag="Advanced">Advanced</button>
+                        <button type="button" class="tag-btn" data-category="level" data-tag="Open for All Years">Open for All Years</button>
+                        <button type="button" class="tag-btn" data-category="level" data-tag="First-Year Friendly">First-Year Friendly</button>
+                    </div>
+                </div>
+
+                <!-- Selected Tags Summary -->
+                <div id="selectedTagsSummary" class="hidden mt-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
+                    <h4 class="text-sm font-medium text-primary-700 mb-3">Selected Tags (<span id="tagCount">0</span>)</h4>
+                    <div id="selectedTagsList" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-end">
+                <button 
+                    type="button" 
+                    id="saveDraftBtn"
+                    class="btn btn-outline order-2 sm:order-1"
+                >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+                    </svg>
+                    Save Draft
+                </button>
+                <button 
+                    type="submit" 
+                    id="publishBtn"
+                    class="btn btn-primary order-1 sm:order-2"
+                >
+                    <span id="publishBtnText">Publish Event</span>
+                    <svg id="publishSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border mt-20">
+        <div class="container py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-text-secondary">© 2026 Novex. All Rights Reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Help Center</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tag Selection System
+        const selectedTags = {
+            primary: [],
+            domain: [],
+            interest: [],
+            level: []
+        };
+
+        // Tag Button Styling
+        const tagButtons = document.querySelectorAll('.tag-btn');
+        tagButtons.forEach(btn => {
+            // Initial styling
+            btn.className = 'tag-btn px-4 py-2 rounded-full text-sm font-medium border-2 transition-all duration-250';
+            btn.classList.add('border-border', 'text-text-secondary', 'hover:border-primary', 'hover:text-primary', 'hover:bg-primary-50');
+            
+            btn.addEventListener('click', function() {
+                const category = this.dataset.category;
+                const tag = this.dataset.tag;
+                const isSelected = this.classList.contains('selected');
+
+                if (isSelected) {
+                    // Deselect
+                    this.classList.remove('selected', 'bg-primary', 'text-white', 'border-primary');
+                    this.classList.add('border-border', 'text-text-secondary', 'hover:border-primary', 'hover:text-primary', 'hover:bg-primary-50');
+                    selectedTags[category] = selectedTags[category].filter(t => t !== tag);
+                } else {
+                    // Select - Allow multiple selections from all categories
+                    this.classList.add('selected', 'bg-primary', 'text-white', 'border-primary');
+                    this.classList.remove('border-border', 'text-text-secondary', 'hover:border-primary', 'hover:text-primary', 'hover:bg-primary-50');
+                    selectedTags[category].push(tag);
+                }
+
+                updateSelectedTagsSummary();
+            });
+        });
+
+        // Update Selected Tags Summary
+        function updateSelectedTagsSummary() {
+            const allTags = [...selectedTags.primary, ...selectedTags.domain, ...selectedTags.interest, ...selectedTags.level];
+            const summary = document.getElementById('selectedTagsSummary');
+            const tagsList = document.getElementById('selectedTagsList');
+            const tagCount = document.getElementById('tagCount');
+
+            if (allTags.length > 0) {
+                summary.classList.remove('hidden');
+                tagCount.textContent = allTags.length;
+                tagsList.innerHTML = allTags.map(tag => `
+                    <span class="badge badge-primary">${tag}</span>
+                `).join('');
+            } else {
+                summary.classList.add('hidden');
+            }
+        }
+
+        // Location Type Change Handler
+        const locationType = document.getElementById('locationType');
+        const locationDetails = document.getElementById('locationDetails');
+        const locationAddress = document.getElementById('locationAddress');
+
+        locationType.addEventListener('change', function() {
+            if (this.value) {
+                locationDetails.classList.remove('hidden');
+                locationAddress.required = true;
+                
+                // Update placeholder based on location type
+                if (this.value === 'online') {
+                    locationAddress.placeholder = 'e.g., Zoom Meeting Link, Google Meet URL';
+                } else if (this.value === 'in-person') {
+                    locationAddress.placeholder = 'e.g., Main Auditorium, Building A, Room 301';
+                } else {
+                    locationAddress.placeholder = 'e.g., Room 301 + Zoom Link (provide both)';
+                }
+            } else {
+                locationDetails.classList.add('hidden');
+                locationAddress.required = false;
+            }
+        });
+
+        // Form Validation
+        function validateForm() {
+            const title = document.getElementById('eventTitle').value.trim();
+            const description = document.getElementById('eventDescription').value.trim();
+            const organizer = document.getElementById('organizerName').value.trim();
+            const date = document.getElementById('eventDate').value;
+            const time = document.getElementById('eventTime').value;
+            const deadline = document.getElementById('registrationDeadline').value;
+            const location = document.getElementById('locationType').value;
+            const registrationLink = document.getElementById('registrationLink').value.trim();
+
+            // Check if at least one primary tag is selected
+            const hasPrimaryTag = selectedTags.primary.length > 0;
+
+            if (!title || !description || !organizer || !date || !time || !deadline || !location || !registrationLink) {
+                showError('Please fill in all required fields');
+                return false;
+            }
+
+            if (!hasPrimaryTag) {
+                showError('Please select at least one primary category tag');
+                return false;
+            }
+
+            // Validate URL format
+            try {
+                new URL(registrationLink);
+            } catch (e) {
+                showError('Please provide a valid registration URL');
+                return false;
+            }
+
+            // Validate deadline is before event date
+            if (new Date(deadline) >= new Date(date)) {
+                showError('Registration deadline must be before the event date');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Show Error Message
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            errorText.textContent = message;
+            errorMessage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            setTimeout(() => {
+                errorMessage.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Show Success Message
+        function showSuccess() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            setTimeout(() => {
+                window.location.href = 'admin_dashboard.html';
+            }, 2000);
+        }
+
+        // Form Submission
+        const createEventForm = document.getElementById('createEventForm');
+        const publishBtn = document.getElementById('publishBtn');
+        const publishBtnText = document.getElementById('publishBtnText');
+        const publishSpinner = document.getElementById('publishSpinner');
+
+        createEventForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide previous messages
+            document.getElementById('errorMessage').classList.add('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+
+            // Validate form
+            if (!validateForm()) {
+                return;
+            }
+
+            // Show loading state
+            publishBtnText.textContent = 'Publishing...';
+            publishSpinner.classList.remove('hidden');
+            publishBtn.disabled = true;
+
+            // Collect form data
+            const formData = {
+                title: document.getElementById('eventTitle').value,
+                description: document.getElementById('eventDescription').value,
+                organizer: document.getElementById('organizerName').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                deadline: document.getElementById('registrationDeadline').value,
+                locationType: document.getElementById('locationType').value,
+                locationAddress: document.getElementById('locationAddress').value,
+                registrationLink: document.getElementById('registrationLink').value,
+                tags: selectedTags,
+                createdAt: new Date().toISOString(),
+                status: 'upcoming'
+            };
+
+            // Simulate API call (2 seconds delay)
+            setTimeout(() => {
+                // Store in localStorage (mock database)
+                const events = JSON.parse(localStorage.getItem('novexEvents') || '[]');
+                events.push(formData);
+                localStorage.setItem('novexEvents', JSON.stringify(events));
+
+                // Show success and redirect
+                showSuccess();
+            }, 2000);
+        });
+
+        // Save Draft Handler
+        const saveDraftBtn = document.getElementById('saveDraftBtn');
+        saveDraftBtn.addEventListener('click', function() {
+            const formData = {
+                title: document.getElementById('eventTitle').value,
+                description: document.getElementById('eventDescription').value,
+                organizer: document.getElementById('organizerName').value,
+                date: document.getElementById('eventDate').value,
+                time: document.getElementById('eventTime').value,
+                deadline: document.getElementById('registrationDeadline').value,
+                locationType: document.getElementById('locationType').value,
+                locationAddress: document.getElementById('locationAddress').value,
+                registrationLink: document.getElementById('registrationLink').value,
+                tags: selectedTags,
+                status: 'draft',
+                savedAt: new Date().toISOString()
+            };
+
+            // Store draft in localStorage
+            localStorage.setItem('novexEventDraft', JSON.stringify(formData));
+
+            // Show temporary success message
+            const originalText = this.innerHTML;
+            this.innerHTML = `
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Draft Saved
+            `;
+            this.disabled = true;
+
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+            }, 2000);
+        });
+
+        // Load Draft on Page Load
+        window.addEventListener('DOMContentLoaded', function() {
+            const draft = localStorage.getItem('novexEventDraft');
+            if (draft) {
+                const draftData = JSON.parse(draft);
+                
+                // Populate form fields
+                document.getElementById('eventTitle').value = draftData.title || '';
+                document.getElementById('eventDescription').value = draftData.description || '';
+                document.getElementById('organizerName').value = draftData.organizer || '';
+                document.getElementById('eventDate').value = draftData.date || '';
+                document.getElementById('eventTime').value = draftData.time || '';
+                document.getElementById('registrationDeadline').value = draftData.deadline || '';
+                document.getElementById('locationType').value = draftData.locationType || '';
+                document.getElementById('locationAddress').value = draftData.locationAddress || '';
+                document.getElementById('registrationLink').value = draftData.registrationLink || '';
+
+                // Trigger location type change
+                if (draftData.locationType) {
+                    locationType.dispatchEvent(new Event('change'));
+                }
+
+                // Restore selected tags
+                if (draftData.tags) {
+                    Object.keys(draftData.tags).forEach(category => {
+                        draftData.tags[category].forEach(tag => {
+                            const btn = document.querySelector(`[data-category="${category}"][data-tag="${tag}"]`);
+                            if (btn) {
+                                btn.click();
+                            }
+                        });
+                    });
+                }
+            }
+        });
+
+        // Check if admin is logged in
+        if (localStorage.getItem('adminLoggedIn') !== 'true') {
+            window.location.href = 'admin_login.html';
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

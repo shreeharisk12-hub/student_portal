@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-  
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
-  </head>
-<body class="bg-background min-h-screen flex items-center justify-center p-4">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="../js/theme.js"></script>
+</head>
+
+<body
+    class="bg-gray-50 dark:bg-[#141414] min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
+
+    <!-- Theme Toggle -->
+    <div class="fixed top-6 right-6 flex items-center gap-4 z-50">
+        <button id="themeLightBtn"
+            class="text-gray-400 hover:text-yellow-500 focus:outline-none transition-colors duration-200">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
+            </svg>
+        </button>
+        <button id="themeDarkBtn"
+            class="text-gray-400 hover:text-indigo-400 focus:outline-none transition-colors duration-200">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+        </button>
+    </div>
     <!-- Background Pattern -->
     <div class="fixed inset-0 z-0 opacity-5">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <pattern id="admin-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" class="text-primary"/>
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"
+                        class="text-primary" />
                 </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#admin-grid)" />
@@ -27,11 +54,12 @@
         <!-- Logo & Header Section -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Novex Admin Logo">
-                    <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
-                    <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
-                    <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
-                    <circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.8"/>
+                <svg class="w-12 h-12 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Novex Admin Logo">
+                    <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
+                    <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
+                    <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
+                    <circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.8" />
                 </svg>
             </div>
             <h1 class="text-3xl font-heading font-semibold text-text-primary mb-2">Admin Portal</h1>
@@ -41,21 +69,28 @@
         <!-- Security Badge -->
         <div class="flex items-center justify-center gap-2 mb-6">
             <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd"
+                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
             </svg>
             <span class="text-xs text-text-secondary font-caption">SSL Secured Connection</span>
         </div>
 
         <!-- Login Card -->
-        <div class="card">
+        <div
+            class="bg-white dark:bg-[#1f1f1f] rounded-2xl shadow-xl w-full max-w-4xl overflow-hidden flex flex-col md:flex-row transform transition-all hover:scale-[1.01] duration-300">
             <!-- Error Message (Hidden by default) -->
             <div id="errorMessage" class="hidden mb-6 p-4 bg-error-50 border border-error-200 rounded-lg">
                 <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clip-rule="evenodd" />
                     </svg>
                     <div>
-                        <p class="text-sm font-medium text-error-700" id="errorText">Invalid credentials. Please verify your admin access.</p>
+                        <p class="text-sm font-medium text-error-700" id="errorText">Invalid credentials. Please verify
+                            your admin access.</p>
                     </div>
                 </div>
             </div>
@@ -63,8 +98,11 @@
             <!-- Success Message (Hidden by default) -->
             <div id="successMessage" class="hidden mb-6 p-4 bg-success-50 border border-success-200 rounded-lg">
                 <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
                     </svg>
                     <div>
                         <p class="text-sm font-medium text-success-700">Authentication successful. Redirecting...</p>
@@ -79,19 +117,22 @@
                     <label for="adminEmail" class="label">Admin Email Address</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </div>
-                        <input 
-                            type="email" 
-                            id="adminEmail" 
-                            name="adminEmail"
-                            class="input pl-12" 
-                            placeholder="admin@novex.edu"
-                            required
-                            autocomplete="email"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        type="email"
+                        id="adminEmail"
+                        name="adminEmail"
+                        class="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200
+                        dark:border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1
+                        focus:ring-indigo-500 transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                        placeholder="admin@novex.edu"
+                        required
+                        autocomplete="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         >
                     </div>
                     <p class="mt-1 text-xs text-text-secondary">Use your authorized admin email</p>
@@ -102,29 +143,23 @@
                     <label for="adminPassword" class="label">Admin Password</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <input 
-                            type="password" 
-                            id="adminPassword" 
-                            name="adminPassword"
-                            class="input pl-12 pr-12" 
-                            placeholder="Enter secure password"
-                            required
-                            autocomplete="current-password"
-                            minlength="8"
-                        >
-                        <button 
-                            type="button" 
-                            id="togglePassword"
+                        <input type="password" id="adminPassword" name="adminPassword"
+                            class="w-full pl-12 pr-12 py-3 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                            placeholder="Enter secure password" required autocomplete="current-password" minlength="8">
+                        <button type="button" id="togglePassword"
                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-secondary hover:text-text-primary transition-colors"
-                            aria-label="Toggle password visibility"
-                        >
+                            aria-label="Toggle password visibility">
                             <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </button>
                     </div>
@@ -135,19 +170,14 @@
                     <label for="twoFactorCode" class="label">Two-Factor Authentication Code</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <input 
-                            type="text" 
-                            id="twoFactorCode" 
-                            name="twoFactorCode"
-                            class="input pl-12" 
-                            placeholder="Enter 6-digit code"
-                            maxlength="6"
-                            pattern="[0-9]{6}"
-                        >
+                        <input type="text" id="twoFactorCode" name="twoFactorCode" class="input pl-12"
+                            placeholder="Enter 6-digit code" maxlength="6" pattern="[0-9]{6}">
                     </div>
                     <p class="mt-1 text-xs text-text-secondary">Enter the code from your authenticator app</p>
                 </div>
@@ -155,32 +185,26 @@
                 <!-- Remember Me & Forgot Password -->
                 <div class="flex items-center justify-between">
                     <label class="flex items-center gap-2 cursor-pointer">
-                        <input 
-                            type="checkbox" 
-                            id="rememberMe"
-                            class="w-4 h-4 rounded border-border text-primary focus:ring-2 focus:ring-accent focus:ring-offset-2"
-                        >
+                        <input type="checkbox" id="rememberMe"
+                            class="w-4 h-4 rounded border-border text-primary focus:ring-2 focus:ring-accent focus:ring-offset-2">
                         <span class="text-sm text-text-secondary">Remember this device</span>
                     </label>
-                    <button 
-                        type="button"
-                        id="forgotPasswordBtn"
-                        class="text-sm text-primary hover:text-primary-600 font-medium transition-colors"
-                    >
+                    <button type="button" id="forgotPasswordBtn"
+                        class="text-sm text-primary hover:text-primary-600 font-medium transition-colors">
                         Forgot Password?
                     </button>
                 </div>
 
                 <!-- Admin Sign In Button -->
-                <button 
-                    type="submit" 
-                    id="adminSignInBtn"
-                    class="btn btn-primary w-full"
-                >
+                <button type="submit" id="adminSignInBtn" class="btn btn-primary w-full">
                     <span id="btnText">Admin Sign In</span>
-                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
                     </svg>
                 </button>
             </form>
@@ -188,12 +212,16 @@
             <!-- Additional Security Info -->
             <div class="mt-6 p-4 bg-primary-50 rounded-lg border border-primary-200">
                 <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clip-rule="evenodd" />
                     </svg>
                     <div>
                         <p class="text-sm font-medium text-primary-700 mb-1">Security Notice</p>
-                        <p class="text-xs text-primary-600">All admin activities are logged and monitored. Unauthorized access attempts will be reported.</p>
+                        <p class="text-xs text-primary-600">All admin activities are logged and monitored. Unauthorized
+                            access attempts will be reported.</p>
                     </div>
                 </div>
             </div>
@@ -201,9 +229,11 @@
 
         <!-- Student Login Link -->
         <div class="mt-6 text-center">
-            <a href="student_login.html" class="text-sm text-text-secondary hover:text-primary transition-colors inline-flex items-center gap-1">
+            <a href="student_login.html"
+                class="text-sm text-text-secondary hover:text-primary transition-colors inline-flex items-center gap-1">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 Student Login
             </a>
@@ -223,47 +253,39 @@
                 <!-- Modal Header -->
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-2xl font-heading font-semibold text-text-primary">Reset Admin Password</h2>
-                    <button 
-                        type="button"
-                        id="closeModalBtn"
-                        class="text-text-secondary hover:text-text-primary transition-colors"
-                        aria-label="Close modal"
-                    >
+                    <button type="button" id="closeModalBtn"
+                        class="text-text-secondary hover:text-text-primary transition-colors" aria-label="Close modal">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
                 <!-- Modal Content -->
                 <div class="space-y-6">
-                    <p class="text-sm text-text-secondary">Enter your admin email address and we'll send you a secure password reset link with additional verification steps.</p>
-                    
+                    <p class="text-sm text-text-secondary">Enter your admin email address and we'll send you a secure
+                        password reset link with additional verification steps.</p>
+
                     <div>
                         <label for="resetEmail" class="label">Admin Email Address</label>
-                        <input 
-                            type="email" 
-                            id="resetEmail" 
-                            class="input" 
-                            placeholder="admin@novex.edu"
-                            required
-                        >
+                        <input type="email" id="resetEmail" class="input" placeholder="admin@novex.edu" required>
                     </div>
 
                     <div class="p-4 bg-warning-50 border border-warning-200 rounded-lg">
                         <div class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-warning flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            <svg class="w-5 h-5 text-warning flex-shrink-0 mt-0.5" fill="currentColor"
+                                viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <p class="text-xs text-warning-700">Password reset requires additional verification through your registered phone number or backup email.</p>
+                            <p class="text-xs text-warning-700">Password reset requires additional verification through
+                                your registered phone number or backup email.</p>
                         </div>
                     </div>
 
-                    <button 
-                        type="button"
-                        id="sendResetLinkBtn"
-                        class="btn btn-primary w-full"
-                    >
+                    <button type="button" id="sendResetLinkBtn" class="btn btn-primary w-full">
                         Send Reset Link
                     </button>
                 </div>
@@ -278,10 +300,10 @@
         const passwordInput = document.getElementById('adminPassword');
         const eyeIcon = document.getElementById('eyeIcon');
 
-        togglePassword.addEventListener('click', function() {
+        togglePassword.addEventListener('click', function () {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            
+
             if (type === 'text') {
                 eyeIcon.innerHTML = `
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
@@ -302,32 +324,32 @@
         const errorMessage = document.getElementById('errorMessage');
         const successMessage = document.getElementById('successMessage');
 
-        adminLoginForm.addEventListener('submit', function(e) {
+        adminLoginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Hide messages
             errorMessage.classList.add('hidden');
             successMessage.classList.add('hidden');
-            
+
             // Show loading state
             btnText.textContent = 'Authenticating...';
             loadingSpinner.classList.remove('hidden');
             adminSignInBtn.disabled = true;
-            
+
             // Simulate authentication (2 seconds delay)
             setTimeout(() => {
                 const email = document.getElementById('adminEmail').value;
                 const password = document.getElementById('adminPassword').value;
-                
+
                 // Mock validation (accept any email/password for demo)
                 if (email && password) {
                     // Show success message
                     successMessage.classList.remove('hidden');
-                    
+
                     // Store mock session
                     localStorage.setItem('adminLoggedIn', 'true');
                     localStorage.setItem('adminEmail', email);
-                    
+
                     // Redirect to admin dashboard after 1 second
                     setTimeout(() => {
                         window.location.href = 'admin_dashboard.html';
@@ -348,21 +370,21 @@
         const closeModalBtn = document.getElementById('closeModalBtn');
         const sendResetLinkBtn = document.getElementById('sendResetLinkBtn');
 
-        forgotPasswordBtn.addEventListener('click', function() {
+        forgotPasswordBtn.addEventListener('click', function () {
             forgotPasswordModal.classList.remove('hidden');
         });
 
-        closeModalBtn.addEventListener('click', function() {
+        closeModalBtn.addEventListener('click', function () {
             forgotPasswordModal.classList.add('hidden');
         });
 
-        forgotPasswordModal.addEventListener('click', function(e) {
+        forgotPasswordModal.addEventListener('click', function (e) {
             if (e.target === forgotPasswordModal) {
                 forgotPasswordModal.classList.add('hidden');
             }
         });
 
-        sendResetLinkBtn.addEventListener('click', function() {
+        sendResetLinkBtn.addEventListener('click', function () {
             const resetEmail = document.getElementById('resetEmail').value;
             if (resetEmail) {
                 alert('Password reset link sent to ' + resetEmail + '\n\nPlease check your email and follow the verification steps.');
@@ -378,12 +400,13 @@
         }
 
         // Escape key to close modal
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && !forgotPasswordModal.classList.contains('hidden')) {
                 forgotPasswordModal.classList.add('hidden');
             }
         });
     </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>

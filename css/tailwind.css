@@ -10,91 +10,108 @@
 @layer base {
   :root {
     /* Primary Colors - Deep Institutional Teal */
-    --color-primary: #0F4C75; /* teal-900 */
+    --color-primary: #0F4C75;
+    /* teal-900 */
     --color-primary-50: #E6F0F5;
     --color-primary-100: #CCE1EB;
     --color-primary-200: #99C3D7;
     --color-primary-300: #66A5C3;
     --color-primary-400: #3387AF;
-    --color-primary-500: #0F4C75; /* base */
+    --color-primary-500: #0F4C75;
+    /* base */
     --color-primary-600: #0C3D5E;
     --color-primary-700: #092E46;
     --color-primary-800: #061F2F;
     --color-primary-900: #031017;
 
     /* Secondary Colors - Lighter Teal */
-    --color-secondary: #3282B8; /* teal-600 */
+    --color-secondary: #3282B8;
+    /* teal-600 */
     --color-secondary-50: #E8F3F9;
     --color-secondary-100: #D1E7F3;
     --color-secondary-200: #A3CFE7;
     --color-secondary-300: #75B7DB;
     --color-secondary-400: #479FCF;
-    --color-secondary-500: #3282B8; /* base */
+    --color-secondary-500: #3282B8;
+    /* base */
     --color-secondary-600: #286893;
     --color-secondary-700: #1E4E6E;
     --color-secondary-800: #14344A;
     --color-secondary-900: #0A1A25;
 
     /* Accent Colors - Warm Orange */
-    --color-accent: #E67E22; /* orange-600 */
+    --color-accent: #E67E22;
+    /* orange-600 */
     --color-accent-50: #FDF3EC;
     --color-accent-100: #FBE7D9;
     --color-accent-200: #F7CFB3;
     --color-accent-300: #F3B78D;
     --color-accent-400: #EF9F67;
-    --color-accent-500: #E67E22; /* base */
+    --color-accent-500: #E67E22;
+    /* base */
     --color-accent-600: #B8651B;
     --color-accent-700: #8A4C14;
     --color-accent-800: #5C330E;
     --color-accent-900: #2E1907;
 
     /* Background Colors */
-    --color-background: #FAFBFC; /* gray-50 */
-    --color-surface: #FFFFFF; /* white */
+    --color-background: #FAFBFC;
+    /* gray-50 */
+    --color-surface: #FFFFFF;
+    /* white */
 
     /* Text Colors */
-    --color-text-primary: #1A202C; /* gray-900 */
-    --color-text-secondary: #4A5568; /* gray-600 */
+    --color-text-primary: #1A202C;
+    /* gray-900 */
+    --color-text-secondary: #4A5568;
+    /* gray-600 */
 
     /* Status Colors */
-    --color-success: #38A169; /* green-600 */
+    --color-success: #38A169;
+    /* green-600 */
     --color-success-50: #E9F7EF;
     --color-success-100: #D3EFDF;
     --color-success-200: #A7DFBF;
     --color-success-300: #7BCF9F;
     --color-success-400: #4FBF7F;
-    --color-success-500: #38A169; /* base */
+    --color-success-500: #38A169;
+    /* base */
     --color-success-600: #2D8154;
     --color-success-700: #22613F;
     --color-success-800: #16402A;
     --color-success-900: #0B2015;
 
-    --color-warning: #D69E2E; /* yellow-600 */
+    --color-warning: #D69E2E;
+    /* yellow-600 */
     --color-warning-50: #FBF6E9;
     --color-warning-100: #F7EDD3;
     --color-warning-200: #EFDBA7;
     --color-warning-300: #E7C97B;
     --color-warning-400: #DFB74F;
-    --color-warning-500: #D69E2E; /* base */
+    --color-warning-500: #D69E2E;
+    /* base */
     --color-warning-600: #AB7E25;
     --color-warning-700: #805F1C;
     --color-warning-800: #553F12;
     --color-warning-900: #2B2009;
 
-    --color-error: #E53E3E; /* red-600 */
+    --color-error: #E53E3E;
+    /* red-600 */
     --color-error-50: #FDEAEA;
     --color-error-100: #FBD5D5;
     --color-error-200: #F7ABAB;
     --color-error-300: #F38181;
     --color-error-400: #EF5757;
-    --color-error-500: #E53E3E; /* base */
+    --color-error-500: #E53E3E;
+    /* base */
     --color-error-600: #B73232;
     --color-error-700: #892525;
     --color-error-800: #5B1919;
     --color-error-900: #2E0C0C;
 
     /* Border Colors */
-    --color-border: rgba(74, 85, 104, 0.2); /* gray-600 with opacity */
+    --color-border: rgba(74, 85, 104, 0.2);
+    /* gray-600 with opacity */
     --color-border-light: rgba(74, 85, 104, 0.1);
 
     /* Shadow Colors */
@@ -103,12 +120,18 @@
     --shadow-color-lg: rgba(15, 76, 117, 0.16);
 
     /* Spacing Scale (8px base) */
-    --spacing-xs: 0.5rem; /* 8px */
-    --spacing-sm: 1rem; /* 16px */
-    --spacing-md: 1.5rem; /* 24px */
-    --spacing-lg: 2rem; /* 32px */
-    --spacing-xl: 3rem; /* 48px */
-    --spacing-2xl: 5rem; /* 80px */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2rem;
+    /* 32px */
+    --spacing-xl: 3rem;
+    /* 48px */
+    --spacing-2xl: 5rem;
+    /* 80px */
 
     /* Border Radius Scale */
     --radius-sm: 6px;
@@ -117,14 +140,22 @@
     --radius-xl: 24px;
 
     /* Typography Scale */
-    --font-size-xs: 0.875rem; /* 14px */
-    --font-size-sm: 0.9375rem; /* 15px */
-    --font-size-base: 1rem; /* 16px */
-    --font-size-lg: 1.125rem; /* 18px */
-    --font-size-xl: 1.25rem; /* 20px */
-    --font-size-2xl: 1.5rem; /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem; /* 36px */
+    --font-size-xs: 0.875rem;
+    /* 14px */
+    --font-size-sm: 0.9375rem;
+    /* 15px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
 
     /* Line Heights */
     --line-height-tight: 1.2;
@@ -153,9 +184,12 @@
 
   /* Dark Mode Variables */
   .dark {
-    --color-background: #0A0F14; /* gray-950 */
-    --color-surface: #1A2332; /* gray-900 */
-    --color-surface-elevated: #2A3441; /* gray-800 */
+    --color-background: #0A0F14;
+    /* gray-950 */
+    --color-surface: #1A2332;
+    /* gray-900 */
+    --color-surface-elevated: #2A3441;
+    /* gray-800 */
 
     --color-text-primary: rgba(255, 255, 255, 0.9);
     --color-text-secondary: rgba(255, 255, 255, 0.6);
@@ -192,7 +226,12 @@
   }
 
   /* Typography Base Styles */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-semibold;
   }
 
@@ -255,6 +294,7 @@
 }
 
 @layer components {
+
   /* Card Component */
   .card {
     @apply bg-surface rounded-xl p-8 border border-border;
@@ -268,7 +308,7 @@
   }
 
   /* Button Components */
-.btn  {
+  .btn {
     @apply inline-flex items-center justify-center h-12 px-7 rounded-xl font-medium transition-all ease-out;
     min-width: 44px;
   }
@@ -317,7 +357,7 @@
   }
 
   /* Input Components */
-.input  {
+  .input {
     @apply w-full h-12 px-4 rounded-xl border border-border bg-surface text-text-primary;
     @apply focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:border-accent;
     @apply transition-all ease-out;
@@ -457,6 +497,7 @@
 }
 
 @layer utilities {
+
   /* Animation Utilities */
   .transition-smooth {
     transition: all var(--transition-base) var(--transition-ease);
@@ -505,6 +546,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -515,6 +557,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -522,9 +565,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }

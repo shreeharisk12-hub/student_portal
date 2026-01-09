@@ -843,6 +843,11 @@
 
     <!-- JavaScript -->
     <script>
+        // Check authentication immediately
+        if (localStorage.getItem('studentLoggedIn') !== 'true') {
+            window.location.href = '../index.html';
+        }
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -997,10 +1002,15 @@
             }
         }
 
-        // Check authentication
-        if (localStorage.getItem('studentLoggedIn') !== 'true') {
-            window.location.href = 'student_login.html';
+        // Logout Functionality
+        function handleLogout() {
+            localStorage.removeItem('studentLoggedIn');
+            localStorage.removeItem('studentEmail');
+            window.location.href = '../index.html';
         }
+
+        document.getElementById('studentLogoutDesktop').addEventListener('click', handleLogout);
+        document.getElementById('studentLogoutMobile').addEventListener('click', handleLogout);
     </script>
 </body>
 

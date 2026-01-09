@@ -56,9 +56,9 @@
                             <a href="javascript:void(0)"
                                 class="block px-4 py-2 text-sm text-text-secondary hover:bg-background transition-colors">Manage
                                 Interests</a>
-                            <button id="studentLogoutDesktop"
-                                class="block w-full text-left px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors">Sign
-                                Out</button>
+                            <a href="student_login.html"
+                                class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors">Sign
+                                Out</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <p class="text-xs text-text-secondary mb-3">student@university.edu</p>
                     <a href="javascript:void(0)"
                         class="block text-sm text-text-secondary hover:text-primary mb-2">Manage Interests</a>
-                    <button id="studentLogoutMobile" class="block w-full text-left text-sm text-error">Sign Out</button>
+                    <a href="student_login.html" class="block text-sm text-error">Sign Out</a>
                 </div>
             </div>
         </div>
@@ -155,81 +155,64 @@
                         </button>
                     </div>
 
-                    <!-- Filter Categories -->
-                    <div class="space-y-6">
-                        <!-- Primary Categories -->
+                    <!-- Filter Controls -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Category Filter -->
                         <div>
-                            <h4 class="text-sm font-medium text-text-primary mb-3">Event Type</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="filter-tag" data-category="primary"
-                                    data-value="hackathon">Hackathon</button>
-                                <button class="filter-tag" data-category="primary"
-                                    data-value="workshop">Workshop</button>
-                                <button class="filter-tag" data-category="primary" data-value="seminar">Seminar</button>
-                                <button class="filter-tag" data-category="primary" data-value="cultural">Cultural
-                                    Fest</button>
-                                <button class="filter-tag" data-category="primary"
-                                    data-value="competition">Competition</button>
-                                <button class="filter-tag" data-category="primary" data-value="club">Club
-                                    Activity</button>
-                            </div>
+                            <label for="categoryFilter"
+                                class="block text-sm font-medium text-text-primary mb-2">Category</label>
+                            <select id="categoryFilter"
+                                class="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="">All Categories</option>
+                                <option value="hackathon">Hackathon</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="seminar">Seminar</option>
+                                <option value="cultural">Cultural Fest</option>
+                                <option value="competition">Competition</option>
+                                <option value="club">Club Activity</option>
+                                <option value="sports">Sports</option>
+                            </select>
                         </div>
 
-                        <!-- Domain/Skill Tags -->
+                        <!-- Date Filter -->
                         <div>
-                            <h4 class="text-sm font-medium text-text-primary mb-3">Domain & Skills</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="filter-tag" data-category="domain" data-value="ai-ml">AI/ML</button>
-                                <button class="filter-tag" data-category="domain" data-value="web-dev">Web
-                                    Development</button>
-                                <button class="filter-tag" data-category="domain" data-value="app-dev">App
-                                    Development</button>
-                                <button class="filter-tag" data-category="domain" data-value="cyber-security">Cyber
-                                    Security</button>
-                                <button class="filter-tag" data-category="domain" data-value="data-science">Data
-                                    Science</button>
-                                <button class="filter-tag" data-category="domain"
-                                    data-value="ui-ux">Design/UI-UX</button>
-                            </div>
+                            <label for="dateFilter" class="block text-sm font-medium text-text-primary mb-2">Date (On or
+                                After)</label>
+                            <input type="date" id="dateFilter"
+                                class="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-text-primary">
                         </div>
 
-                        <!-- Interest/Community Tags -->
+                        <!-- Mode Filter -->
                         <div>
-                            <h4 class="text-sm font-medium text-text-primary mb-3">Interests</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="filter-tag" data-category="interest" data-value="music">Music</button>
-                                <button class="filter-tag" data-category="interest"
-                                    data-value="photography">Photography</button>
-                                <button class="filter-tag" data-category="interest" data-value="gaming">Gaming</button>
-                                <button class="filter-tag" data-category="interest"
-                                    data-value="startups">Startups</button>
-                                <button class="filter-tag" data-category="interest"
-                                    data-value="networking">Networking</button>
-                            </div>
-                        </div>
-
-                        <!-- Level Tags -->
-                        <div>
-                            <h4 class="text-sm font-medium text-text-primary mb-3">Experience Level</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="filter-tag" data-category="level" data-value="beginner">Beginner
-                                    Friendly</button>
-                                <button class="filter-tag" data-category="level"
-                                    data-value="intermediate">Intermediate</button>
-                                <button class="filter-tag" data-category="level" data-value="advanced">Advanced</button>
-                                <button class="filter-tag" data-category="level" data-value="all-years">Open for All
-                                    Years</button>
-                            </div>
+                            <label for="modeFilter"
+                                class="block text-sm font-medium text-text-primary mb-2">Mode</label>
+                            <select id="modeFilter"
+                                class="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="">All Modes</option>
+                                <option value="online">Online</option>
+                                <option value="offline">Offline</option>
+                            </select>
                         </div>
                     </div>
 
                     <!-- Filter Actions -->
                     <div class="flex gap-3 mt-8 pt-6 border-t border-border">
-                        <button id="resetFiltersBtn" class="btn btn-outline flex-1">Reset All</button>
+                        <button id="resetFiltersBtn" class="btn btn-outline flex-1 md:flex-none md:w-32">Reset</button>
                         <button id="applyFiltersBtn" class="btn btn-primary flex-1 lg:hidden">Apply Filters</button>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResultsMsg" class="hidden text-center py-12">
+            <svg class="w-16 h-16 text-text-secondary mx-auto mb-4" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-lg font-medium text-text-primary mb-1">No events found</h3>
+            <p class="text-text-secondary">Try adjusting your filters to see more results.</p>
         </div>
 
         <!-- Closing Soon Section -->
@@ -246,7 +229,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="closingSoonGrid">
                 <!-- Event Card 1 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="hackathon" data-date="2026-01-15" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1997ee9b2-1765210452667.png"
                             alt="Students collaborating on laptops during a hackathon event"
@@ -309,7 +293,8 @@
                 </article>
 
                 <!-- Event Card 2 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="workshop" data-date="2026-01-12" data-mode="online">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1699271772975-a4cf35547d37"
                             alt="Professional speaker presenting at a workshop with audience"
@@ -383,7 +368,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="relevantEventsGrid">
                 <!-- Event Card 3 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="workshop" data-date="2026-01-20" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3"
                             alt="Code displayed on computer screen showing web development"
@@ -446,7 +432,8 @@
                 </article>
 
                 <!-- Event Card 4 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="competition" data-date="2026-01-25" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1c9f78acb-1767323707826.png"
                             alt="Startup pitch presentation with team members"
@@ -509,7 +496,8 @@
                 </article>
 
                 <!-- Event Card 5 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="cultural" data-date="2026-02-05" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_13624f35c-1767451238017.png"
                             alt="Musicians performing at cultural festival"
@@ -572,7 +560,8 @@
                 </article>
 
                 <!-- Event Card 6 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="seminar" data-date="2026-01-30" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1db50b7c5-1764868727297.png"
                             alt="Team collaboration and networking event"
@@ -635,7 +624,8 @@
                 </article>
 
                 <!-- Event Card 7 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="workshop" data-date="2026-02-10" data-mode="online">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_132d372ca-1764671296007.png"
                             alt="Cybersecurity workshop with computer screens"
@@ -696,7 +686,8 @@
                 </article>
 
                 <!-- Event Card 8 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="competition" data-date="2026-02-14" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_16a1a43d9-1766997025817.png"
                             alt="Data science visualization and analytics"
@@ -759,7 +750,8 @@
                 </article>
 
                 <!-- Event Card 9 -->
-                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
+                <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
+                    data-category="sports" data-date="2026-02-20" data-mode="offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1fe49de41-1764679627158.png"
                             alt="Gaming tournament with competitive players"
@@ -877,12 +869,27 @@
             profileDropdown.classList.add('hidden');
         });
 
-        // Filter Panel Toggle
+        // Filter Functionality
         const filterBtn = document.getElementById('filterBtn');
         const filterPanel = document.getElementById('filterPanel');
         const closeFilterBtn = document.getElementById('closeFilterBtn');
         const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
 
+        // Filter Inputs
+        const categoryFilter = document.getElementById('categoryFilter');
+        const dateFilter = document.getElementById('dateFilter');
+        const modeFilter = document.getElementById('modeFilter');
+
+        // Containers and Message
+        const closingSoonGrid = document.getElementById('closingSoonGrid');
+        const relevantEventsGrid = document.getElementById('relevantEventsGrid');
+        const noResultsMsg = document.getElementById('noResultsMsg');
+
+        // Get all event cards
+        const allCards = document.querySelectorAll('.card');
+
+        // Toggle Filter Panel
         filterBtn.addEventListener('click', () => {
             filterPanel.classList.remove('hidden');
         });
@@ -895,124 +902,105 @@
             filterPanel.classList.add('hidden');
         });
 
-        // Filter Tags
-        const filterTags = document.querySelectorAll('.filter-tag');
-        const activeFilters = document.getElementById('activeFilters');
-        const filterCount = document.getElementById('filterCount');
-        const resultsCount = document.getElementById('resultsCount');
-        let activeFiltersList = [];
+        // Filter Logic
+        function filterEvents() {
+            const categoryValue = categoryFilter.value.toLowerCase();
+            const dateValue = dateFilter.value;
+            const modeValue = modeFilter.value.toLowerCase();
 
-        // Initialize filter tag styles
-        filterTags.forEach(tag => {
-            tag.className = 'filter-tag px-4 py-2 rounded-full text-sm font-medium border-2 border-border text-text-secondary hover:border-primary hover:text-primary transition-colors cursor-pointer';
-        });
+            let visibleCount = 0;
 
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                const value = tag.dataset.value;
-                const category = tag.dataset.category;
+            allCards.forEach(card => {
+                const cardCategory = (card.dataset.category || '').toLowerCase();
+                const cardDate = card.dataset.date || '';
+                const cardMode = (card.dataset.mode || '').toLowerCase();
 
-                if (tag.classList.contains('active')) {
-                    // Remove filter
-                    tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
-                    tag.classList.add('border-border', 'text-text-secondary');
-                    activeFiltersList = activeFiltersList.filter(f => f.value !== value);
-                } else {
-                    // Add filter
-                    tag.classList.add('active', 'bg-primary', 'text-white', 'border-primary');
-                    tag.classList.remove('border-border', 'text-text-secondary');
-                    activeFiltersList.push({ value, category, label: tag.textContent });
+                let matchesCategory = !categoryValue || cardCategory === categoryValue;
+                let matchesMode = !modeValue || cardMode === modeValue;
+                let matchesDate = true;
+
+                if (dateValue && cardDate) {
+                    matchesDate = cardDate >= dateValue;
                 }
 
-                updateActiveFilters();
+                if (matchesCategory && matchesMode && matchesDate) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
             });
-        });
 
-        function updateActiveFilters() {
-            activeFilters.innerHTML = '';
-
-            if (activeFiltersList.length > 0) {
-                filterCount.textContent = activeFiltersList.length;
-                filterCount.classList.remove('hidden');
-
-                activeFiltersList.forEach(filter => {
-                    const filterBadge = document.createElement('div');
-                    filterBadge.className = 'flex items-center gap-2 bg-primary text-white px-3 py-1 rounded-full text-sm';
-                    filterBadge.innerHTML = `
-                        <span>${filter.label}</span>
-                        <button class="hover:bg-white/20 rounded-full p-0.5 transition-colors" onclick="removeFilter('${filter.value}')">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
-                    `;
-                    activeFilters.appendChild(filterBadge);
-                });
+            // Show/Hide "No Results" message
+            if (visibleCount === 0) {
+                if (closingSoonGrid) closingSoonGrid.classList.add('hidden');
+                if (relevantEventsGrid) relevantEventsGrid.classList.add('hidden');
+                noResultsMsg.classList.remove('hidden');
             } else {
-                filterCount.classList.add('hidden');
+                if (closingSoonGrid) closingSoonGrid.classList.remove('hidden');
+                if (relevantEventsGrid) relevantEventsGrid.classList.remove('hidden');
+                noResultsMsg.classList.add('hidden');
             }
 
-            // Update results count (mock)
-            const baseCount = 12;
-            const filteredCount = Math.max(1, baseCount - activeFiltersList.length * 2);
-            resultsCount.textContent = filteredCount;
+            // Update filter count badge
+            const count = [categoryValue, dateValue, modeValue].filter(Boolean).length;
+            const filterCount = document.getElementById('filterCount');
+
+            if (filterCount) {
+                if (count > 0) {
+                    filterCount.textContent = count;
+                    filterCount.classList.remove('hidden');
+                } else {
+                    filterCount.classList.add('hidden');
+                }
+            }
+
+            // Update Results Count
+            const resultsCount = document.getElementById('resultsCount');
+            if (resultsCount) {
+                resultsCount.textContent = visibleCount;
+            }
         }
 
-        window.removeFilter = function (value) {
-            const tag = Array.from(filterTags).find(t => t.dataset.value === value);
-            if (tag) {
-                tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
-                tag.classList.add('border-border', 'text-text-secondary');
-                activeFiltersList = activeFiltersList.filter(f => f.value !== value);
-                updateActiveFilters();
-            }
-        };
+        // Event Listeners for Inputs
+        categoryFilter.addEventListener('change', filterEvents);
+        dateFilter.addEventListener('change', filterEvents);
+        modeFilter.addEventListener('change', filterEvents);
 
-        // Reset Filters
-        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        // Reset Function
         resetFiltersBtn.addEventListener('click', () => {
-            filterTags.forEach(tag => {
-                tag.classList.remove('active', 'bg-primary', 'text-white', 'border-primary');
-                tag.classList.add('border-border', 'text-text-secondary');
-            });
-            activeFiltersList = [];
-            updateActiveFilters();
+            categoryFilter.value = '';
+            dateFilter.value = '';
+            modeFilter.value = '';
+            filterEvents();
         });
 
-        // Sort Functionality
+        // Initial run
+        filterEvents();
+
+        // Sort Functionality (Mock)
         const sortSelect = document.getElementById('sortSelect');
-        sortSelect.addEventListener('change', () => {
-            // Mock sort functionality
-            console.log('Sorting by:', sortSelect.value);
-        });
+        if (sortSelect) {
+            sortSelect.addEventListener('change', () => {
+                console.log('Sorting by:', sortSelect.value);
+            });
+        }
 
         // Bookmark Toggle
-        window.toggleBookmark = function (button) {
-            const svg = button.querySelector('svg');
-            const isBookmarked = svg.getAttribute('fill') === 'currentColor';
-
-            if (isBookmarked) {
-                svg.setAttribute('fill', 'none');
-                svg.classList.remove('text-accent');
-                svg.classList.add('text-text-secondary');
+        window.toggleBookmark = function (btn) {
+            // Find SVG inside button
+            const svg = btn.querySelector('svg');
+            if (btn.classList.contains('bg-primary')) {
+                // Currently saved, unsave it
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-white/90', 'text-text-secondary');
+                // Removed saved state logic for simplicity or revert to original
             } else {
-                svg.setAttribute('fill', 'currentColor');
-                svg.classList.remove('text-text-secondary');
-                svg.classList.add('text-accent');
+                // Save it
+                btn.classList.remove('bg-white/90', 'text-text-secondary');
+                btn.classList.add('bg-primary', 'text-white');
             }
-        };
-
-        // Saved Events Modal (Mock)
-        const savedEventsBtn = document.getElementById('savedEventsBtn');
-        const savedEventsMobile = document.getElementById('savedEventsMobile');
-
-        savedEventsBtn.addEventListener('click', () => {
-            alert('Saved Events feature - Coming soon!');
-        });
-
-        savedEventsMobile.addEventListener('click', () => {
-            alert('Saved Events feature - Coming soon!');
-        });
+        }
 
         // Logout Functionality
         function handleLogout() {
@@ -1024,7 +1012,6 @@
         document.getElementById('studentLogoutDesktop').addEventListener('click', handleLogout);
         document.getElementById('studentLogoutMobile').addEventListener('click', handleLogout);
     </script>
-    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-  
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
-  </head>
+
+    <script type="module" async
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+    <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
 <body class="bg-background min-h-screen flex items-center justify-center p-4">
     <!-- Background Pattern -->
     <div class="fixed inset-0 z-0 opacity-5">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" class="text-primary"/>
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"
+                        class="text-primary" />
                 </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
@@ -28,9 +32,9 @@
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
                 <svg class="w-12 h-12 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
-                    <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
-                    <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
+                    <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
+                    <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
                 </svg>
             </div>
             <h1 class="text-3xl font-heading font-semibold text-text-primary mb-2">Create Account</h1>
@@ -43,7 +47,9 @@
             <div id="errorMessage" class="hidden mb-6 p-4 bg-error-50 border border-error-200 rounded-lg">
                 <div class="flex items-start gap-3">
                     <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clip-rule="evenodd" />
                     </svg>
                     <div>
                         <p class="text-sm font-medium text-error-700" id="errorText">Please fix the errors below.</p>
@@ -55,7 +61,9 @@
             <div id="successMessage" class="hidden mb-6 p-4 bg-success-50 border border-success-200 rounded-lg">
                 <div class="flex items-start gap-3">
                     <svg class="w-5 h-5 text-success-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
                     </svg>
                     <div>
                         <p class="text-sm font-medium text-success-700">Account created successfully! Redirecting...</p>
@@ -70,21 +78,17 @@
                     <label for="email" class="label">Email Address</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </div>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email"
-                            class="input pl-12" 
-                            placeholder="student@university.edu"
-                            required
-                            autocomplete="email"
-                        >
+                        <input type="email" id="email" name="email" class="input pl-12"
+                            placeholder="student@university.edu" required autocomplete="email">
                     </div>
-                    <p id="emailError" class="hidden mt-1 text-sm text-error-600">Please enter a valid email address.</p>
+                    <p id="emailError" class="hidden mt-1 text-sm text-error-600">Please enter a valid email address.
+                    </p>
                 </div>
 
                 <!-- Password Field -->
@@ -92,33 +96,27 @@
                     <label for="password" class="label">Password</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password"
-                            class="input pl-12 pr-12" 
-                            placeholder="Create a strong password"
-                            required
-                            autocomplete="new-password"
-                            minlength="8"
-                        >
-                        <button 
-                            type="button" 
-                            id="togglePassword"
+                        <input type="password" id="password" name="password" class="input pl-12 pr-12"
+                            placeholder="Create a strong password" required autocomplete="new-password" minlength="8">
+                        <button type="button" id="togglePassword"
                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-secondary hover:text-text-primary transition-colors"
-                            aria-label="Toggle password visibility"
-                        >
+                            aria-label="Toggle password visibility">
                             <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </button>
                     </div>
-                    <p id="passwordError" class="hidden mt-1 text-sm text-error-600">Password must be at least 8 characters long.</p>
+                    <p id="passwordError" class="hidden mt-1 text-sm text-error-600">Password must be at least 8
+                        characters long.</p>
                 </div>
 
                 <!-- Confirm Password Field -->
@@ -126,64 +124,113 @@
                     <label for="confirmPassword" class="label">Confirm Password</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <input 
-                            type="password" 
-                            id="confirmPassword" 
-                            name="confirmPassword"
-                            class="input pl-12 pr-12" 
-                            placeholder="Re-enter your password"
-                            required
-                            autocomplete="new-password"
-                        >
-                        <button 
-                            type="button" 
-                            id="toggleConfirmPassword"
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="input pl-12 pr-12"
+                            placeholder="Re-enter your password" required autocomplete="new-password">
+                        <button type="button" id="toggleConfirmPassword"
                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-secondary hover:text-text-primary transition-colors"
-                            aria-label="Toggle confirm password visibility"
-                        >
-                            <svg id="confirmEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            aria-label="Toggle confirm password visibility">
+                            <svg id="confirmEyeIcon" class="w-5 h-5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </button>
                     </div>
                     <p id="confirmPasswordError" class="hidden mt-1 text-sm text-error-600">Passwords do not match.</p>
                 </div>
 
+                <!-- Interest Selection -->
+                <div>
+                    <label class="label mb-3 block">Select Your Interests</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="workshop"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Workshop</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="hackathon"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Hackathon</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="seminar"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Seminar/Talk</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="cultural"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Cultural</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="sports"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Sports</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="competition"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Competition</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="online"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Online</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="offline"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Offline</span>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Terms & Conditions Checkbox -->
                 <div>
                     <label class="flex items-start gap-3 cursor-pointer">
-                        <input 
-                            type="checkbox" 
-                            id="termsAcceptance"
-                            name="termsAcceptance"
+                        <input type="checkbox" id="termsAcceptance" name="termsAcceptance"
                             class="mt-1 w-4 h-4 rounded border-border text-primary focus:ring-2 focus:ring-accent focus:ring-offset-2"
-                            required
-                        >
+                            required>
                         <span class="text-sm text-text-secondary">
-                            I agree to the 
-                            <a href="javascript:void(0)" class="text-primary hover:text-primary-600 font-medium">Terms of Service</a> 
-                            and 
-                            <a href="javascript:void(0)" class="text-primary hover:text-primary-600 font-medium">Privacy Policy</a>
+                            I agree to the
+                            <a href="javascript:void(0)" class="text-primary hover:text-primary-600 font-medium">Terms
+                                of Service</a>
+                            and
+                            <a href="javascript:void(0)" class="text-primary hover:text-primary-600 font-medium">Privacy
+                                Policy</a>
                         </span>
                     </label>
-                    <p id="termsError" class="hidden mt-1 text-sm text-error-600">You must accept the terms and conditions.</p>
+                    <p id="termsError" class="hidden mt-1 text-sm text-error-600">You must accept the terms and
+                        conditions.</p>
                 </div>
 
                 <!-- Sign Up Button -->
-                <button 
-                    type="submit" 
-                    id="signUpBtn"
-                    class="btn btn-primary w-full"
-                >
+                <button type="submit" id="signUpBtn" class="btn btn-primary w-full">
                     <span id="btnText">Create Account</span>
-                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg id="loadingSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
                     </svg>
                 </button>
             </form>
@@ -191,8 +238,9 @@
             <!-- Already Have Account Link -->
             <div class="mt-6 text-center">
                 <p class="text-sm text-text-secondary">
-                    Already have an account? 
-                    <a href="student_login.html" class="text-primary hover:text-primary-600 font-medium transition-colors">
+                    Already have an account?
+                    <a href="student_login.html"
+                        class="text-primary hover:text-primary-600 font-medium transition-colors">
                         Sign In
                     </a>
                 </p>
@@ -212,10 +260,10 @@
         const passwordInput = document.getElementById('password');
         const eyeIcon = document.getElementById('eyeIcon');
 
-        togglePassword.addEventListener('click', function() {
+        togglePassword.addEventListener('click', function () {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            
+
             if (type === 'text') {
                 eyeIcon.innerHTML = `
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
@@ -233,10 +281,10 @@
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const confirmEyeIcon = document.getElementById('confirmEyeIcon');
 
-        toggleConfirmPassword.addEventListener('click', function() {
+        toggleConfirmPassword.addEventListener('click', function () {
             const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             confirmPasswordInput.setAttribute('type', type);
-            
+
             if (type === 'text') {
                 confirmEyeIcon.innerHTML = `
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
@@ -250,7 +298,7 @@
         });
 
         // Real-time Password Match Validation
-        confirmPasswordInput.addEventListener('input', function() {
+        confirmPasswordInput.addEventListener('input', function () {
             const confirmPasswordError = document.getElementById('confirmPasswordError');
             if (confirmPasswordInput.value && passwordInput.value !== confirmPasswordInput.value) {
                 confirmPasswordError.classList.remove('hidden');
@@ -270,9 +318,9 @@
         const successMessage = document.getElementById('successMessage');
         const errorText = document.getElementById('errorText');
 
-        registrationForm.addEventListener('submit', function(e) {
+        registrationForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Reset error messages
             errorMessage.classList.add('hidden');
             successMessage.classList.add('hidden');
@@ -280,17 +328,17 @@
             document.getElementById('passwordError').classList.add('hidden');
             document.getElementById('confirmPasswordError').classList.add('hidden');
             document.getElementById('termsError').classList.add('hidden');
-            
+
             // Get form values
             const email = document.getElementById('email').value;
             const password = passwordInput.value;
             const confirmPassword = confirmPasswordInput.value;
             const termsAccepted = document.getElementById('termsAcceptance').checked;
-            
+
             // Validation
             let isValid = true;
             let errors = [];
-            
+
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
@@ -301,7 +349,7 @@
             } else {
                 document.getElementById('email').classList.remove('border-error-500');
             }
-            
+
             // Password length validation
             if (password.length < 8) {
                 document.getElementById('passwordError').classList.remove('hidden');
@@ -311,7 +359,7 @@
             } else {
                 passwordInput.classList.remove('border-error-500');
             }
-            
+
             // Password match validation
             if (password !== confirmPassword) {
                 document.getElementById('confirmPasswordError').classList.remove('hidden');
@@ -321,36 +369,47 @@
             } else {
                 confirmPasswordInput.classList.remove('border-error-500');
             }
-            
+
             // Terms acceptance validation
             if (!termsAccepted) {
                 document.getElementById('termsError').classList.remove('hidden');
                 isValid = false;
                 errors.push('Terms must be accepted');
             }
-            
+
             // If validation fails, show error
             if (!isValid) {
                 errorText.textContent = 'Please fix the errors below.';
                 errorMessage.classList.remove('hidden');
                 return;
             }
-            
+
             // Show loading state
             btnText.textContent = 'Creating Account...';
             loadingSpinner.classList.remove('hidden');
             signUpBtn.disabled = true;
-            
+
             // Simulate registration (2 seconds delay)
             setTimeout(() => {
+                // Get selected interests
+                const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+                    .map(checkbox => checkbox.value);
+
                 // Store user data (mock registration)
                 localStorage.setItem('studentRegistered', 'true');
                 localStorage.setItem('studentEmail', email);
                 localStorage.setItem('studentLoggedIn', 'true');
-                
+
+                // Store preferences
+                if (selectedInterests.length > 0) {
+                    localStorage.setItem('studentPreferredTags', JSON.stringify(selectedInterests));
+                } else {
+                    localStorage.removeItem('studentPreferredTags');
+                }
+
                 // Show success message
                 successMessage.classList.remove('hidden');
-                
+
                 // Redirect to dashboard after 1.5 seconds
                 setTimeout(() => {
                     window.location.href = 'student_dashboard.html';
@@ -363,6 +422,7 @@
             window.location.href = 'student_dashboard.html';
         }
     </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>

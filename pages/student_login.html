@@ -6,36 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
-    <script src="../js/theme.js"></script>
+
+    <script type="module" async
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+    <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
 </head>
 
-<body
-    class="bg-gray-50 dark:bg-[#141414] min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
-
-    <!-- Theme Toggle -->
-    <div class="fixed top-6 right-6 flex items-center gap-4 z-50">
-        <button id="themeLightBtn"
-            class="text-gray-400 hover:text-yellow-500 focus:outline-none transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                </path>
-            </svg>
-        </button>
-        <button id="themeDarkBtn"
-            class="text-gray-400 hover:text-indigo-400 focus:outline-none transition-colors duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-        </button>
-    </div>
+<body class="bg-background min-h-screen flex items-center justify-center p-4">
     <!-- Background Pattern -->
     <div class="fixed inset-0 z-0 opacity-5">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -54,8 +31,7 @@
         <!-- Logo Section -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center mb-4">
-                <svg class="w-12 h-12 text-primary dark:text-white" viewBox="0 0 48 48" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-12 h-12 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
                     <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
                     <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
@@ -96,8 +72,7 @@
                                     d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                             </svg>
                         </div>
-                        <input type="email" id="email" name="email"
-                            class="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                        <input type="email" id="email" name="email" class="input pl-12"
                             placeholder="student@university.edu" required autocomplete="email">
                     </div>
                 </div>
@@ -113,8 +88,7 @@
                                     d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <input type="password" id="password" name="password"
-                            class="w-full pl-12 pr-12 py-3 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                        <input type="password" id="password" name="password" class="input pl-12 pr-12"
                             placeholder="Enter your password" required autocomplete="current-password">
                         <button type="button" id="togglePassword"
                             class="absolute inset-y-0 right-0 pr-4 flex items-center text-text-secondary hover:text-text-primary transition-colors"
@@ -126,6 +100,61 @@
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </button>
+                    </div>
+                </div>
+
+                <!-- Interest Selection (Optional Update) -->
+                <div>
+                    <label class="label mb-3 block">Update Your Interests (Optional)</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="workshop"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Workshop</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="hackathon"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Hackathon</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="seminar"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Seminar/Talk</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="cultural"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Cultural</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="sports"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Sports</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="competition"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Competition</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="online"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Online</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-2 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" name="interests" value="offline"
+                                class="w-4 h-4 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-sm text-text-primary">Offline</span>
+                        </label>
                     </div>
                 </div>
 
@@ -254,11 +283,20 @@
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
 
+                // Get selected interests (Optional)
+                const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+                    .map(checkbox => checkbox.value);
+
                 // Mock validation (accept any email/password for demo)
                 if (email && password) {
                     // Store mock session
                     localStorage.setItem('studentLoggedIn', 'true');
                     localStorage.setItem('studentEmail', email);
+
+                    // Update preferences if any selected
+                    if (selectedInterests.length > 0) {
+                        localStorage.setItem('studentPreferredTags', JSON.stringify(selectedInterests));
+                    }
 
                     // Redirect to dashboard
                     window.location.href = 'student_dashboard.html';

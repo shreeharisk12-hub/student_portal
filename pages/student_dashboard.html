@@ -53,7 +53,7 @@
                                 <p class="text-sm font-medium text-text-primary">John Doe</p>
                                 <p class="text-xs text-text-secondary">student@university.edu</p>
                             </div>
-                            <a href="javascript:void(0)"
+                            <a href="javascript:void(0)" id="manageInterestsBtn"
                                 class="block px-4 py-2 text-sm text-text-secondary hover:bg-background transition-colors">Manage
                                 Interests</a>
                             <a href="student_login.html"
@@ -83,7 +83,7 @@
                 <div class="pt-3 border-t border-border">
                     <p class="text-sm font-medium text-text-primary mb-1">John Doe</p>
                     <p class="text-xs text-text-secondary mb-3">student@university.edu</p>
-                    <a href="javascript:void(0)"
+                    <a href="javascript:void(0)" id="manageInterestsMobileBtn"
                         class="block text-sm text-text-secondary hover:text-primary mb-2">Manage Interests</a>
                     <a href="student_login.html" class="block text-sm text-error">Sign Out</a>
                 </div>
@@ -204,6 +204,87 @@
             </div>
         </div>
 
+        <!-- Manage Interests Modal -->
+        <div id="manageInterestsModal"
+            class="hidden fixed inset-0 z-modal bg-background/95 flex items-center justify-center p-4">
+            <div class="bg-surface w-full max-w-lg rounded-xl border border-border shadow-xl overflow-hidden">
+                <div class="p-6 border-b border-border flex items-center justify-between">
+                    <h3 class="text-xl font-heading font-semibold text-text-primary">Manage Your Interests</h3>
+                    <button id="closeManageInterestsBtn" class="text-text-secondary hover:text-text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6 max-h-[60vh] overflow-y-auto">
+                    <p class="text-sm text-text-secondary mb-4">Select the categories you are interested in. We'll
+                        prioritize these events for you.</p>
+                    <div class="grid grid-cols-2 gap-3" id="interestsCheckboxContainer">
+                        <!-- Checkboxes will be populated or match static HTML -->
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="workshop"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Workshop</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="hackathon"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Hackathon</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="seminar"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Seminar/Talk</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="cultural"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Cultural</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="competition"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Competition</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="club"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Club Activity</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="sports"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Sports</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="online"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Online</span>
+                        </label>
+                        <label
+                            class="flex items-center gap-3 cursor-pointer p-3 border border-border rounded-lg hover:bg-surface-50 transition-colors">
+                            <input type="checkbox" value="offline"
+                                class="w-5 h-5 text-primary rounded border-border focus:ring-primary">
+                            <span class="text-text-primary">Offline</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-border bg-surface-50 flex justify-end gap-3">
+                    <button id="cancelInterestsBtn" class="btn btn-outline">Cancel</button>
+                    <button id="saveInterestsBtn" class="btn btn-primary">Save Interests</button>
+                </div>
+            </div>
+        </div>
+
         <!-- No Results Message -->
         <div id="noResultsMsg" class="hidden text-center py-12">
             <svg class="w-16 h-16 text-text-secondary mx-auto mb-4" fill="none" stroke="currentColor"
@@ -230,7 +311,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="closingSoonGrid">
                 <!-- Event Card 1 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="hackathon" data-date="2026-01-15" data-mode="offline">
+                    data-category="hackathon" data-date="2026-01-15" data-mode="offline"
+                    data-tags="hackathon,tech,ai,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1997ee9b2-1765210452667.png"
                             alt="Students collaborating on laptops during a hackathon event"
@@ -294,7 +376,8 @@
 
                 <!-- Event Card 2 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="workshop" data-date="2026-01-12" data-mode="online">
+                    data-category="workshop" data-date="2026-01-12" data-mode="online"
+                    data-tags="workshop,tech,online,design">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1699271772975-a4cf35547d37"
                             alt="Professional speaker presenting at a workshop with audience"
@@ -369,7 +452,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="relevantEventsGrid">
                 <!-- Event Card 3 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="workshop" data-date="2026-01-20" data-mode="offline">
+                    data-category="workshop" data-date="2026-01-20" data-mode="offline"
+                    data-tags="workshop,tech,coding,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3"
                             alt="Code displayed on computer screen showing web development"
@@ -433,7 +517,8 @@
 
                 <!-- Event Card 4 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="competition" data-date="2026-01-25" data-mode="offline">
+                    data-category="competition" data-date="2026-01-25" data-mode="offline"
+                    data-tags="competition,entrepreneurship,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1c9f78acb-1767323707826.png"
                             alt="Startup pitch presentation with team members"
@@ -497,7 +582,8 @@
 
                 <!-- Event Card 5 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="cultural" data-date="2026-02-05" data-mode="offline">
+                    data-category="cultural" data-date="2026-02-05" data-mode="offline"
+                    data-tags="cultural,music,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_13624f35c-1767451238017.png"
                             alt="Musicians performing at cultural festival"
@@ -561,7 +647,8 @@
 
                 <!-- Event Card 6 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="seminar" data-date="2026-01-30" data-mode="offline">
+                    data-category="seminar" data-date="2026-01-30" data-mode="offline"
+                    data-tags="seminar,networking,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1db50b7c5-1764868727297.png"
                             alt="Team collaboration and networking event"
@@ -625,7 +712,8 @@
 
                 <!-- Event Card 7 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="workshop" data-date="2026-02-10" data-mode="online">
+                    data-category="workshop" data-date="2026-02-10" data-mode="online"
+                    data-tags="workshop,tech,security,online">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_132d372ca-1764671296007.png"
                             alt="Cybersecurity workshop with computer screens"
@@ -687,7 +775,8 @@
 
                 <!-- Event Card 8 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="competition" data-date="2026-02-14" data-mode="offline">
+                    data-category="competition" data-date="2026-02-14" data-mode="offline"
+                    data-tags="competition,tech,data,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_16a1a43d9-1766997025817.png"
                             alt="Data science visualization and analytics"
@@ -751,7 +840,7 @@
 
                 <!-- Event Card 9 -->
                 <article class="card group cursor-pointer" onclick="window.location.href='event_details.html'"
-                    data-category="sports" data-date="2026-02-20" data-mode="offline">
+                    data-category="sports" data-date="2026-02-20" data-mode="offline" data-tags="sports,gaming,offline">
                     <div class="relative mb-4 overflow-hidden rounded-lg">
                         <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1fe49de41-1764679627158.png"
                             alt="Gaming tournament with competitive players"
@@ -903,13 +992,34 @@
             const dateValue = dateFilter.value;
             const modeValue = modeFilter.value.toLowerCase();
 
+            // Get user preferences
+            let preferredTags = null;
+            try {
+                const storedTags = localStorage.getItem('studentPreferredTags');
+                if (storedTags) {
+                    preferredTags = JSON.parse(storedTags);
+                }
+            } catch (e) {
+                console.error('Error parsing preferences', e);
+            }
+
             let visibleCount = 0;
+            let totalPrefEvents = 0; // Track if we have ANY events matching preferences to decide message
 
             allCards.forEach(card => {
                 const cardCategory = (card.dataset.category || '').toLowerCase();
                 const cardDate = card.dataset.date || '';
                 const cardMode = (card.dataset.mode || '').toLowerCase();
+                const cardTags = (card.dataset.tags || '').toLowerCase().split(',');
 
+                // Preference Match Logic
+                let matchesPreferences = true;
+                if (preferredTags && preferredTags.length > 0) {
+                    // Check if card has at least one of the preferred tags
+                    matchesPreferences = preferredTags.some(tag => cardTags.includes(tag.toLowerCase()));
+                }
+
+                // Standard Filters
                 let matchesCategory = !categoryValue || cardCategory === categoryValue;
                 let matchesMode = !modeValue || cardMode === modeValue;
                 let matchesDate = true;
@@ -918,7 +1028,7 @@
                     matchesDate = cardDate >= dateValue;
                 }
 
-                if (matchesCategory && matchesMode && matchesDate) {
+                if (matchesPreferences && matchesCategory && matchesMode && matchesDate) {
                     card.classList.remove('hidden');
                     visibleCount++;
                 } else {
@@ -926,11 +1036,23 @@
                 }
             });
 
-            // Show/Hide "No Results" message
+            // Update UI Message based on context
+            const noResultsTitle = noResultsMsg.querySelector('h3');
+            const noResultsDesc = noResultsMsg.querySelector('p');
+
             if (visibleCount === 0) {
                 if (closingSoonGrid) closingSoonGrid.classList.add('hidden');
                 if (relevantEventsGrid) relevantEventsGrid.classList.add('hidden');
+
                 noResultsMsg.classList.remove('hidden');
+
+                if (preferredTags && preferredTags.length > 0 && !categoryValue && !dateValue && !modeValue) {
+                    noResultsTitle.textContent = "No events match your interests";
+                    noResultsDesc.textContent = "Try updating your interests in your profile.";
+                } else {
+                    noResultsTitle.textContent = "No events found";
+                    noResultsDesc.textContent = "Try adjusting your filters to see more results.";
+                }
             } else {
                 if (closingSoonGrid) closingSoonGrid.classList.remove('hidden');
                 if (relevantEventsGrid) relevantEventsGrid.classList.remove('hidden');
@@ -995,6 +1117,74 @@
                 btn.classList.remove('bg-white/90', 'text-text-secondary');
                 btn.classList.add('bg-primary', 'text-white');
             }
+        }
+
+        // Manage Interests Functionality
+        const manageInterestsBtn = document.getElementById('manageInterestsBtn');
+        const manageInterestsMobileBtn = document.getElementById('manageInterestsMobileBtn');
+        const manageInterestsModal = document.getElementById('manageInterestsModal');
+        const closeManageInterestsBtn = document.getElementById('closeManageInterestsBtn');
+        const cancelInterestsBtn = document.getElementById('cancelInterestsBtn');
+        const saveInterestsBtn = document.getElementById('saveInterestsBtn');
+        const interestsCheckboxes = document.querySelectorAll('#interestsCheckboxContainer input[type="checkbox"]');
+
+        function openManageInterests() {
+            // Load current preferences
+            let preferredTags = [];
+            try {
+                const storedTags = localStorage.getItem('studentPreferredTags');
+                if (storedTags) {
+                    preferredTags = JSON.parse(storedTags);
+                }
+            } catch (e) {
+                console.error('Error parsing preferences', e);
+            }
+
+            // Update checkbox state
+            interestsCheckboxes.forEach(checkbox => {
+                checkbox.checked = preferredTags.includes(checkbox.value);
+            });
+
+            manageInterestsModal.classList.remove('hidden');
+        }
+
+        function closeManageInterests() {
+            manageInterestsModal.classList.add('hidden');
+        }
+
+        function saveInterests() {
+            const selectedInterests = Array.from(interestsCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            // Save to localStorage
+            if (selectedInterests.length > 0) {
+                localStorage.setItem('studentPreferredTags', JSON.stringify(selectedInterests));
+            } else {
+                localStorage.removeItem('studentPreferredTags');
+            }
+
+            // Re-apply filters
+            filterEvents();
+
+            // Close modal
+            closeManageInterests();
+        }
+
+        if (manageInterestsBtn) manageInterestsBtn.addEventListener('click', openManageInterests);
+        if (manageInterestsMobileBtn) manageInterestsMobileBtn.addEventListener('click', openManageInterests);
+
+        if (closeManageInterestsBtn) closeManageInterestsBtn.addEventListener('click', closeManageInterests);
+        if (cancelInterestsBtn) cancelInterestsBtn.addEventListener('click', closeManageInterests);
+        if (saveInterestsBtn) saveInterestsBtn.addEventListener('click', saveInterests);
+
+        // Close on clicking outside
+        if (manageInterestsModal) {
+            manageInterestsModal.addEventListener('click', (e) => {
+                if (e.target === manageInterestsModal) {
+                    closeManageInterests();
+                }
+            });
         }
 
         // Check authentication

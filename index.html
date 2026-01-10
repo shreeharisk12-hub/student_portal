@@ -10,6 +10,35 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0F4C75', 50: '#E6F0F5', 100: '#CCE1EB', 200: '#99C3D7', 300: '#66A5C3', 400: '#3387AF', 500: '#0F4C75', 600: '#0C3D5E', 700: '#092E46', 800: '#061F2F', 900: '#031017' },
+                        secondary: { DEFAULT: '#3282B8', 50: '#E8F3F9', 100: '#D1E7F3', 200: '#A3CFE7', 300: '#75B7DB', 400: '#479FCF', 500: '#3282B8', 600: '#286893', 700: '#1E4E6E', 800: '#14344A', 900: '#0A1A25' },
+                        accent: { DEFAULT: '#E67E22', 50: '#FDF3EC', 100: '#FBE7D9', 200: '#F7CFB3', 300: '#F3B78D', 400: '#EF9F67', 500: '#E67E22', 600: '#B8651B', 700: '#8A4C14', 800: '#5C330E', 900: '#2E1907' },
+                        'text-primary': '#1A202C',
+                        'text-secondary': '#4A5568',
+                    },
+                    fontFamily: {
+                        heading: ['Crimson Text', 'serif'],
+                        body: ['Source Sans 3', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+                        pulse: 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.6' },
+                        },
+                    },
+                },
+            },
         }
     </script>
     <script src="js/theme.js"></script>
@@ -33,80 +62,91 @@
 </head>
 
 <body
-    class="bg-gray-100 dark:bg-[#141414] flex items-center justify-center min-h-screen font-sans text-gray-900 dark:text-white overflow-hidden selection:bg-red-600 selection:text-white transition-colors duration-300">
+    class="bg-gradient-to-br from-primary-900 via-primary-700 to-secondary-800 min-h-screen flex items-center justify-center font-body text-white overflow-hidden selection:bg-accent-500 selection:text-white transition-colors duration-300 relative">
+
+    <!-- Ambient Background blobs for extra vibrancy -->
+    <div
+        class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-secondary-500/30 rounded-full blur-[128px] pointer-events-none mix-blend-screen animate-pulse">
+    </div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-accent-500/20 rounded-full blur-[128px] pointer-events-none mix-blend-screen animate-pulse"
+        style="animation-delay: 1s;"></div>
 
     <!-- Theme Toggle -->
     <div class="fixed top-6 right-6 flex items-center gap-4 z-50">
-        <!-- Sun Icon (Light Mode) -->
-        <button id="themeLightBtn"
-            class="text-gray-400 hover:text-yellow-500 focus:outline-none transition-colors duration-200"
-            aria-label="Switch to Light Mode">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                </path>
-            </svg>
-        </button>
-        <!-- Moon Icon (Dark Mode) -->
-        <button id="themeDarkBtn"
-            class="text-gray-400 hover:text-indigo-400 focus:outline-none transition-colors duration-200"
-            aria-label="Switch to Dark Mode">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-        </button>
+        <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-full p-1.5 flex shadow-lg">
+            <!-- Sun Icon (Light Mode) -->
+            <button id="themeLightBtn"
+                class="p-2 rounded-full text-white/50 hover:text-yellow-300 hover:bg-white/10 focus:outline-none transition-all duration-200"
+                aria-label="Switch to Light Mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                    </path>
+                </svg>
+            </button>
+            <!-- Moon Icon (Dark Mode) -->
+            <button id="themeDarkBtn"
+                class="p-2 rounded-full text-white/50 hover:text-indigo-300 hover:bg-white/10 focus:outline-none transition-all duration-200"
+                aria-label="Switch to Dark Mode">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                    </path>
+                </svg>
+            </button>
+        </div>
     </div>
 
-    <div class="flex flex-col items-center animate-fade-in w-full max-w-4xl mx-auto px-4">
+    <div class="flex flex-col items-center animate-fade-in w-full max-w-4xl mx-auto px-4 z-10">
         <!-- Main Heading -->
         <h1
-            class="text-3xl md:text-5xl font-medium mb-12 tracking-wide text-center text-gray-800 dark:text-white/90 transition-colors duration-300">
+            class="font-heading text-4xl md:text-6xl font-bold mb-16 tracking-wide text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-primary-100 to-secondary-200 drop-shadow-sm">
             Who's logging in?</h1>
 
         <!-- Profile Container -->
-        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-center">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center">
 
             <!-- Admin Profile -->
-            <a href="pages/admin_login.html" class="group flex flex-col items-center gap-3 focus:outline-none">
+            <a href="pages/admin_login.html" class="group flex flex-col items-center gap-5 focus:outline-none">
                 <!-- Avatar Box -->
                 <div
-                    class="w-[100px] h-[100px] rounded bg-gray-200 dark:bg-[#1f1f1f] flex items-center justify-center border-2 border-transparent group-hover:border-indigo-600 dark:group-hover:border-white dark:group-hover:bg-[#2f2f2f] transition-all duration-200 ease-out cursor-pointer overflow-hidden relative shadow-lg">
+                    class="w-[140px] h-[140px] rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-105 group-hover:border-white/30 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-all duration-300 ease-spring cursor-pointer relative shadow-2xl">
                     <!-- Icon -->
-                    <svg class="w-12 h-12 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-200"
+                    <svg class="w-16 h-16 text-white/70 group-hover:text-white transition-colors duration-300"
                         fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
                     </svg>
-                    <!-- Overlay -->
+
+                    <!-- Inner glow -->
                     <div
-                        class="absolute inset-0 bg-indigo-600/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
                 </div>
                 <!-- Label -->
                 <span
-                    class="text-base md:text-lg text-gray-600 dark:text-gray-500 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors duration-200 font-normal tracking-wide text-center">Admin</span>
+                    class="text-lg md:text-xl text-white/60 group-hover:text-white transition-colors duration-300 font-medium tracking-wider text-center uppercase">Admin</span>
             </a>
 
             <!-- Student Profile -->
-            <a href="pages/student_login.html" class="group flex flex-col items-center gap-3 focus:outline-none">
+            <a href="pages/student_login.html" class="group flex flex-col items-center gap-5 focus:outline-none">
                 <!-- Avatar Box -->
                 <div
-                    class="w-[100px] h-[100px] rounded bg-gray-200 dark:bg-[#1f1f1f] flex items-center justify-center border-2 border-transparent group-hover:border-purple-600 dark:group-hover:border-white dark:group-hover:bg-[#2f2f2f] transition-all duration-200 ease-out cursor-pointer overflow-hidden relative shadow-lg">
+                    class="w-[140px] h-[140px] rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-105 group-hover:border-accent-400/50 group-hover:shadow-[0_0_40px_rgba(230,126,34,0.2)] transition-all duration-300 ease-spring cursor-pointer relative shadow-2xl">
                     <!-- Icon -->
-                    <svg class="w-12 h-12 text-gray-500 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-white transition-colors duration-200"
+                    <svg class="w-16 h-16 text-white/70 group-hover:text-accent-400 transition-colors duration-300"
                         fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zm0 10.91l-6-2.72v4.54c0 3.31 2.69 6 6 6s6-2.69 6-6v-4.54l-6 2.72z" />
                     </svg>
-                    <!-- Overlay -->
+                    <!-- Inner glow -->
                     <div
-                        class="absolute inset-0 bg-purple-600/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/0 to-accent-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
                 </div>
                 <!-- Label -->
                 <span
-                    class="text-base md:text-lg text-gray-600 dark:text-gray-500 group-hover:text-purple-600 dark:group-hover:text-white transition-colors duration-200 font-normal tracking-wide text-center">Student</span>
+                    class="text-lg md:text-xl text-white/60 group-hover:text-accent-400 transition-colors duration-300 font-medium tracking-wider text-center uppercase">Student</span>
             </a>
 
         </div>

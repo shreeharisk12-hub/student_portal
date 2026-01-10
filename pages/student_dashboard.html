@@ -56,7 +56,7 @@
                             <a href="javascript:void(0)" id="manageInterestsBtn"
                                 class="block px-4 py-2 text-sm text-text-secondary hover:bg-background transition-colors">Manage
                                 Interests</a>
-                            <a href="student_login.html"
+                            <a href="javascript:void(0)" id="studentLogoutDesktop"
                                 class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors">Sign
                                 Out</a>
                         </div>
@@ -85,7 +85,7 @@
                     <p class="text-xs text-text-secondary mb-3">student@university.edu</p>
                     <a href="javascript:void(0)" id="manageInterestsMobileBtn"
                         class="block text-sm text-text-secondary hover:text-primary mb-2">Manage Interests</a>
-                    <a href="student_login.html" class="block text-sm text-error">Sign Out</a>
+                    <a href="javascript:void(0)" id="studentLogoutMobile" class="block text-sm text-error">Sign Out</a>
                 </div>
             </div>
         </div>
@@ -1134,6 +1134,7 @@
         document.getElementById('studentLogoutDesktop').addEventListener('click', handleLogout);
         document.getElementById('studentLogoutMobile').addEventListener('click', handleLogout);
     </script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 
 </html>

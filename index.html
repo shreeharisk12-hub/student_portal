@@ -1,85 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novex - Event Management System</title>
+    <title>Novex - Select Profile</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
-        
-        .redirect-container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 90%;
-        }
-        
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .loading-text {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .redirect-info {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
-  
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
-  </head>
-<body>
-    <div class="redirect-container">
-        <div class="logo">NOVEX</div>
-        <div class="loading-text">Welcome to Event Management System</div>
-        <div class="spinner"></div>
-        <div class="redirect-info">Redirecting to Student Login...</div>
-    </div>
+</head>
 
-    <script>
-        // Show loading for 2 seconds then redirect
-        setTimeout(function() {
-            window.location.href = 'pages/student_login.html';
-        }, 2000);
-    </script>
-<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+<body
+    class="bg-[#141414] flex items-center justify-center min-h-screen font-sans text-white overflow-hidden selection:bg-red-600 selection:text-white">
+
+    <div class="flex flex-col items-center animate-fade-in w-full max-w-4xl mx-auto px-4">
+        <!-- Main Heading -->
+        <h1 class="text-3xl md:text-5xl font-medium mb-12 tracking-wide text-center text-white/90">Who's logging in?
+        </h1>
+
+        <!-- Profile Container -->
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-center">
+
+            <!-- Admin Profile -->
+            <a href="pages/admin_login.html" class="group flex flex-col items-center gap-3 focus:outline-none">
+                <!-- Avatar Box -->
+                <div
+                    class="w-[100px] h-[100px] rounded bg-[#1f1f1f] flex items-center justify-center border-2 border-transparent group-hover:border-white group-hover:bg-[#2f2f2f] transition-all duration-200 ease-out cursor-pointer overflow-hidden relative shadow-lg">
+                    <!-- Icon -->
+                    <svg class="w-12 h-12 text-gray-400 group-hover:text-white transition-colors duration-200"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                    </svg>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    </div>
+                </div>
+                <!-- Label -->
+                <span
+                    class="text-base md:text-lg text-gray-500 group-hover:text-white transition-colors duration-200 font-normal tracking-wide text-center">Admin</span>
+            </a>
+
+            <!-- Student Profile -->
+            <a href="pages/student_login.html" class="group flex flex-col items-center gap-3 focus:outline-none">
+                <!-- Avatar Box -->
+                <div
+                    class="w-[100px] h-[100px] rounded bg-[#1f1f1f] flex items-center justify-center border-2 border-transparent group-hover:border-white group-hover:bg-[#2f2f2f] transition-all duration-200 ease-out cursor-pointer overflow-hidden relative shadow-lg">
+                    <!-- Icon -->
+                    <svg class="w-12 h-12 text-gray-400 group-hover:text-white transition-colors duration-200"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zm0 10.91l-6-2.72v4.54c0 3.31 2.69 6 6 6s6-2.69 6-6v-4.54l-6 2.72z" />
+                    </svg>
+                    <!-- Overlay -->
+                    <div
+                        class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    </div>
+                </div>
+                <!-- Label -->
+                <span
+                    class="text-base md:text-lg text-gray-500 group-hover:text-white transition-colors duration-200 font-normal tracking-wide text-center">Student</span>
+            </a>
+
+        </div>
+
+        <!-- Manage Profiles (Hidden/Removed per requirement) -->
+    </div>
+    <script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
 </body>
+
 </html>

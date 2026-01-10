@@ -932,6 +932,11 @@
 
     <!-- JavaScript -->
     <script>
+        // Check authentication immediately
+        if (localStorage.getItem('studentLoggedIn') !== 'true') {
+            window.location.href = '../index.html';
+        }
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1119,78 +1124,15 @@
             }
         }
 
-        // Manage Interests Functionality
-        const manageInterestsBtn = document.getElementById('manageInterestsBtn');
-        const manageInterestsMobileBtn = document.getElementById('manageInterestsMobileBtn');
-        const manageInterestsModal = document.getElementById('manageInterestsModal');
-        const closeManageInterestsBtn = document.getElementById('closeManageInterestsBtn');
-        const cancelInterestsBtn = document.getElementById('cancelInterestsBtn');
-        const saveInterestsBtn = document.getElementById('saveInterestsBtn');
-        const interestsCheckboxes = document.querySelectorAll('#interestsCheckboxContainer input[type="checkbox"]');
-
-        function openManageInterests() {
-            // Load current preferences
-            let preferredTags = [];
-            try {
-                const storedTags = localStorage.getItem('studentPreferredTags');
-                if (storedTags) {
-                    preferredTags = JSON.parse(storedTags);
-                }
-            } catch (e) {
-                console.error('Error parsing preferences', e);
-            }
-
-            // Update checkbox state
-            interestsCheckboxes.forEach(checkbox => {
-                checkbox.checked = preferredTags.includes(checkbox.value);
-            });
-
-            manageInterestsModal.classList.remove('hidden');
+        // Logout Functionality
+        function handleLogout() {
+            localStorage.removeItem('studentLoggedIn');
+            localStorage.removeItem('studentEmail');
+            window.location.href = '../index.html';
         }
 
-        function closeManageInterests() {
-            manageInterestsModal.classList.add('hidden');
-        }
-
-        function saveInterests() {
-            const selectedInterests = Array.from(interestsCheckboxes)
-                .filter(cb => cb.checked)
-                .map(cb => cb.value);
-
-            // Save to localStorage
-            if (selectedInterests.length > 0) {
-                localStorage.setItem('studentPreferredTags', JSON.stringify(selectedInterests));
-            } else {
-                localStorage.removeItem('studentPreferredTags');
-            }
-
-            // Re-apply filters
-            filterEvents();
-
-            // Close modal
-            closeManageInterests();
-        }
-
-        if (manageInterestsBtn) manageInterestsBtn.addEventListener('click', openManageInterests);
-        if (manageInterestsMobileBtn) manageInterestsMobileBtn.addEventListener('click', openManageInterests);
-
-        if (closeManageInterestsBtn) closeManageInterestsBtn.addEventListener('click', closeManageInterests);
-        if (cancelInterestsBtn) cancelInterestsBtn.addEventListener('click', closeManageInterests);
-        if (saveInterestsBtn) saveInterestsBtn.addEventListener('click', saveInterests);
-
-        // Close on clicking outside
-        if (manageInterestsModal) {
-            manageInterestsModal.addEventListener('click', (e) => {
-                if (e.target === manageInterestsModal) {
-                    closeManageInterests();
-                }
-            });
-        }
-
-        // Check authentication
-        if (localStorage.getItem('studentLoggedIn') !== 'true') {
-            window.location.href = 'student_login.html';
-        }
+        document.getElementById('studentLogoutDesktop').addEventListener('click', handleLogout);
+        document.getElementById('studentLogoutMobile').addEventListener('click', handleLogout);
     </script>
 </body>
 

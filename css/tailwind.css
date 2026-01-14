@@ -187,30 +187,39 @@
 
   /* Dark Mode Variables */
   .dark {
-    --color-background: #0A0F14;
-    /* gray-950 */
-    --color-surface: #1A2332;
-    /* gray-900 */
-    --color-surface-elevated: #2A3441;
-    /* gray-800 */
+    --color-background: #000000;
+    /* true black */
+    --color-surface: #121212;
+    /* dark gray surface */
+    --color-surface-elevated: #1E1E1E;
+    /* slightly lighter gray */
 
-    --color-text-primary: rgba(255, 255, 255, 0.9);
-    --color-text-secondary: rgba(255, 255, 255, 0.6);
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #A1A1AA;
+    /* zinc-400 */
 
-    --color-border: rgba(255, 255, 255, 0.1);
-    --color-border-light: rgba(255, 255, 255, 0.05);
+    --color-border: #27272A;
+    /* zinc-800 */
+    --color-border-light: #18181B;
+    /* zinc-900 */
 
-    /* Reduced saturation for dark mode */
-    --color-primary: #1A5A8A;
-    --color-secondary: #4A92C8;
-    --color-accent: #D67020;
-    --color-success: #48B179;
-    --color-warning: #C68E2E;
-    --color-error: #D54E4E;
+    /* High contrast for dark mode */
+    --color-primary: #38bdf8;
+    /* sky-400 */
+    --color-secondary: #818cf8;
+    /* indigo-400 */
+    --color-accent: #fb923c;
+    /* orange-400 */
+    --color-success: #4ade80;
+    /* green-400 */
+    --color-warning: #facc15;
+    /* yellow-400 */
+    --color-error: #f87171;
+    /* red-400 */
 
-    --shadow-color: transparent;
-    --shadow-color-md: transparent;
-    --shadow-color-lg: transparent;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-color-md: rgba(0, 0, 0, 0.5);
+    --shadow-color-lg: rgba(0, 0, 0, 0.5);
   }
 
   * {
@@ -563,9 +572,10 @@
 
   /* Dark mode adjustment for card */
   .dark .card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid #27272A;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   }
 
   .card:hover {
@@ -577,8 +587,10 @@
   }
 
   .dark .card:hover {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(20, 30, 50, 0.8) 100%);
-    border-color: rgba(50, 130, 184, 0.3);
+    background: rgba(30, 30, 30, 0.9);
+    border-color: #52525B;
+    /* zinc-600 */
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7);
   }
 
   .btn-primary {

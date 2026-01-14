@@ -1233,9 +1233,11 @@ p {
 /* Dark mode adjustment for card */
 
 .dark .card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  background: rgba(18, 18, 18, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border: 1px solid #27272A;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 .card:hover {
@@ -1247,8 +1249,10 @@ p {
 }
 
 .dark .card:hover {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(20, 30, 50, 0.8) 100%);
-  border-color: rgba(50, 130, 184, 0.3);
+  background: rgba(30, 30, 30, 0.9);
+  border-color: #52525B;
+  /* zinc-600 */
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7);
 }
 
 .btn-primary{

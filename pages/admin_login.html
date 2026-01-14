@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
+
     <script src="../js/theme.js"></script>
 </head>
 
@@ -122,7 +117,7 @@
                             <input type="email" id="adminEmail" name="adminEmail"
                                 class="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-[#2a2a2a] border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors text-gray-900 dark:text-white placeholder-gray-400"
                                 placeholder="admin@novex.edu" required autocomplete="email"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                placeholder="admin@novex.edu" required autocomplete="email">
                         </div>
                     </div>
 
@@ -386,10 +381,10 @@
             }
         });
 
-        // Check if already logged in
-        if (localStorage.getItem('adminLoggedIn') === 'true') {
-            window.location.href = 'admin_dashboard.html';
-        }
+        // Check if already logged in - COMMENTED OUT to prevent loops during debugging
+        // if (localStorage.getItem('adminLoggedIn') === 'true') {
+        //     window.location.href = 'admin_dashboard.html';
+        // }
 
         // Escape key to close modal
         document.addEventListener('keydown', function (e) {
@@ -398,6 +393,7 @@
             }
         });
     </script>
+
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 

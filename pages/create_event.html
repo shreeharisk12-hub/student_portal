@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-  
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
-  </head>
+
+    <script type="module" async
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+    <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
 <body class="bg-background min-h-screen">
     <!-- Navigation Header -->
     <header class="bg-surface border-b border-border sticky top-0 z-navigation">
@@ -16,10 +19,11 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <a href="admin_dashboard.html" class="flex items-center gap-3 group">
-                    <svg class="w-10 h-10 text-primary transition-transform group-hover:scale-105" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
-                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
-                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    <svg class="w-10 h-10 text-primary transition-transform group-hover:scale-105" viewBox="0 0 48 48"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
                     </svg>
                     <div>
                         <h1 class="text-xl font-heading font-semibold text-text-primary">Novex</h1>
@@ -29,7 +33,8 @@
 
                 <!-- Navigation Links -->
                 <nav class="hidden md:flex items-center gap-6">
-                    <a href="admin_dashboard.html" class="text-text-secondary hover:text-primary transition-colors font-medium">
+                    <a href="admin_dashboard.html"
+                        class="text-text-secondary hover:text-primary transition-colors font-medium">
                         Dashboard
                     </a>
                     <a href="create_event.html" class="text-primary font-medium border-b-2 border-primary pb-1">
@@ -39,9 +44,11 @@
 
                 <!-- User Menu -->
                 <div class="flex items-center gap-4">
-                    <button class="hidden md:flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+                    <button
+                        class="hidden md:flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                         </svg>
                     </button>
                     <div class="flex items-center gap-3">
@@ -49,7 +56,8 @@
                             <p class="text-sm font-medium text-text-primary">Admin User</p>
                             <p class="text-xs text-text-secondary">admin@novex.edu</p>
                         </div>
-                        <button class="w-10 h-10 rounded-full bg-primary-100 text-primary flex items-center justify-center font-medium hover:bg-primary-200 transition-colors">
+                        <button
+                            class="w-10 h-10 rounded-full bg-primary-100 text-primary flex items-center justify-center font-medium hover:bg-primary-200 transition-colors">
                             AU
                         </button>
                     </div>
@@ -65,23 +73,28 @@
             <div class="flex items-center gap-2 text-sm text-text-secondary mb-3">
                 <a href="admin_dashboard.html" class="hover:text-primary transition-colors">Dashboard</a>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
                 <span class="text-text-primary">Create Event</span>
             </div>
             <h1 class="text-3xl lg:text-4xl font-heading font-semibold text-text-primary mb-2">Create New Event</h1>
-            <p class="text-text-secondary">Fill in the details below to publish a new campus event for students to discover</p>
+            <p class="text-text-secondary">Fill in the details below to publish a new campus event for students to
+                discover</p>
         </div>
 
         <!-- Success Message (Hidden by default) -->
-        <div id="successMessage" class="hidden mb-6 p-4 bg-success-50 border border-success-200 rounded-lg animate-fade-in">
+        <div id="successMessage"
+            class="hidden mb-6 p-4 bg-success-50 border border-success-200 rounded-lg animate-fade-in">
             <div class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
                 </svg>
                 <div>
                     <p class="text-sm font-medium text-success-700">Event published successfully!</p>
-                    <p class="text-sm text-success-600 mt-1">Students can now discover your event on their dashboard.</p>
+                    <p class="text-sm text-success-600 mt-1">Students can now discover your event on their dashboard.
+                    </p>
                 </div>
             </div>
         </div>
@@ -90,7 +103,9 @@
         <div id="errorMessage" class="hidden mb-6 p-4 bg-error-50 border border-error-200 rounded-lg">
             <div class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clip-rule="evenodd" />
                 </svg>
                 <div>
                     <p class="text-sm font-medium text-error-700" id="errorText">Please fill in all required fields</p>
@@ -104,7 +119,8 @@
             <div class="card">
                 <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Basic Information
                 </h2>
@@ -113,44 +129,28 @@
                     <!-- Event Title -->
                     <div>
                         <label for="eventTitle" class="label">Event Title <span class="text-error">*</span></label>
-                        <input 
-                            type="text" 
-                            id="eventTitle" 
-                            name="eventTitle"
-                            class="input" 
-                            placeholder="e.g., AI/ML Workshop: Building Your First Neural Network"
-                            required
-                            maxlength="100"
-                        >
+                        <input type="text" id="eventTitle" name="eventTitle" class="input"
+                            placeholder="e.g., AI/ML Workshop: Building Your First Neural Network" required
+                            maxlength="100">
                         <p class="text-xs text-text-secondary mt-2">Maximum 100 characters</p>
                     </div>
 
                     <!-- Event Description -->
                     <div>
-                        <label for="eventDescription" class="label">Event Description <span class="text-error">*</span></label>
-                        <textarea 
-                            id="eventDescription" 
-                            name="eventDescription"
-                            rows="6"
-                            class="input resize-none" 
+                        <label for="eventDescription" class="label">Event Description <span
+                                class="text-error">*</span></label>
+                        <textarea id="eventDescription" name="eventDescription" rows="6" class="input resize-none"
                             placeholder="Provide a detailed description of the event, including what participants will learn, who should attend, and any prerequisites..."
-                            required
-                            maxlength="1000"
-                        ></textarea>
+                            required maxlength="1000"></textarea>
                         <p class="text-xs text-text-secondary mt-2">Maximum 1000 characters</p>
                     </div>
 
                     <!-- Organizer Name -->
                     <div>
-                        <label for="organizerName" class="label">Organizer Name <span class="text-error">*</span></label>
-                        <input 
-                            type="text" 
-                            id="organizerName" 
-                            name="organizerName"
-                            class="input" 
-                            placeholder="e.g., Computer Science Club, Tech Society"
-                            required
-                        >
+                        <label for="organizerName" class="label">Organizer Name <span
+                                class="text-error">*</span></label>
+                        <input type="text" id="organizerName" name="organizerName" class="input"
+                            placeholder="e.g., Computer Science Club, Tech Society" required>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,8 @@
             <div class="card">
                 <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Date & Time
                 </h2>
@@ -168,50 +169,27 @@
                     <!-- Event Date -->
                     <div>
                         <label for="eventDate" class="label">Event Date <span class="text-error">*</span></label>
-                        <input 
-                            type="date" 
-                            id="eventDate" 
-                            name="eventDate"
-                            class="input" 
-                            required
-                            min="2026-01-03"
-                        >
+                        <input type="date" id="eventDate" name="eventDate" class="input" required min="2026-01-03">
                     </div>
 
                     <!-- Event Time -->
                     <div>
                         <label for="eventTime" class="label">Event Time <span class="text-error">*</span></label>
-                        <input 
-                            type="time" 
-                            id="eventTime" 
-                            name="eventTime"
-                            class="input" 
-                            required
-                        >
+                        <input type="time" id="eventTime" name="eventTime" class="input" required>
                     </div>
 
                     <!-- Registration Deadline -->
                     <div>
-                        <label for="registrationDeadline" class="label">Registration Deadline <span class="text-error">*</span></label>
-                        <input 
-                            type="date" 
-                            id="registrationDeadline" 
-                            name="registrationDeadline"
-                            class="input" 
-                            required
-                            min="2026-01-03"
-                        >
+                        <label for="registrationDeadline" class="label">Registration Deadline <span
+                                class="text-error">*</span></label>
+                        <input type="date" id="registrationDeadline" name="registrationDeadline" class="input" required
+                            min="2026-01-03">
                     </div>
 
                     <!-- Location Type -->
                     <div>
                         <label for="locationType" class="label">Location Type <span class="text-error">*</span></label>
-                        <select 
-                            id="locationType" 
-                            name="locationType"
-                            class="input" 
-                            required
-                        >
+                        <select id="locationType" name="locationType" class="input" required>
                             <option value="">Select location type</option>
                             <option value="in-person">In-Person</option>
                             <option value="online">Online</option>
@@ -222,14 +200,10 @@
 
                 <!-- Location Details (Conditional) -->
                 <div id="locationDetails" class="hidden mt-6">
-                    <label for="locationAddress" class="label">Location Details <span class="text-error">*</span></label>
-                    <input 
-                        type="text" 
-                        id="locationAddress" 
-                        name="locationAddress"
-                        class="input" 
-                        placeholder="e.g., Main Auditorium, Building A, Room 301 or Zoom Meeting Link"
-                    >
+                    <label for="locationAddress" class="label">Location Details <span
+                            class="text-error">*</span></label>
+                    <input type="text" id="locationAddress" name="locationAddress" class="input"
+                        placeholder="e.g., Main Auditorium, Building A, Room 301 or Zoom Meeting Link">
                 </div>
             </div>
 
@@ -237,21 +211,17 @@
             <div class="card">
                 <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg>
                     Registration
                 </h2>
 
                 <div>
-                    <label for="registrationLink" class="label">Registration Link <span class="text-error">*</span></label>
-                    <input 
-                        type="url" 
-                        id="registrationLink" 
-                        name="registrationLink"
-                        class="input" 
-                        placeholder="https://forms.google.com/..."
-                        required
-                    >
+                    <label for="registrationLink" class="label">Registration Link <span
+                            class="text-error">*</span></label>
+                    <input type="url" id="registrationLink" name="registrationLink" class="input"
+                        placeholder="https://forms.google.com/..." required>
                     <p class="text-xs text-text-secondary mt-2">Provide a valid URL for event registration</p>
                 </div>
             </div>
@@ -260,26 +230,39 @@
             <div class="card">
                 <h2 class="text-xl font-heading font-semibold text-text-primary mb-6 flex items-center gap-2">
                     <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                     </svg>
                     Event Tags
                 </h2>
-                <p class="text-sm text-text-secondary mb-6">Select relevant tags to help students discover your event. Choose at least one tag from each category.</p>
+                <p class="text-sm text-text-secondary mb-6">Select relevant tags to help students discover your event.
+                    Choose at least one tag from each category.</p>
 
                 <!-- Primary Categories -->
                 <div class="mb-8">
-                    <h3 class="text-base font-medium text-text-primary mb-4">Primary Category <span class="text-error">*</span></h3>
+                    <h3 class="text-base font-medium text-text-primary mb-4">Primary Category <span
+                            class="text-error">*</span></h3>
                     <div class="flex flex-wrap gap-3">
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Hackathon">Hackathon</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Ideathon">Ideathon</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Workshop">Workshop</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Seminar">Seminar</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Cultural Fest">Cultural Fest</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Competition">Competition</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Gaming Event">Gaming Event</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Club Activity">Club Activity</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Internship Opportunity">Internship Opportunity</button>
-                        <button type="button" class="tag-btn" data-category="primary" data-tag="Tech Talk">Tech Talk</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Hackathon">Hackathon</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Ideathon">Ideathon</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Workshop">Workshop</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Seminar">Seminar</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Cultural Fest">Cultural
+                            Fest</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Competition">Competition</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Gaming Event">Gaming
+                            Event</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Club Activity">Club
+                            Activity</button>
+                        <button type="button" class="tag-btn" data-category="primary"
+                            data-tag="Internship Opportunity">Internship Opportunity</button>
+                        <button type="button" class="tag-btn" data-category="primary" data-tag="Tech Talk">Tech
+                            Talk</button>
                     </div>
                 </div>
 
@@ -288,15 +271,23 @@
                     <h3 class="text-base font-medium text-text-primary mb-4">Domain/Skill Tags</h3>
                     <div class="flex flex-wrap gap-3">
                         <button type="button" class="tag-btn" data-category="domain" data-tag="AI/ML">AI/ML</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Web Development">Web Development</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="App Development">App Development</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Cyber Security">Cyber Security</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Data Science">Data Science</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Robotics">Robotics</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Design/UI-UX">Design/UI-UX</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Web Development">Web
+                            Development</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="App Development">App
+                            Development</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Cyber Security">Cyber
+                            Security</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Data Science">Data
+                            Science</button>
+                        <button type="button" class="tag-btn" data-category="domain"
+                            data-tag="Robotics">Robotics</button>
+                        <button type="button" class="tag-btn" data-category="domain"
+                            data-tag="Design/UI-UX">Design/UI-UX</button>
                         <button type="button" class="tag-btn" data-category="domain" data-tag="Finance">Finance</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Entrepreneurship">Entrepreneurship</button>
-                        <button type="button" class="tag-btn" data-category="domain" data-tag="Public Speaking">Public Speaking</button>
+                        <button type="button" class="tag-btn" data-category="domain"
+                            data-tag="Entrepreneurship">Entrepreneurship</button>
+                        <button type="button" class="tag-btn" data-category="domain" data-tag="Public Speaking">Public
+                            Speaking</button>
                     </div>
                 </div>
 
@@ -306,12 +297,17 @@
                     <div class="flex flex-wrap gap-3">
                         <button type="button" class="tag-btn" data-category="interest" data-tag="Music">Music</button>
                         <button type="button" class="tag-btn" data-category="interest" data-tag="Dance">Dance</button>
-                        <button type="button" class="tag-btn" data-category="interest" data-tag="Photography">Photography</button>
+                        <button type="button" class="tag-btn" data-category="interest"
+                            data-tag="Photography">Photography</button>
                         <button type="button" class="tag-btn" data-category="interest" data-tag="Gaming">Gaming</button>
-                        <button type="button" class="tag-btn" data-category="interest" data-tag="Content Creation">Content Creation</button>
-                        <button type="button" class="tag-btn" data-category="interest" data-tag="Open Source">Open Source</button>
-                        <button type="button" class="tag-btn" data-category="interest" data-tag="Startups">Startups</button>
-                        <button type="button" class="tag-btn" data-category="interest" data-tag="Networking">Networking</button>
+                        <button type="button" class="tag-btn" data-category="interest"
+                            data-tag="Content Creation">Content Creation</button>
+                        <button type="button" class="tag-btn" data-category="interest" data-tag="Open Source">Open
+                            Source</button>
+                        <button type="button" class="tag-btn" data-category="interest"
+                            data-tag="Startups">Startups</button>
+                        <button type="button" class="tag-btn" data-category="interest"
+                            data-tag="Networking">Networking</button>
                     </div>
                 </div>
 
@@ -319,42 +315,46 @@
                 <div>
                     <h3 class="text-base font-medium text-text-primary mb-4">Level Tags</h3>
                     <div class="flex flex-wrap gap-3">
-                        <button type="button" class="tag-btn" data-category="level" data-tag="Beginner Friendly">Beginner Friendly</button>
-                        <button type="button" class="tag-btn" data-category="level" data-tag="Intermediate">Intermediate</button>
-                        <button type="button" class="tag-btn" data-category="level" data-tag="Advanced">Advanced</button>
-                        <button type="button" class="tag-btn" data-category="level" data-tag="Open for All Years">Open for All Years</button>
-                        <button type="button" class="tag-btn" data-category="level" data-tag="First-Year Friendly">First-Year Friendly</button>
+                        <button type="button" class="tag-btn" data-category="level"
+                            data-tag="Beginner Friendly">Beginner Friendly</button>
+                        <button type="button" class="tag-btn" data-category="level"
+                            data-tag="Intermediate">Intermediate</button>
+                        <button type="button" class="tag-btn" data-category="level"
+                            data-tag="Advanced">Advanced</button>
+                        <button type="button" class="tag-btn" data-category="level" data-tag="Open for All Years">Open
+                            for All Years</button>
+                        <button type="button" class="tag-btn" data-category="level"
+                            data-tag="First-Year Friendly">First-Year Friendly</button>
                     </div>
                 </div>
 
                 <!-- Selected Tags Summary -->
-                <div id="selectedTagsSummary" class="hidden mt-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
-                    <h4 class="text-sm font-medium text-primary-700 mb-3">Selected Tags (<span id="tagCount">0</span>)</h4>
+                <div id="selectedTagsSummary"
+                    class="hidden mt-8 p-4 bg-primary-50 rounded-lg border border-primary-200">
+                    <h4 class="text-sm font-medium text-primary-700 mb-3">Selected Tags (<span id="tagCount">0</span>)
+                    </h4>
                     <div id="selectedTagsList" class="flex flex-wrap gap-2"></div>
                 </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-end">
-                <button 
-                    type="button" 
-                    id="saveDraftBtn"
-                    class="btn btn-outline order-2 sm:order-1"
-                >
+                <button type="button" id="saveDraftBtn" class="btn btn-outline order-2 sm:order-1">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                     </svg>
                     Save Draft
                 </button>
-                <button 
-                    type="submit" 
-                    id="publishBtn"
-                    class="btn btn-primary order-1 sm:order-2"
-                >
+                <button type="submit" id="publishBtn" class="btn btn-primary order-1 sm:order-2">
                     <span id="publishBtnText">Publish Event</span>
-                    <svg id="publishSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg id="publishSpinner" class="hidden animate-spin h-5 w-5 text-white ml-2"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
                     </svg>
                 </button>
             </div>
@@ -367,18 +367,27 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-text-secondary">© 2026 Novex. All Rights Reserved.</p>
                 <div class="flex items-center gap-6">
-                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Help Center</a>
-                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Privacy Policy</a>
-                    <a href="javascript:void(0)" class="text-sm text-text-secondary hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)"
+                        class="text-sm text-text-secondary hover:text-primary transition-colors">Help Center</a>
+                    <a href="javascript:void(0)"
+                        class="text-sm text-text-secondary hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)"
+                        class="text-sm text-text-secondary hover:text-primary transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/events.js"></script>
     <script>
+        // Check if admin is logged in
+        if (localStorage.getItem('adminLoggedIn') !== 'true') {
+            window.location.href = 'admin_login.html';
+        }
+
         // Tag Selection System
-        const selectedTags = {
+        let selectedTags = {
             primary: [],
             domain: [],
             interest: [],
@@ -391,8 +400,8 @@
             // Initial styling
             btn.className = 'tag-btn px-4 py-2 rounded-full text-sm font-medium border-2 transition-all duration-250';
             btn.classList.add('border-border', 'text-text-secondary', 'hover:border-primary', 'hover:text-primary', 'hover:bg-primary-50');
-            
-            btn.addEventListener('click', function() {
+
+            btn.addEventListener('click', function () {
                 const category = this.dataset.category;
                 const tag = this.dataset.tag;
                 const isSelected = this.classList.contains('selected');
@@ -436,11 +445,11 @@
         const locationDetails = document.getElementById('locationDetails');
         const locationAddress = document.getElementById('locationAddress');
 
-        locationType.addEventListener('change', function() {
+        locationType.addEventListener('change', function () {
             if (this.value) {
                 locationDetails.classList.remove('hidden');
                 locationAddress.required = true;
-                
+
                 // Update placeholder based on location type
                 if (this.value === 'online') {
                     locationAddress.placeholder = 'e.g., Zoom Meeting Link, Google Meet URL';
@@ -503,7 +512,7 @@
             errorText.textContent = message;
             errorMessage.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
+
             setTimeout(() => {
                 errorMessage.classList.add('hidden');
             }, 5000);
@@ -514,10 +523,10 @@
             const successMessage = document.getElementById('successMessage');
             successMessage.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
+
             setTimeout(() => {
                 window.location.href = 'admin_dashboard.html';
-            }, 2000);
+            }, 1000);
         }
 
         // Form Submission
@@ -526,9 +535,9 @@
         const publishBtnText = document.getElementById('publishBtnText');
         const publishSpinner = document.getElementById('publishSpinner');
 
-        createEventForm.addEventListener('submit', function(e) {
+        createEventForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Hide previous messages
             document.getElementById('errorMessage').classList.add('hidden');
             document.getElementById('successMessage').classList.add('hidden');
@@ -543,6 +552,9 @@
             publishSpinner.classList.remove('hidden');
             publishBtn.disabled = true;
 
+            // Flatten tags for storage compatibility with dashboards
+            const flattenedTags = [...selectedTags.primary, ...selectedTags.domain, ...selectedTags.interest, ...selectedTags.level];
+
             // Collect form data
             const formData = {
                 title: document.getElementById('eventTitle').value,
@@ -554,26 +566,33 @@
                 locationType: document.getElementById('locationType').value,
                 locationAddress: document.getElementById('locationAddress').value,
                 registrationLink: document.getElementById('registrationLink').value,
-                tags: selectedTags,
-                createdAt: new Date().toISOString(),
-                status: 'upcoming'
+                tags: flattenedTags, // Save as array
+                createdAt: new Date().toISOString()
+                // status is handled in EventService based on dates
             };
 
-            // Simulate API call (2 seconds delay)
-            setTimeout(() => {
-                // Store in localStorage (mock database)
-                const events = JSON.parse(localStorage.getItem('novexEvents') || '[]');
-                events.push(formData);
-                localStorage.setItem('novexEvents', JSON.stringify(events));
+            // Check if editing
+            const editId = localStorage.getItem('editEventId');
+            if (editId) {
+                formData.id = Number(editId);
+            }
 
-                // Show success and redirect
+            // Save via Service
+            // Simulate brief network delay for UX
+            setTimeout(() => {
+                EventService.saveEvent(formData);
+
+                // Clear edit ID and draft
+                localStorage.removeItem('editEventId');
+                localStorage.removeItem('novexEventDraft');
+
                 showSuccess();
-            }, 2000);
+            }, 800);
         });
 
         // Save Draft Handler
         const saveDraftBtn = document.getElementById('saveDraftBtn');
-        saveDraftBtn.addEventListener('click', function() {
+        saveDraftBtn.addEventListener('click', function () {
             const formData = {
                 title: document.getElementById('eventTitle').value,
                 description: document.getElementById('eventDescription').value,
@@ -608,47 +627,98 @@
             }, 2000);
         });
 
-        // Load Draft on Page Load
-        window.addEventListener('DOMContentLoaded', function() {
+        // Load Data on Page Load (Edit OR Draft)
+        window.addEventListener('DOMContentLoaded', function () {
+            const editId = localStorage.getItem('editEventId');
             const draft = localStorage.getItem('novexEventDraft');
-            if (draft) {
-                const draftData = JSON.parse(draft);
-                
-                // Populate form fields
-                document.getElementById('eventTitle').value = draftData.title || '';
-                document.getElementById('eventDescription').value = draftData.description || '';
-                document.getElementById('organizerName').value = draftData.organizer || '';
-                document.getElementById('eventDate').value = draftData.date || '';
-                document.getElementById('eventTime').value = draftData.time || '';
-                document.getElementById('registrationDeadline').value = draftData.deadline || '';
-                document.getElementById('locationType').value = draftData.locationType || '';
-                document.getElementById('locationAddress').value = draftData.locationAddress || '';
-                document.getElementById('registrationLink').value = draftData.registrationLink || '';
 
-                // Trigger location type change
-                if (draftData.locationType) {
-                    locationType.dispatchEvent(new Event('change'));
+            let dataToLoad = null;
+
+            if (editId) {
+                // Load Event to Edit
+                const event = EventService.getEventById(editId);
+                if (event) {
+                    dataToLoad = event;
+                    // Update UI for Edit Mode
+                    document.querySelector('h1').textContent = 'Edit Event';
+                    document.title = 'Edit Event - Novex';
+                    document.getElementById('publishBtnText').textContent = 'Update Event';
                 }
+            } else if (draft) {
+                // Load Draft
+                dataToLoad = JSON.parse(draft);
+            }
 
-                // Restore selected tags
-                if (draftData.tags) {
-                    Object.keys(draftData.tags).forEach(category => {
-                        draftData.tags[category].forEach(tag => {
+            if (dataToLoad) {
+                populateForm(dataToLoad);
+            }
+        });
+
+        function populateForm(data) {
+            // Populate form fields
+            document.getElementById('eventTitle').value = data.title || '';
+            document.getElementById('eventDescription').value = data.description || '';
+            document.getElementById('organizerName').value = data.organizer || '';
+            document.getElementById('eventDate').value = data.date || '';
+            document.getElementById('eventTime').value = data.time || '';
+            document.getElementById('registrationDeadline').value = data.deadline || '';
+            document.getElementById('locationType').value = data.locationType || '';
+            document.getElementById('locationAddress').value = data.locationAddress || '';
+            document.getElementById('registrationLink').value = data.registrationLink || '';
+
+            // Trigger location type change
+            if (data.locationType) {
+                locationType.dispatchEvent(new Event('change'));
+            }
+
+            // Restore selected tags
+            // Handle structure of tags (service uses flat array in some cases? No, let's keep it object or array)
+            // EventService save logic: events.push(newEvent). newEvent has whatever 'tags' was.
+            // Draft logic: saves 'tags' as object {primary:[], ...}
+            // If fetching from EventService (getEvents), it returns what was saved.
+            // But wait, the mock data arrays in events.js use `tags: ["AI/ML", "Hackathon"]` (flat array).
+            // My create form uses `selectedTags` object.
+            // If I save the object, it works. But the Mock data in `events.js` is flat.
+            // I should standardized to FLAT array for `getEvents` display (like in dashboard), 
+            // but for Editing, I need to know the categories?
+            // Actually, `EventService` mock data: `tags: ["AI/ML", "Hackathon", "Advanced"]`.
+            // My `create_event` script produces `tags: {primary:[], domain:[]...}`.
+            // This is a discrepancy!
+            // I should flatten the tags when saving in `submit` handler to match `events.js` schema,
+            // OR update `events.js` schema to be structured.
+            // Dashboards expect `event.tags` to be iterable (likely array).
+            // In Admin Dashboard: `(event.tags || []).slice(0, 2).map(...)`.
+            // In Student Dashboard: `event.tags` used as `Array.isArray(event.tags) ? ...`.
+
+            // Solution: Flatten on save.
+            // But for Edit, we lose category info.
+            // That's acceptable for now. I'll just try to map them back or just select them by matching string.
+
+            if (data.tags) {
+                if (Array.isArray(data.tags)) {
+                    // Flat array (from mock data or flattened save)
+                    data.tags.forEach(tag => {
+                        // Find button with this tag and click it
+                        const buttons = document.querySelectorAll(`[data-tag="${tag}"]`);
+                        buttons.forEach(btn => {
+                            if (!btn.classList.contains('selected')) btn.click();
+                        });
+                    });
+                } else {
+                    // Object (from draft)
+                    Object.keys(data.tags).forEach(category => {
+                        data.tags[category].forEach(tag => {
                             const btn = document.querySelector(`[data-category="${category}"][data-tag="${tag}"]`);
-                            if (btn) {
+                            if (btn && !btn.classList.contains('selected')) {
                                 btn.click();
                             }
                         });
                     });
                 }
             }
-        });
-
-        // Check if admin is logged in
-        if (localStorage.getItem('adminLoggedIn') !== 'true') {
-            window.location.href = 'admin_login.html';
         }
     </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>

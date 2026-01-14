@@ -7,9 +7,7 @@
     <title>Admin Dashboard - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
 
-    <script type="module" async
-        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-    <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+
 </head>
 
 <body class="bg-background min-h-screen">
@@ -414,144 +412,34 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="../js/events.js"></script>
     <script>
         // Check authentication immediately
         if (localStorage.getItem('adminLoggedIn') !== 'true') {
+            // alert('Access Denied. You are not logged in.'); // Optional: Enable for debugging
             window.location.href = '../index.html';
         }
 
-        // Mock Events Data
-        const mockEvents = [
-            {
-                id: 1,
-                title: "AI/ML Hackathon 2026",
-                date: "2026-01-15",
-                deadline: "2026-01-10",
-                status: "closing-soon",
-                organizer: "Tech Club",
-                category: "Hackathon",
-                tags: ["AI/ML", "Hackathon", "Advanced"],
-                location: "Online",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 2,
-                title: "Web Development Workshop",
-                date: "2026-01-20",
-                deadline: "2026-01-18",
-                status: "upcoming",
-                organizer: "CS Department",
-                category: "Workshop",
-                tags: ["Web Development", "Workshop", "Beginner Friendly"],
-                location: "Lab 301",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 3,
-                title: "Annual Cultural Fest",
-                date: "2026-02-05",
-                deadline: "2026-01-25",
-                status: "upcoming",
-                organizer: "Student Council",
-                category: "Cultural",
-                tags: ["Music", "Dance", "Cultural Fest"],
-                location: "Main Auditorium",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 4,
-                title: "Cyber Security Seminar",
-                date: "2026-01-12",
-                deadline: "2026-01-08",
-                status: "closing-soon",
-                organizer: "Security Club",
-                category: "Seminar",
-                tags: ["Cyber Security", "Seminar", "Intermediate"],
-                location: "Conference Hall",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 5,
-                title: "Design Thinking Competition",
-                date: "2026-01-25",
-                deadline: "2026-01-20",
-                status: "upcoming",
-                organizer: "Innovation Lab",
-                category: "Competition",
-                tags: ["Design/UI-UX", "Competition", "Open for All Years"],
-                location: "Innovation Center",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 6,
-                title: "Startup Pitch Event",
-                date: "2026-01-05",
-                deadline: "2026-01-02",
-                status: "closed",
-                organizer: "Entrepreneurship Cell",
-                category: "Competition",
-                tags: ["Entrepreneurship", "Startups", "Advanced"],
-                location: "Auditorium B",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 7,
-                title: "Data Science Workshop",
-                date: "2026-02-10",
-                deadline: "2026-02-05",
-                status: "upcoming",
-                organizer: "Analytics Club",
-                category: "Workshop",
-                tags: ["Data Science", "Workshop", "Intermediate"],
-                location: "Computer Lab",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 8,
-                title: "Gaming Tournament",
-                date: "2026-01-18",
-                deadline: "2026-01-15",
-                status: "upcoming",
-                organizer: "Gaming Club",
-                category: "Gaming Event",
-                tags: ["Gaming", "Competition", "Open for All Years"],
-                location: "Sports Complex",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 9,
-                title: "Photography Exhibition",
-                date: "2026-02-01",
-                deadline: "2026-01-28",
-                status: "upcoming",
-                organizer: "Arts Society",
-                category: "Cultural",
-                tags: ["Photography", "Cultural Fest", "Beginner Friendly"],
-                location: "Art Gallery",
-                registrationLink: "https://example.com/register"
-            },
-            {
-                id: 10,
-                title: "Robotics Challenge",
-                date: "2026-01-22",
-                deadline: "2026-01-17",
-                status: "upcoming",
-                organizer: "Robotics Club",
-                category: "Competition",
-                tags: ["Robotics", "Competition", "Advanced"],
-                location: "Engineering Lab",
-                registrationLink: "https://example.com/register"
-            }
-        ];
+        // Mock Events Data - REPLACED BY EventService
+        // const mockEvents = [...]; 
 
         let currentPage = 1;
         const eventsPerPage = 10;
-        let filteredEvents = [...mockEvents];
+        let filteredEvents = []; // Will be populated from EventService
         let selectedEvents = new Set();
+        let allEvents = [];
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function () {
+            // Load events from service
+            allEvents = EventService.getEvents();
+            filteredEvents = [...allEvents];
+
             renderEvents();
+
+            // Check for created event success (if redirected with query param?)
+            // Or just rely on renderEvents showing the new list.
+
             setupEventListeners();
         });
 
@@ -559,6 +447,13 @@
         function renderEvents() {
             const tableBody = document.getElementById('eventsTableBody');
             const cardContainer = document.getElementById('eventsCardContainer');
+
+            if (filteredEvents.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-text-secondary">No events found</td></tr>';
+                cardContainer.innerHTML = '<div class="text-center py-4 text-text-secondary">No events found</div>';
+                updatePagination();
+                return;
+            }
 
             const startIndex = (currentPage - 1) * eventsPerPage;
             const endIndex = startIndex + eventsPerPage;
@@ -574,7 +469,7 @@
                         <div>
                             <p class="font-medium text-text-primary">${event.title}</p>
                             <div class="flex flex-wrap gap-1 mt-1">
-                                ${event.tags.slice(0, 2).map(tag => `
+                                ${(event.tags || []).slice(0, 2).map(tag => `
                                     <span class="badge badge-secondary text-xs">${tag}</span>
                                 `).join('')}
                             </div>
@@ -626,7 +521,7 @@
                         <div class="flex-1">
                             <h3 class="font-heading font-semibold text-text-primary mb-2">${event.title}</h3>
                             <div class="flex flex-wrap gap-2 mb-3">
-                                ${event.tags.slice(0, 3).map(tag => `
+                                ${(event.tags || []).slice(0, 3).map(tag => `
                                     <span class="badge badge-secondary text-xs">${tag}</span>
                                 `).join('')}
                             </div>
@@ -733,10 +628,10 @@
             // Search
             document.getElementById('searchInput').addEventListener('input', function (e) {
                 const searchTerm = e.target.value.toLowerCase();
-                filteredEvents = mockEvents.filter(event =>
+                filteredEvents = allEvents.filter(event =>
                     event.title.toLowerCase().includes(searchTerm) ||
                     event.organizer.toLowerCase().includes(searchTerm) ||
-                    event.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    (event.tags && event.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
                 );
                 currentPage = 1;
                 renderEvents();
@@ -812,10 +707,11 @@
 
         document.getElementById('confirmDelete').addEventListener('click', () => {
             if (eventToDelete) {
-                const index = mockEvents.findIndex(e => e.id === eventToDelete);
-                if (index > -1) {
-                    mockEvents.splice(index, 1);
-                    filteredEvents = [...mockEvents];
+                // Use EventService to delete
+                const success = EventService.deleteEvent(eventToDelete);
+                if (success) {
+                    allEvents = EventService.getEvents();
+                    filteredEvents = [...allEvents];
                     renderEvents();
                 }
                 document.getElementById('deleteModal').classList.add('hidden');
@@ -830,6 +726,7 @@
             window.location.href = '../index.html';
         });
     </script>
+
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 

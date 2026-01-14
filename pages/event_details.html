@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details - Novex</title>
     <link rel="stylesheet" href="../css/main.css">
-  
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
-  </head>
+
+    <script type="module" async
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
+    <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
 <body class="bg-background min-h-screen">
     <!-- Navigation Header -->
     <header class="bg-surface border-b border-border sticky top-0 z-navigation">
@@ -16,62 +19,78 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo & Brand -->
                 <a href="student_dashboard.html" class="flex items-center gap-3 group">
-                    <svg class="w-8 h-8 text-primary transition-transform group-hover:scale-105" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
-                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
-                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    <svg class="w-8 h-8 text-primary transition-transform group-hover:scale-105" viewBox="0 0 48 48"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
                     </svg>
                     <span class="text-xl font-heading font-semibold text-text-primary">Novex</span>
                 </a>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-6">
-                    <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors font-medium">
+                    <a href="student_dashboard.html"
+                        class="text-text-secondary hover:text-primary transition-colors font-medium">
                         Dashboard
                     </a>
-                    <a href="student_dashboard.html#saved-events" class="text-text-secondary hover:text-primary transition-colors font-medium">
+                    <a href="student_dashboard.html#saved-events"
+                        class="text-text-secondary hover:text-primary transition-colors font-medium">
                         Saved Events
                     </a>
                 </nav>
 
                 <!-- User Menu -->
                 <div class="flex items-center gap-4">
-                    <button id="userMenuBtn" class="flex items-center gap-2 p-2 rounded-lg hover:bg-background transition-colors">
+                    <button id="userMenuBtn"
+                        class="flex items-center gap-2 p-2 rounded-lg hover:bg-background transition-colors">
                         <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
                             <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
-                        <svg class="w-4 h-4 text-text-secondary hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        <svg class="w-4 h-4 text-text-secondary hidden md:block" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
 
                     <!-- User Dropdown Menu -->
-                    <div id="userDropdown" class="hidden absolute right-4 top-16 w-56 bg-surface rounded-xl border border-border shadow-lg z-dropdown">
+                    <div id="userDropdown"
+                        class="hidden absolute right-4 top-16 w-56 bg-surface rounded-xl border border-border shadow-lg z-dropdown">
                         <div class="p-4 border-b border-border">
                             <p class="text-sm font-medium text-text-primary" id="userEmail">student@university.edu</p>
                             <p class="text-xs text-text-secondary mt-1">Student Account</p>
                         </div>
                         <div class="p-2">
-                            <a href="student_dashboard.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-background transition-colors">
-                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            <a href="student_dashboard.html"
+                                class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-background transition-colors">
+                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                 </svg>
                                 <span class="text-sm text-text-primary">Dashboard</span>
                             </a>
-                            <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-background transition-colors">
-                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <a href="javascript:void(0)"
+                                class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-background transition-colors">
+                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span class="text-sm text-text-primary">Settings</span>
                             </a>
                         </div>
                         <div class="p-2 border-t border-border">
-                            <button id="logoutBtn" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-error-50 transition-colors w-full text-left">
+                            <button id="logoutBtn"
+                                class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-error-50 transition-colors w-full text-left">
                                 <svg class="w-5 h-5 text-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
                                 <span class="text-sm text-error font-medium">Logout</span>
                             </button>
@@ -86,9 +105,10 @@
     <main class="container py-8">
         <!-- Breadcrumb Navigation -->
         <nav class="flex items-center gap-2 text-sm mb-6" aria-label="Breadcrumb">
-            <a href="student_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+            <a href="student_dashboard.html"
+                class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
             <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
             <span class="text-text-primary font-medium">Event Details</span>
         </nav>
@@ -101,21 +121,18 @@
                 <div class="card">
                     <!-- Event Image -->
                     <div class="relative w-full h-64 md:h-80 rounded-xl overflow-hidden mb-6">
-                        <img 
-                            src="https://img.rocket.new/generatedImages/rocket_gen_img_1844572aa-1765958800882.png" 
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1844572aa-1765958800882.png"
                             alt="AI/ML Workshop event banner showing participants working on laptops with machine learning algorithms"
-                            class="w-full h-full object-cover"
-                            loading="lazy"
-                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
-                        >
+                            class="w-full h-full object-cover" loading="lazy"
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
                         <div class="absolute top-4 right-4">
-                            <button 
-                                id="bookmarkBtn" 
+                            <button id="bookmarkBtn"
                                 class="p-3 bg-surface/95 backdrop-blur-sm rounded-full hover:bg-surface transition-all shadow-md"
-                                aria-label="Bookmark this event"
-                            >
-                                <svg id="bookmarkIcon" class="w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                aria-label="Bookmark this event">
+                                <svg id="bookmarkIcon" class="w-6 h-6 text-text-secondary" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                                 </svg>
                             </button>
                         </div>
@@ -131,7 +148,9 @@
                         <div class="flex flex-wrap items-center gap-3">
                             <span class="badge badge-warning flex items-center gap-1">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                        clip-rule="evenodd" />
                                 </svg>
                                 Closing Soon
                             </span>
@@ -145,7 +164,8 @@
                         <div class="flex items-start gap-3">
                             <div class="p-2 bg-primary-50 rounded-lg">
                                 <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
                             <div>
@@ -159,7 +179,8 @@
                         <div class="flex items-start gap-3">
                             <div class="p-2 bg-warning-50 rounded-lg">
                                 <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
@@ -172,9 +193,12 @@
                         <!-- Location -->
                         <div class="flex items-start gap-3">
                             <div class="p-2 bg-secondary-50 rounded-lg">
-                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                             </div>
                             <div>
@@ -188,7 +212,8 @@
                         <div class="flex items-start gap-3">
                             <div class="p-2 bg-accent-50 rounded-lg">
                                 <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                             </div>
                             <div>
@@ -204,7 +229,9 @@
                         <h2 class="text-xl font-heading font-semibold text-text-primary mb-4">About This Event</h2>
                         <div class="prose prose-sm max-w-none text-text-secondary space-y-4">
                             <p>
-                                Join us for an immersive hands-on workshop where you'll learn the fundamentals of artificial intelligence and machine learning. This beginner-friendly session will guide you through building your first neural network from scratch using Python and TensorFlow.
+                                Join us for an immersive hands-on workshop where you'll learn the fundamentals of
+                                artificial intelligence and machine learning. This beginner-friendly session will guide
+                                you through building your first neural network from scratch using Python and TensorFlow.
                             </p>
                             <p>
                                 <strong class="text-text-primary">What You'll Learn:</strong>
@@ -242,7 +269,8 @@
                         <div class="space-y-4">
                             <!-- Primary Category -->
                             <div>
-                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Primary</p>
+                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Primary
+                                </p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="badge badge-primary">Workshop</span>
                                 </div>
@@ -250,7 +278,8 @@
 
                             <!-- Domain/Skill Tags -->
                             <div>
-                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Domain & Skills</p>
+                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Domain &
+                                    Skills</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="badge badge-secondary">AI/ML</span>
                                     <span class="badge badge-secondary">Data Science</span>
@@ -260,7 +289,8 @@
 
                             <!-- Interest Tags -->
                             <div>
-                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Interests</p>
+                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">
+                                    Interests</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="badge badge-accent">Tech Innovation</span>
                                     <span class="badge badge-accent">Hands-on Learning</span>
@@ -269,7 +299,8 @@
 
                             <!-- Level Tags -->
                             <div>
-                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Level</p>
+                                <p class="text-xs font-medium text-text-secondary mb-2 uppercase tracking-wide">Level
+                                </p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="badge badge-success">Beginner Friendly</span>
                                     <span class="badge badge-success">First-Year Friendly</span>
@@ -286,12 +317,15 @@
                     <!-- Registration Card -->
                     <div class="card">
                         <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Registration</h3>
-                        
+
                         <!-- Deadline Warning -->
                         <div class="mb-4 p-4 bg-warning-50 border border-warning-200 rounded-lg">
                             <div class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-warning flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                <svg class="w-5 h-5 text-warning flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd" />
                                 </svg>
                                 <div>
                                     <p class="text-sm font-semibold text-warning-800 mb-1">Registration Closing Soon</p>
@@ -312,13 +346,10 @@
                         </div>
 
                         <!-- Registration Button -->
-                        <a 
-                            href="javascript:void(0)" 
-                            id="registerBtn"
-                            class="btn btn-primary w-full mb-3"
-                        >
+                        <a href="javascript:void(0)" id="registerBtn" class="btn btn-primary w-full mb-3">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             Register Now
                         </a>
@@ -332,19 +363,25 @@
                     <div class="card">
                         <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Share Event</h3>
                         <div class="flex gap-3">
-                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2" aria-label="Share on Twitter">
+                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2"
+                                aria-label="Share on Twitter">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    <path
+                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                                 </svg>
                             </button>
-                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2" aria-label="Share on LinkedIn">
+                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2"
+                                aria-label="Share on LinkedIn">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                 </svg>
                             </button>
-                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2" aria-label="Copy event link">
+                            <button class="flex-1 btn btn-outline flex items-center justify-center gap-2"
+                                aria-label="Copy event link">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                 </svg>
                             </button>
                         </div>
@@ -356,7 +393,8 @@
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                                 <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                             </div>
                             <div>
@@ -366,7 +404,8 @@
                         </div>
                         <a href="javascript:void(0)" class="btn btn-outline w-full">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             Send Message
                         </a>
@@ -379,7 +418,8 @@
         <div class="mt-12">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-heading font-semibold text-text-primary">Similar Events</h2>
-                <a href="student_dashboard.html" class="text-primary hover:text-primary-600 font-medium text-sm transition-colors">
+                <a href="student_dashboard.html"
+                    class="text-primary hover:text-primary-600 font-medium text-sm transition-colors">
                     View All Events
                 </a>
             </div>
@@ -388,35 +428,38 @@
                 <!-- Similar Event Card 1 -->
                 <div class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
                     <div class="relative w-full h-48 rounded-lg overflow-hidden mb-4">
-                        <img 
-                            src="https://img.rocket.new/generatedImages/rocket_gen_img_193e12a8d-1766783530191.png" 
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_193e12a8d-1766783530191.png"
                             alt="Deep Learning Fundamentals workshop showing neural network visualization"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
-                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
-                        >
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="badge badge-primary">Workshop</span>
                         <span class="badge badge-success">Open for All</span>
                     </div>
-                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+                    <h3
+                        class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
                         Deep Learning Fundamentals
                     </h3>
                     <p class="text-sm text-text-secondary mb-4 line-clamp-2">
-                        Explore advanced neural network architectures and optimization techniques in this comprehensive workshop.
+                        Explore advanced neural network architectures and optimization techniques in this comprehensive
+                        workshop.
                     </p>
                     <div class="flex items-center gap-4 text-xs text-text-secondary">
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             <span>Jan 20, 2026</span>
                         </div>
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             <span>Online</span>
                         </div>
@@ -426,35 +469,38 @@
                 <!-- Similar Event Card 2 -->
                 <div class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
                     <div class="relative w-full h-48 rounded-lg overflow-hidden mb-4">
-                        <img 
-                            src="https://img.rocket.new/generatedImages/rocket_gen_img_11ce7c15d-1767451238001.png" 
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_11ce7c15d-1767451238001.png"
                             alt="Data Science Bootcamp event showing data visualization and analytics"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
-                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
-                        >
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="badge badge-accent">Bootcamp</span>
                         <span class="badge badge-warning">Intermediate</span>
                     </div>
-                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+                    <h3
+                        class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
                         Data Science Bootcamp
                     </h3>
                     <p class="text-sm text-text-secondary mb-4 line-clamp-2">
-                        Intensive 3-day bootcamp covering data analysis, visualization, and machine learning applications.
+                        Intensive 3-day bootcamp covering data analysis, visualization, and machine learning
+                        applications.
                     </p>
                     <div class="flex items-center gap-4 text-xs text-text-secondary">
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             <span>Jan 25-27, 2026</span>
                         </div>
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             <span>Hybrid</span>
                         </div>
@@ -464,19 +510,18 @@
                 <!-- Similar Event Card 3 -->
                 <div class="card group cursor-pointer" onclick="window.location.href='event_details.html'">
                     <div class="relative w-full h-48 rounded-lg overflow-hidden mb-4">
-                        <img 
-                            src="https://img.rocket.new/generatedImages/rocket_gen_img_1f584f41b-1766559352355.png" 
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1f584f41b-1766559352355.png"
                             alt="Python Programming Basics workshop for beginners"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
-                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;"
-                        >
+                            onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="badge badge-primary">Workshop</span>
                         <span class="badge badge-success">Beginner Friendly</span>
                     </div>
-                    <h3 class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+                    <h3
+                        class="text-lg font-heading font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
                         Python Programming Basics
                     </h3>
                     <p class="text-sm text-text-secondary mb-4 line-clamp-2">
@@ -485,14 +530,17 @@
                     <div class="flex items-center gap-4 text-xs text-text-secondary">
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             <span>Jan 18, 2026</span>
                         </div>
                         <div class="flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             <span>Room 205</span>
                         </div>
@@ -507,140 +555,279 @@
         <div class="container py-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
-                    <svg class="w-8 h-8 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1"/>
-                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor"/>
-                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6"/>
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 48 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="currentColor" opacity="0.1" />
+                        <path d="M24 12L32 20L24 28L16 20L24 12Z" fill="currentColor" />
+                        <path d="M24 20L32 28L24 36L16 28L24 20Z" fill="currentColor" opacity="0.6" />
                     </svg>
                     <span class="text-lg font-heading font-semibold text-text-primary">Novex</span>
                 </div>
                 <p class="text-sm text-text-secondary">© 2026 Novex. All Rights Reserved.</p>
                 <div class="flex items-center gap-6">
-                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors text-sm">Privacy</a>
-                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors text-sm">Terms</a>
-                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors text-sm">Contact</a>
+                    <a href="javascript:void(0)"
+                        class="text-text-secondary hover:text-primary transition-colors text-sm">Privacy</a>
+                    <a href="javascript:void(0)"
+                        class="text-text-secondary hover:text-primary transition-colors text-sm">Terms</a>
+                    <a href="javascript:void(0)"
+                        class="text-text-secondary hover:text-primary transition-colors text-sm">Contact</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/events.js"></script>
     <script>
-        // User Menu Dropdown
-        const userMenuBtn = document.getElementById('userMenuBtn');
-        const userDropdown = document.getElementById('userDropdown');
-
-        userMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            userDropdown.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
-                userDropdown.classList.add('hidden');
-            }
-        });
-
-        // Logout Functionality
-        const logoutBtn = document.getElementById('logoutBtn');
-        logoutBtn.addEventListener('click', function() {
-            localStorage.removeItem('studentLoggedIn');
-            localStorage.removeItem('studentEmail');
-            window.location.href = 'student_login.html';
-        });
-
-        // Load User Email
-        const userEmail = localStorage.getItem('studentEmail');
-        if (userEmail) {
-            document.getElementById('userEmail').textContent = userEmail;
-        }
-
-        // Bookmark Functionality
-        const bookmarkBtn = document.getElementById('bookmarkBtn');
-        const bookmarkIcon = document.getElementById('bookmarkIcon');
-        let isBookmarked = false;
-
-        // Check if event is already bookmarked
-        const bookmarkedEvents = JSON.parse(localStorage.getItem('bookmarkedEvents') || '[]');
-        const eventId = 'ai-ml-workshop-2026'; // Unique event identifier
-        isBookmarked = bookmarkedEvents.includes(eventId);
-
-        // Update bookmark icon based on state
-        function updateBookmarkIcon() {
-            if (isBookmarked) {
-                bookmarkIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" fill="currentColor"/>
-                `;
-                bookmarkIcon.classList.remove('text-text-secondary');
-                bookmarkIcon.classList.add('text-accent');
-            } else {
-                bookmarkIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
-                `;
-                bookmarkIcon.classList.remove('text-accent');
-                bookmarkIcon.classList.add('text-text-secondary');
-            }
-        }
-
-        updateBookmarkIcon();
-
-        bookmarkBtn.addEventListener('click', function() {
-            isBookmarked = !isBookmarked;
-            
-            if (isBookmarked) {
-                bookmarkedEvents.push(eventId);
-            } else {
-                const index = bookmarkedEvents.indexOf(eventId);
-                if (index > -1) {
-                    bookmarkedEvents.splice(index, 1);
-                }
-            }
-            
-            localStorage.setItem('bookmarkedEvents', JSON.stringify(bookmarkedEvents));
-            updateBookmarkIcon();
-
-            // Show toast notification
-            showToast(isBookmarked ? 'Event saved to your bookmarks' : 'Event removed from bookmarks');
-        });
-
-        // Registration Button
-        const registerBtn = document.getElementById('registerBtn');
-        registerBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Simulate external registration link
-            showToast('Redirecting to registration form...');
-            setTimeout(() => {
-                // In real implementation, this would redirect to actual registration URL
-                console.log('Redirect to: https://registration.example.com/ai-ml-workshop');
-            }, 1500);
-        });
-
-        // Toast Notification Function
-        function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-8 right-8 bg-surface border border-border rounded-xl shadow-lg p-4 z-toast animate-slide-up';
-            toast.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    <p class="text-sm font-medium text-text-primary">${message}</p>
-                </div>
-            `;
-            document.body.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(20px)';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-
         // Check Authentication
         if (localStorage.getItem('studentLoggedIn') !== 'true') {
             window.location.href = 'student_login.html';
         }
+
+        // Get Event ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = urlParams.get('id');
+
+        if (!eventId) {
+            // No ID provided, redirect to dashboard
+            window.location.href = 'student_dashboard.html';
+        }
+
+        // DOM Elements
+        const elements = {
+            image: document.querySelector('.card img'),
+            title: document.querySelector('h1'),
+            badges: document.querySelector('.flex.flex-wrap.items-center.gap-3'),
+            date: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(1) p.font-medium')[1], // Fragile selector, but structure is fixed
+            time: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(1) p.text-secondary')[1],
+            deadline: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(2) p.font-semibold')[0],
+            deadlineText: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(2) p.text-xs')[1],
+            locationType: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(3) p.font-medium')[1],
+            locationAddress: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(3) p.text-secondary')[1],
+            organizer: document.querySelectorAll('.grid.sm\\:grid-cols-2 > div:nth-child(4) p.font-medium')[1],
+            description: document.querySelector('.prose'),
+            tagPrimary: document.querySelectorAll('.space-y-4 > div:nth-child(1) .flex'),
+            tagDomain: document.querySelectorAll('.space-y-4 > div:nth-child(2) .flex'),
+            tagInterests: document.querySelectorAll('.space-y-4 > div:nth-child(3) .flex'),
+            tagLevel: document.querySelectorAll('.space-y-4 > div:nth-child(4) .flex'),
+            registerBtn: document.getElementById('registerBtn'),
+            bookmarkBtn: document.getElementById('bookmarkBtn'),
+            bookmarkIcon: document.getElementById('bookmarkIcon')
+        };
+
+        // Load Event Data
+        let currentEvent = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            currentEvent = EventService.getEventById(eventId);
+
+            if (!currentEvent) {
+                alert('Event not found!');
+                window.location.href = 'student_dashboard.html';
+                return;
+            }
+
+            renderEventDetails(currentEvent);
+            checkBookmarkStatus();
+            loadSimilarEvents();
+        });
+
+        function renderEventDetails(event) {
+            // Title & Image
+            document.title = `${event.title} - Novex`;
+            elements.title.textContent = event.title;
+            // Use random image if none (for now, assuming no image upload feature)
+            // elements.image.src = event.image || ... 
+
+            // Status Badge
+            let statusBadge = '';
+            if (event.status === 'closing-soon') {
+                statusBadge = `<span class="badge badge-warning flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                                Closing Soon</span>`;
+            } else if (event.status === 'closed') {
+                statusBadge = `<span class="badge badge-error">Registration Closed</span>`;
+            } else {
+                statusBadge = `<span class="badge badge-success">Upcoming</span>`;
+            }
+            // Add category badge
+            const categoryBadge = `<span class="badge badge-primary capitalize">${event.category || 'Event'}</span>`;
+            elements.badges.innerHTML = `${statusBadge} ${categoryBadge}`;
+
+            // Meta Info
+            if (elements.date) elements.date.textContent = formatDate(event.date);
+            if (elements.time) elements.time.textContent = event.time || 'Time TBA';
+
+            if (elements.deadline) {
+                elements.deadline.textContent = formatDate(event.deadline);
+                const daysLeft = getDaysLeft(event.deadline);
+                if (daysLeft < 0) {
+                    elements.deadline.className = 'text-sm font-semibold text-error';
+                    elements.deadlineText.textContent = 'Closed';
+                } else {
+                    elements.deadlineText.textContent = `${daysLeft} days remaining`;
+                }
+            }
+
+            if (elements.locationType) elements.locationType.textContent = (event.locationType || 'Offline').replace('-', ' ');
+            if (elements.locationAddress) elements.locationAddress.textContent = event.locationAddress || event.location || 'TBA';
+
+            if (elements.organizer) elements.organizer.textContent = event.organizer;
+
+            // Description
+            if (elements.description) {
+                elements.description.innerHTML = `<p>${event.description || 'No description provided.'}</p>`;
+            }
+
+            // Tags (Assuming event.tags is Array for simplicity, or we parse the Object)
+            // The Create Event page saves as flattened Array now.
+            // But Mock data is also Array.
+            // Safely handle both
+            let tags = [];
+            if (Array.isArray(event.tags)) {
+                tags = event.tags;
+            } else if (typeof event.tags === 'object') {
+                tags = Object.values(event.tags).flat();
+            }
+
+            // Distribute tags roughly (since we flattened them, we lost category info for display sections)
+            // For now, put all in "Primary" or "Domain" and hide others if empty?
+            // Simpler: Just clear all sections and dump tags in the first one, OR try to guess.
+            // Let's just put them all in "Domain & Skills" container for now to show them.
+            if (elements.tagDomain && elements.tagDomain.length > 0) {
+                elements.tagDomain[0].innerHTML = tags.map(tag => `<span class="badge badge-secondary">${tag}</span>`).join('');
+                // Hide other sections if they look empty/irrelevant now
+                // (This is a quick fix, creating a proper categorized display requires saving categories)
+            }
+
+
+            // Register Button
+            if (elements.registerBtn) {
+                if (event.status === 'closed') {
+                    elements.registerBtn.textContent = 'Registration Closed';
+                    elements.registerBtn.classList.add('btn-disabled', 'opacity-50', 'cursor-not-allowed');
+                    elements.registerBtn.href = 'javascript:void(0)';
+                } else {
+                    elements.registerBtn.href = event.registrationLink || '#';
+                    elements.registerBtn.target = '_blank';
+                    elements.registerBtn.addEventListener('click', (e) => {
+                        if (!event.registrationLink) {
+                            e.preventDefault();
+                            alert('No registration link provided for this event.');
+                        }
+                    });
+                }
+            }
+        }
+
+        // Helper: Format Date
+        function formatDate(dateStr) {
+            if (!dateStr) return 'TBA';
+            return new Date(dateStr).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        // Helper: Days Left
+        function getDaysLeft(deadlineStr) {
+            const today = new Date();
+            const deadline = new Date(deadlineStr);
+            today.setHours(0, 0, 0, 0);
+            return Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+        }
+
+        // Bookmark Logic
+        function checkBookmarkStatus() {
+            const bookmarkedEvents = JSON.parse(localStorage.getItem('bookmarkedEvents') || '[]');
+            const isBookmarked = bookmarkedEvents.includes(String(currentEvent.id));
+            updateBookmarkIcon(isBookmarked);
+        }
+
+        function updateBookmarkIcon(isBookmarked) {
+            const icon = elements.bookmarkIcon;
+            if (isBookmarked) {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" fill="currentColor"/>`;
+                icon.classList.remove('text-text-secondary');
+                icon.classList.add('text-accent');
+            } else {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>`;
+                icon.classList.remove('text-accent');
+                icon.classList.add('text-text-secondary');
+            }
+        }
+
+        if (elements.bookmarkBtn) {
+            elements.bookmarkBtn.addEventListener('click', () => {
+                const bookmarkedEvents = JSON.parse(localStorage.getItem('bookmarkedEvents') || '[]');
+                const eventIdStr = String(currentEvent.id);
+                const index = bookmarkedEvents.indexOf(eventIdStr);
+
+                let newStatus = false;
+                if (index > -1) {
+                    bookmarkedEvents.splice(index, 1);
+                } else {
+                    bookmarkedEvents.push(eventIdStr);
+                    newStatus = true;
+                }
+
+                localStorage.setItem('bookmarkedEvents', JSON.stringify(bookmarkedEvents));
+                updateBookmarkIcon(newStatus);
+                showToast(newStatus ? 'Event saved' : 'Event removed');
+            });
+        }
+
+        // Similar Events (Random 3 from other events)
+        function loadSimilarEvents() {
+            const all = EventService.getEvents();
+            const others = all.filter(e => e.id !== currentEvent.id);
+            // Shuffle
+            const shuffled = others.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+            // Render them if we found the container (assuming standard card layout in "Similar Events")
+            // For now, we will leave the hardcoded ones or clear them. 
+            // Clearing them is safer than showing misleading info.
+            const similarGrid = document.querySelector('.grid.md\\:grid-cols-2.lg\\:grid-cols-3');
+            if (similarGrid && shuffled.length > 0) {
+                similarGrid.innerHTML = shuffled.map(e => `
+                    <div class="card group cursor-pointer" onclick="window.location.href='event_details.html?id=${e.id}'">
+                         <div class="relative w-full h-48 rounded-lg overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940" class="w-full h-full object-cover">
+                         </div>
+                         <h3 class="text-lg font-heading font-semibold text-text-primary mb-2">${e.title}</h3>
+                         <div class="text-sm text-text-secondary">${formatDate(e.date)}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Toast
+        function showToast(message) {
+            // ... (keep existing toast logic)
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-8 right-8 bg-surface border border-border rounded-xl shadow-lg p-4 z-toast animate-slide-up';
+            toast.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <p class="text-sm font-medium text-text-primary">${message}</p>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // User Menu Logic (Preserved)
+        const userMenuBtn = document.getElementById('userMenuBtn');
+        const userDropdown = document.getElementById('userDropdown');
+        if (userMenuBtn && userDropdown) {
+            userMenuBtn.addEventListener('click', (e) => { e.stopPropagation(); userDropdown.classList.toggle('hidden'); });
+            document.addEventListener('click', (e) => { if (!userMenuBtn.contains(e.target)) userDropdown.classList.add('hidden'); });
+        }
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('studentLoggedIn');
+            window.location.href = 'student_login.html';
+        });
+
     </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
+
 </html>

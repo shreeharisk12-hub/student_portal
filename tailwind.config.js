@@ -51,6 +51,33 @@ module.exports = {
           800: '#5C330E',
           900: '#2E1907',
         },
+        // Dark Theme Colors
+        charcoal: {
+          DEFAULT: '#121212',
+          50: '#2C2C2C',
+          100: '#252525',
+          200: '#1E1E1E',
+          300: '#181818',
+          400: '#151515',
+          500: '#121212',
+          600: '#0E0E0E',
+          700: '#0A0A0A',
+          800: '#060606',
+          900: '#030303',
+        },
+        violet: {
+          DEFAULT: '#8B5CF6',
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          200: '#DDD6FE',
+          300: '#C4B5FD',
+          400: '#A78BFA',
+          500: '#8B5CF6',
+          600: '#7C3AED',
+          700: '#6D28D9',
+          800: '#5B21B6',
+          900: '#4C1D95',
+        },
         // Background Colors
         background: '#FAFBFC', // gray-50
         surface: '#FFFFFF', // white
@@ -103,7 +130,7 @@ module.exports = {
       },
       fontFamily: {
         heading: ['Crimson Text', 'serif'],
-        body: ['Source Sans 3', 'sans-serif'],
+        body: ['Inter', 'Source Sans 3', 'sans-serif'],
         caption: ['IBM Plex Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

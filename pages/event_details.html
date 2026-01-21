@@ -10,9 +10,98 @@
     <script type="module" async
         src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovex3576back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12"></script>
     <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.36/build/spline-viewer.js"></script>
+    <style>
+        /* DARK GLASS THEME OVERRIDES */
+        :root {
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: #CBD5E1;
+            /* slate-300 */
+        }
+
+        body {
+            background-color: #0B0F1A !important;
+            color: white !important;
+        }
+
+        /* Fixed Spline */
+        spline-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -5;
+            transform: scale(1.2);
+            opacity: 0.6;
+            /* Slight dimming so text is readable */
+        }
+
+        /* Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 10, 25, 0.7);
+            z-index: -4;
+            pointer-events: none;
+        }
+
+        /* Glass Cards */
+        .card,
+        .bg-surface,
+        header,
+        footer {
+            background: rgba(20, 22, 40, 0.65) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+            color: white !important;
+        }
+
+        /* Remove white backgrounds from specific elements if any */
+        .bg-background {
+            background: transparent !important;
+        }
+
+        /* Text Colors */
+        .text-text-primary,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-heading {
+            color: white !important;
+        }
+
+        .text-text-secondary {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        /* Navigation specifics */
+        nav a {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        nav a:hover {
+            color: white !important;
+        }
+
+        /* Badges/Tags */
+        .badge {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 
-<body class="bg-background min-h-screen">
+<body class="min-h-screen">
+    <spline-viewer url="https://prod.spline.design/fHIvZ8H7Ifx4fOHs/scene.splinecode"></spline-viewer>
     <!-- Navigation Header -->
     <header class="bg-surface border-b border-border sticky top-0 z-navigation">
         <div class="container">

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Interests - Novex</title>
+    <!-- Outfit Font for Retro/Modern feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.37/build/spline-viewer.js"></script>
+    <style>
+        body {
+            background-color: #050510;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            color: #FFFFFF;
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+        }
+
+        /* DARK OVERLAY FOR BETTER CONTRAST */
+        .page-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* FIXED BACKGROUND SPLINE */
+        spline-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            transform: scale(1.2);
+        }
+
+        .glass-card {
+            background: rgba(15, 15, 30, 0.7);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border-radius: 32px;
+            position: relative;
+            z-index: 10;
+            padding: 3rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Chip Styles */
+        .chip-checkbox {
+            display: none;
+        }
+
+        .chip-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            user-select: none;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .chip-label:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(139, 92, 246, 0.5);
+            color: white;
+        }
+
+        .chip-checkbox:checked+.chip-label {
+            background: #8B5CF6;
+            border-color: #8B5CF6;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+            transform: translateY(-3px);
+        }
+
+        h1 {
+            color: #ffffff !important;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            font-size: 2.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: #8B5CF6;
+            color: white;
+            font-weight: 700;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary:hover {
+            background: #7C3AED;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 35px -8px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-skip {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-skip:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="p-4">
+
+    <!-- GLOBAL SPLINE BACKGROUND -->
+    <spline-viewer url="https://prod.spline.design/TcxfCs7M2gEnNsec/scene.splinecode"></spline-viewer>
+
+    <!-- OVERLAY FOR READABILITY -->
+    <div class="page-overlay"></div>
+
+    <div class="glass-card text-center animate-fade-in-up">
+
+        <h1 class="font-bold">Personalize Your Feed</h1>
+        <p class="mb-10">Select topics you're interested in to get tailored event recommendations.</p>
+
+        <div class="flex flex-wrap gap-4 justify-center mb-6" id="interestsContainer">
+            <label><input type="checkbox" class="chip-checkbox" value="hacking"><span class="chip-label">Hackathons
+                    💻</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="workshops"><span class="chip-label">Workshops
+                    🛠️</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="seminars"><span class="chip-label">Seminars
+                    🎤</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="cultural"><span class="chip-label">Cultural
+                    🎭</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="sports"><span class="chip-label">Sports
+                    ⚽</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="design"><span class="chip-label">Design
+                    🎨</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="ai"><span class="chip-label">AI / ML
+                    🤖</span></label>
+            <label><input type="checkbox" class="chip-checkbox" value="robotics"><span class="chip-label">Robotics
+                    ⚙️</span></label>
+        </div>
+
+        <div>
+            <button onclick="finishSetup()" class="btn-primary">
+                Refine My Feed
+            </button>
+            <button onclick="skipSetup()" class="btn-skip">
+                Skip for now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ROUTING GUARD
+        const role = localStorage.getItem('novex_role');
+        if (role !== 'student') {
+            window.location.replace('../index.html');
+        }
+
+        function finishSetup() {
+            const selected = Array.from(document.querySelectorAll('.chip-checkbox:checked')).map(cb => cb.value);
+            if (selected.length > 0) {
+                localStorage.setItem('studentPreferredTags', JSON.stringify(selected));
+            }
+            // REDIRECT TO ROBOT TRANSITION
+            window.location.href = 'robot_transition.html';
+        }
+
+        function skipSetup() {
+            // REDIRECT TO ROBOT TRANSITION
+            window.location.href = 'robot_transition.html';
+        }
+    </script>
+</body>
+
+</html>

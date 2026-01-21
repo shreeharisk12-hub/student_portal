@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Novex</title>
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+        }
+
+        #welcome-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 2px;
+            z-index: 10;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease forwards;
+            font-family: sans-serif;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.37/build/spline-viewer.js"></script>
+
+    <spline-viewer url="https://prod.spline.design/tIPDdLSVaboN1vFj/scene.splinecode"
+        style="width:100vw; height:100vh; transform: scale(1.2);">
+    </spline-viewer>
+
+    <div id="welcome-text">Welcome to Novex</div>
+
+    <script>
+        const role = localStorage.getItem("novex_role");
+
+        setTimeout(() => {
+            if (role === "admin") {
+                window.location.href = "admin_dashboard.html";
+            } else {
+                window.location.href = "student_dashboard.html";
+            }
+        }, 9000);
+    </script>
+</body>
+
+</html>

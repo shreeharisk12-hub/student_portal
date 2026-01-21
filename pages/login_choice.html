@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Novex</title>
+    <!-- Outfit Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.37/build/spline-viewer.js"></script>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            background: #0d0d1a;
+            /* Darker navy fallback to match typical pro backgrounds */
+        }
+
+        spline-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            transform: scale(1.2);
+            pointer-events: none;
+        }
+
+        .glass-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(15, 15, 35, 0.4);
+            /* Darker tint for better contrast against vibrant Spline backgrounds */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 3rem;
+        }
+
+        .choice-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(167, 139, 250, 0.4);
+            /* Soft purple border */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        h3 {
+            color: #ffffff !important;
+        }
+
+        .text-slate-400 {
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .icon-circle {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="p-6">
+
+    <!-- Spline Background -->
+    <spline-viewer url="https://prod.spline.design/TnwHciG7uUuxj0rk/scene.splinecode"></spline-viewer>
+
+    <div class="glass-card p-12 max-w-2xl w-full text-center">
+
+        <h1 class="text-4xl font-bold text-slate-800 mb-2">Welcome to Novex</h1>
+        <p class="text-slate-500 mb-10 text-lg">Choose your portal to continue</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Student -->
+            <a href="student_login.html"
+                class="choice-btn p-8 rounded-2xl flex flex-col items-center justify-center group cursor-pointer decoration-transparent">
+                <div
+                    class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-3xl group-hover:scale-110 transition-transform">
+                    🎓
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-1">Student</h3>
+                <p class="text-sm text-slate-400">Access events, workshops & profile</p>
+            </a>
+
+            <!-- Admin -->
+            <a href="admin_login.html"
+                class="choice-btn p-8 rounded-2xl flex flex-col items-center justify-center group cursor-pointer decoration-transparent">
+                <div
+                    class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-3xl group-hover:scale-110 transition-transform">
+                    ⚡
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-1">Admin</h3>
+                <p class="text-sm text-slate-400">Manage events & users</p>
+            </a>
+        </div>
+
+        <div class="mt-8">
+            <a href="../index.html" class="text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors">←
+                Back to Home</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

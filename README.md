@@ -15,8 +15,9 @@ This revealed a bigger issue:
 - First-year students are at a disadvantage due to **lack of connections**
 - Opportunities depend more on *who you know* than *what you can do*
 
-Talent is evenly distributed.  
-**Information is not.**
+The problem is that it is cluttered —
+buried inside random WhatsApp groups,
+lost between unimportant messages.**
 
 ---
 

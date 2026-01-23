@@ -156,6 +156,7 @@
             text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
         }
     </style>
+    <link rel="stylesheet" href="../css/chatbot.css">
 </head>
 
 <body class="min-h-screen">
@@ -648,6 +649,46 @@
     </div>
 
 
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+        <!-- Floating Toggle Button -->
+        <button id="chatbot-toggle-btn" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1272L3 21L7.8728 20C9.10897 20.6391 10.5124 21 12 21Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Novex Assistant</h3>
+                <button class="close-chatbot">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="chatbot-messages">
+                <div class="message bot-message">Hi! I'm your Novex assistant. How can I help you today?</div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="Type your message...">
+                <button id="chatbot-send-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
 </body>
 
 </html>

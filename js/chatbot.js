@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const loadingMsg = addMessage('...', 'bot');
 
         try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AIzaSyBEHxeYe6J_1jsf_v9mkqtTgd1xZ6897x4}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
